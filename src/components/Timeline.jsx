@@ -11,14 +11,15 @@ import { TIMELINE_DATA, CATEGORIES } from "../data/timelineData";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
-const MIN_CARD_WIDTH = 180;
+const MIN_CARD_WIDTH = 300; // 增加最小卡片宽度
 const ROW_GAP = 10;
 const TIME_MARKER_HEIGHT = 40;
 const Z_INDEX_BASE = 20;
 const Z_INDEX_HOVER = 100;
 const MIN_CARD_HEIGHT = 70;
-const MIN_EXPANDED_HEIGHT = 120;
+const MIN_EXPANDED_HEIGHT = 350; // 增加最小展开高度
 const ROW_HEIGHT = 70;
+const INNER_CARD_PADDING = 60; // 内部小卡片额外padding
 // 修改为10年为单位的缩放级别
 const ZOOM_LEVELS = [50, 100, 150, 200, 250, 300];
 
@@ -363,7 +364,7 @@ const EventCard = React.memo(function EventCard({
   setActiveEventPositions,
 }) {
   const { i18n, t } = useTranslation();
-  const localizedContent =
+  const localizedContent = 
     i18n.language === "zh" && event.chinese ? event.chinese : event.text;
   // 检测文学分析内容
   const hasLiteraryAnalysis = localizedContent.text && localizedContent.text.includes('class="literary-analysis"');
@@ -371,8 +372,15 @@ const EventCard = React.memo(function EventCard({
   const baseOpacity = (Math.min(event.importance + 0.15, 3) / 3) * 0.4 - 0.2;
   const contentRef = useRef(null);
   const expandedContentRef = useRef(null);
+  const scrollableContentRef = useRef(null);
   const [width, setWidth] = useState(MIN_CARD_WIDTH);
   const [expandedHeight, setExpandedHeight] = useState(MIN_EXPANDED_HEIGHT);
+  const [isNearEdge, setIsNearEdge] = useState(false);
+  const [scrollTop, setScrollTop] = useState(0);
+  const containerRef = useRef(null);
+  const [contentHeight, setContentHeight] = useState(0);
+  const [showTopFade, setShowTopFade] = useState(false);
+  const [showBottomFade, setShowBottomFade] = useState(false);
 
   // Add effect to update active position
   // 移除重复的状态更新，避免无限循环
@@ -382,35 +390,123 @@ const EventCard = React.memo(function EventCard({
     setWidth(MIN_CARD_WIDTH);
   }, [event.id]);
 
+  // 检测是否靠近视口边缘
+  useEffect(() => {
+    if (!isHovered) return;
+    
+    const checkEdgeProximity = () => {
+      if (!containerRef.current) return;
+      
+      const container = containerRef.current;
+      const rect = container.getBoundingClientRect();
+      const viewportWidth = window.innerWidth;
+      const rightMargin = 40; // 右侧边距
+      
+      // 如果卡片右侧距离视口右侧不足一定距离，则认为靠近边缘
+      const isEdge = rect.right > viewportWidth - rightMargin;
+      setIsNearEdge(isEdge);
+    };
+    
+    checkEdgeProximity();
+    // 添加窗口调整大小监听
+    window.addEventListener('resize', checkEdgeProximity);
+    
+    return () => {
+      window.removeEventListener('resize', checkEdgeProximity);
+    };
+  }, [isHovered]);
+
+  // 计算内容高度和宽度
   useLayoutEffect(() => {
     let mounted = true;
     if (contentRef.current && mounted) {
       const contentWidth = contentRef.current.offsetWidth;
-      setWidth(Math.max(MIN_CARD_WIDTH, contentWidth + 40));
+      // 增加基础宽度以确保能完全容纳内部小卡片
+      // 基于内容宽度加上内部小卡片所需的额外空间
+      let newWidth = Math.max(MIN_CARD_WIDTH, contentWidth + INNER_CARD_PADDING);
+      
+      // 对于包含文学分析的事件，进一步增加宽度以容纳内部卡片
+      if (hasLiteraryAnalysis) {
+        newWidth += 60; // 为文学分析内部卡片额外增加宽度
+      }
+      
+      // 如果靠近边缘，调整宽度以确保不超出视口
+      if (isHovered && isNearEdge && containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        const viewportWidth = window.innerWidth;
+        const rightMargin = 40;
+        const maxAllowedWidth = viewportWidth - rect.left - rightMargin;
+        newWidth = Math.min(newWidth, maxAllowedWidth);
+      }
+      
+      setWidth(newWidth);
+      
+      // 计算内容总高度
+      if (isHovered && expandedContentRef.current) {
+        const headlineHeight = contentRef.current.offsetHeight;
+        const expandedContentHeight = expandedContentRef.current.scrollHeight;
+        const totalHeight = headlineHeight + expandedContentHeight + 40;
+        setContentHeight(totalHeight);
+        setExpandedHeight(Math.max(MIN_EXPANDED_HEIGHT, 350)); // 设置最小展开高度为350px
+      }
     }
     return () => {
       mounted = false;
     };
-  }, [event.text.headline, event.id]);
+  }, [event.text.headline, event.id, isHovered, isNearEdge, hasLiteraryAnalysis]);
 
+  // 处理内部滚动和淡入淡出效果
   useEffect(() => {
-    if (isHovered && expandedContentRef.current) {
-      const baseHeight = contentRef.current.offsetHeight;
-      const expandedContent = expandedContentRef.current.scrollHeight;
-      const totalHeight = baseHeight + expandedContent + 32;
-      setExpandedHeight(Math.max(MIN_EXPANDED_HEIGHT, totalHeight));
+    const handleScroll = () => {
+      if (!scrollableContentRef.current) return;
+      
+      const scrollEl = scrollableContentRef.current;
+      const currentScrollTop = scrollEl.scrollTop;
+      const scrollHeight = scrollEl.scrollHeight;
+      const clientHeight = scrollEl.clientHeight;
+      
+      setScrollTop(currentScrollTop);
+      
+      // 显示/隐藏顶部淡入淡出效果
+      setShowTopFade(currentScrollTop > 10);
+      // 显示/隐藏底部淡入淡出效果
+      setShowBottomFade(scrollTop < scrollHeight - clientHeight - 10);
+    };
+    
+    const scrollEl = scrollableContentRef.current;
+    if (scrollEl && isHovered) {
+      scrollEl.addEventListener('scroll', handleScroll);
+      handleScroll(); // 初始检查
     }
-  }, [isHovered]);
+    
+    return () => {
+      if (scrollEl) {
+        scrollEl.removeEventListener('scroll', handleScroll);
+      }
+    };
+  }, [isHovered, scrollTop]);
 
   const topPos = row * rowHeight + TIME_MARKER_HEIGHT + ROW_GAP * row;
 
+  const handleScroll = (e) => {
+    setScrollTop(e.target.scrollTop);
+  };
+
   return (
     <motion.div
+      ref={containerRef}
       className="event-card absolute"
       style={{
-        left: `${position - 20}px`,
+        left: isHovered && isNearEdge 
+          ? "auto" 
+          : `${position - 20}px`,
+        right: isHovered && isNearEdge 
+          ? "20px" 
+          : "auto",
         top: `${topPos}px`,
-        width: isHovered ? `${width + 40}px` : `${width}px`,
+        width: isHovered 
+          ? `${isNearEdge ? Math.min(width + 60, 600) : width + 60}px` // 增加宽度以容纳内部小卡片
+          : `${width}px`,
         height: isHovered ? `${expandedHeight}px` : `${MIN_CARD_HEIGHT}px`,
         transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
         zIndex: isHovered ? Z_INDEX_HOVER : Z_INDEX_BASE,
@@ -465,7 +561,7 @@ const EventCard = React.memo(function EventCard({
           transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
         }}
       >
-        <div className="relative z-10" ref={contentRef}>
+        <div className="relative" ref={contentRef}>
           <div
             className={`
                             font-serif leading-snug mb-1 text-lg
@@ -481,18 +577,79 @@ const EventCard = React.memo(function EventCard({
               isHovered ? "text-gray/50" : "text-white/0"
             }`}
           >
-            {t("categories." + event.category)}
+            {event.category}
           </div>
+          
           <AnimatePresence>
             {isHovered && (
               <motion.div
-                ref={expandedContentRef}
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                className={`text-sm font-sans text-white/80 mt-1 overflow-hidden ${hasLiteraryAnalysis ? 'literary-analysis' : ''}`}
-                dangerouslySetInnerHTML={{ __html: localizedContent.text }}
-              />
+                className="relative mt-1"
+              >
+                {/* 可滚动内容区域 - 确保上端为作品标题，下端为最后一个卡片 */}
+                <div 
+                  ref={scrollableContentRef}
+                  className="text-sm font-sans text-white/80 overflow-y-auto pr-2"
+                  style={{
+                      wordBreak: 'break-word',
+                      whiteSpace: 'normal',
+                      height: "250px", // 增加滚动区域高度
+                      // 隐藏滚动条但保留滚动功能
+                      msOverflowStyle: 'none', // IE 和 Edge
+                      scrollbarWidth: 'none', // Firefox
+                      scrollbarColor: 'rgba(255, 255, 255, 0.2) transparent'
+                    }}
+                  onScroll={handleScroll}
+                >
+                  {/* 使用内联样式实现滚动条隐藏 */}
+                  <div style={{ display: 'none' }} className="scrollbar-hide">
+                    {/* 隐藏滚动条的样式通过内联样式实现，避免运行时DOM引用问题 */}
+                  </div>
+                  
+                  {/* 内容区域 - 确保标题在滚动时保持可见性 */}
+                  <div 
+                    ref={expandedContentRef}
+                    className={`${hasLiteraryAnalysis ? 'literary-analysis' : ''}`}
+                    style={{
+                      // 确保内容有足够的底部空间，使最后一个卡片可以完全显示
+                      paddingBottom: '40px',
+                      // 确保内容不会紧贴顶部，以便淡入淡出效果能够正常工作
+                      paddingTop: '10px'
+                    }}
+                    dangerouslySetInnerHTML={{ __html: localizedContent.text }}
+                  />
+                </div>
+                
+                {/* 顶部淡入淡出效果 - 确保在滚动时作品标题不会突然出现 */}
+                {showTopFade && (
+                  <div 
+                    className="absolute top-0 left-0 right-0 h-16 pointer-events-none"
+                    style={{
+                      // 渐变背景确保内容平滑过渡，匹配卡片背景色
+                      background: 'linear-gradient(to bottom, rgba(58, 58, 102, 0.95), rgba(58, 58, 102, 0))',
+                      zIndex: 20,
+                      // 确保渐变效果自然
+                      backgroundSize: '100% 100%'
+                    }}
+                  />
+                )}
+                
+                {/* 底部淡入淡出效果 - 确保最后一个卡片滑出时有平滑过渡 */}
+                {showBottomFade && (
+                  <div 
+                    className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none"
+                    style={{
+                      // 渐变背景确保内容平滑过渡，匹配卡片背景色
+                      background: 'linear-gradient(to top, rgba(58, 58, 102, 0.95), rgba(58, 58, 102, 0))',
+                      zIndex: 20,
+                      // 确保渐变效果自然
+                      backgroundSize: '100% 100%'
+                    }}
+                  />
+                )}
+              </motion.div>
             )}
           </AnimatePresence>
         </div>
