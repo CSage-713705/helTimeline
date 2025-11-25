@@ -19,7 +19,8 @@ const Z_INDEX_HOVER = 100;
 const MIN_CARD_HEIGHT = 70;
 const MIN_EXPANDED_HEIGHT = 120;
 const ROW_HEIGHT = 70;
-const ZOOM_LEVELS = [1, 2, 3, 4, 6, 8];
+// 修改为10年为单位的缩放级别
+const ZOOM_LEVELS = [50, 100, 150, 200, 250, 300];
 
 const BASE_ROW_COUNT_CARDS = 5;
 const BASE_TIMELINE_ROWS = 6;
@@ -335,7 +336,7 @@ const CardsView = React.memo(function CardsView({
                   }}
                 />
                 <div className="text-xs font-sans mt-1 text-white/40">
-                  {t("categories." + event.category)}
+                  {event.category}
                 </div>
                 <div
                   className="text-white/80 text-base leading-relaxed mt-3"
@@ -366,7 +367,7 @@ const EventCard = React.memo(function EventCard({
     i18n.language === "zh" && event.chinese ? event.chinese : event.text;
   // 检测文学分析内容
   const hasLiteraryAnalysis = localizedContent.text && localizedContent.text.includes('class="literary-analysis"');
-  const categoryClass = `category-${event.category.toLowerCase()}`;
+  const categoryClass = event.category;
   const baseOpacity = (Math.min(event.importance + 0.15, 3) / 3) * 0.4 - 0.2;
   const contentRef = useRef(null);
   const expandedContentRef = useRef(null);
@@ -374,11 +375,8 @@ const EventCard = React.memo(function EventCard({
   const [expandedHeight, setExpandedHeight] = useState(MIN_EXPANDED_HEIGHT);
 
   // Add effect to update active position
-  useEffect(() => {
-    if (isHovered) {
-      setActiveEventPositions(new Set([position]));
-    }
-  }, [isHovered, position]);
+  // 移除重复的状态更新，避免无限循环
+  // 状态更新已经在鼠标事件处理函数中完成
 
   useEffect(() => {
     setWidth(MIN_CARD_WIDTH);
@@ -476,9 +474,7 @@ const EventCard = React.memo(function EventCard({
             dangerouslySetInnerHTML={{ __html: localizedContent.headline }}
           />
           <div className="text-sm font-sans text-white/60 font-medium">
-            {`${String(event.start_date.month).padStart(2, "0")}/${String(
-              event.start_date.day
-            ).padStart(2, "0")}/${event.start_date.year}`}
+            {event.start_date.year}
           </div>
           <div
             className={`text-xs font-sans mt-1 ${
@@ -516,10 +512,7 @@ const TimeMarker = React.memo(function TimeMarker({ date, position }) {
     >
       <div className="relative">
         <div className="absolute top-0 text-sm font-sans text-white/40 font-medium whitespace-nowrap transform -translate-x-1/2">
-          {`${date.toLocaleDateString("en-US", { month: "short" })} '${date
-            .getFullYear()
-            .toString()
-            .slice(2)}`}
+          {date.getFullYear()}
         </div>
         <div className="absolute top-[30px] h-full border-l border-white/10" />
       </div>
@@ -628,7 +621,8 @@ export default function Timeline() {
   const [zoomIndex, setZoomIndex] = useState(2);
   const [viewMode, setViewMode] = useState("timeline");
   const [isMobile, setIsMobile] = useState(false);
-  const pixelsPerDay = ZOOM_LEVELS[zoomIndex];
+  // 修改为以10年为单位的像素计算
+  const pixelsPerDecade = ZOOM_LEVELS[zoomIndex];
   const [activeEventPositions, setActiveEventPositions] = useState(new Set());
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -666,19 +660,16 @@ export default function Timeline() {
     return () => window.removeEventListener("resize", updateWidth);
   }, []);
 
+  // 调整时间范围，覆盖文学作品的年代跨度
+  const START_YEAR = 1700;
+  const END_YEAR = 2040;
+
   const events = useMemo(() => {
     return [...TIMELINE_DATA.events].sort((a, b) => {
-      const dateA = new Date(
-        a.start_date.year,
-        a.start_date.month - 1,
-        a.start_date.day
-      );
-      const dateB = new Date(
-        b.start_date.year,
-        b.start_date.month - 1,
-        b.start_date.day
-      );
-      return dateA - dateB;
+      // 简化排序，只使用年份
+      const yearA = parseInt(a.start_date.year);
+      const yearB = parseInt(b.start_date.year);
+      return yearA - yearB;
     });
   }, []);
 
@@ -691,7 +682,6 @@ export default function Timeline() {
   }, [viewMode, zoomIndex]);
 
   const positionedEvents = useMemo(() => {
-    const startDate = new Date(2015, 1, 1);
     const filteredEvents = events.filter(
       (event) => activeCategories[event.category]
     );
@@ -699,29 +689,35 @@ export default function Timeline() {
     // Instead of storing arrays of positions, store the "rightmost X" per row
     let rowRightEdges = Array(rowCount).fill(0);
 
-    // Sort filtered events by ascending date
+    // 定义文学时代的顺序
+    const categoryOrder = {
+      [CATEGORIES.ENLIGHTENMENT]: 1,
+      [CATEGORIES.VICTORIAN]: 2,
+      [CATEGORIES.MODERNISM]: 3,
+      [CATEGORIES.POSTWAR]: 4,
+      [CATEGORIES.POSTMODERNISM]: 5,
+      [CATEGORIES.CONTEMPORARY]: 6
+    };
+
+    // Sort filtered events by ascending date and then by category (literary era)
     const sortedEvents = [...filteredEvents].sort((a, b) => {
-      const dateA = new Date(
-        a.start_date.year,
-        a.start_date.month - 1,
-        a.start_date.day
-      );
-      const dateB = new Date(
-        b.start_date.year,
-        b.start_date.month - 1,
-        b.start_date.day
-      );
-      return dateA - dateB;
+      // 首先按年份排序
+      const yearA = parseInt(a.start_date.year);
+      const yearB = parseInt(b.start_date.year);
+      const yearCompare = yearA - yearB;
+      if (yearCompare !== 0) return yearCompare;
+      
+      // 同一年份按文学时代排序
+      return (categoryOrder[a.category] || 999) - (categoryOrder[b.category] || 999);
     });
 
     return sortedEvents.map((event) => {
-      const date = new Date(
-        event.start_date.year,
-        event.start_date.month - 1,
-        event.start_date.day
-      );
-      const daysSinceStart = (date - startDate) / (1000 * 60 * 60 * 24);
-      const position = daysSinceStart * pixelsPerDay;
+      // 计算基于10年的位置
+      const eventYear = parseInt(event.start_date.year);
+      // 计算从起始年份开始的10年数
+      const decadesSinceStart = (eventYear - START_YEAR) / 10;
+      // 计算位置，基于10年单位
+      const position = decadesSinceStart * pixelsPerDecade;
 
       // Try to find the row with the best fit
       let chosenRow = 0;
@@ -762,51 +758,47 @@ export default function Timeline() {
         ...event,
         position,
         row: chosenRow,
+        era: event.category // 添加文学时代标识便于分组显示
       };
     });
-  }, [events, pixelsPerDay, activeCategories, rowCount]);
+  }, [events, pixelsPerDecade, activeCategories, rowCount, CATEGORIES]);
 
   const timeMarkers = useMemo(() => {
-    const startDate = new Date(2015, 1, 1);
-    const endDate = new Date(2025, 2, 31);
     const markers = [];
-    let currentDate = new Date(startDate);
-
-    while (currentDate <= endDate) {
+    
+    // 创建10年间隔的时间标记
+    for (let year = START_YEAR; year <= END_YEAR; year += 10) {
+      const date = new Date(year, 0, 1); // 使用每年的1月1日
+      const decadesSinceStart = (year - START_YEAR) / 10;
+      const position = decadesSinceStart * pixelsPerDecade;
+      
       markers.push({
-        date: new Date(currentDate),
-        position:
-          ((currentDate - startDate) / (1000 * 60 * 60 * 24)) * pixelsPerDay,
+        date,
+        position
       });
-      currentDate.setMonth(currentDate.getMonth() + 2);
     }
 
     return markers;
-  }, [pixelsPerDay]);
+  }, [pixelsPerDecade, START_YEAR, END_YEAR]);
 
   const yearMarkers = useMemo(() => {
-    const years = [
-      2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025,
-    ];
-    const startDate = new Date(2015, 1, 1);
+    // 创建10年间隔的年份标记
+    const markers = [];
+    
+    for (let year = START_YEAR; year <= END_YEAR; year += 10) {
+      const decadesSinceStart = (year - START_YEAR) / 10;
+      const position = decadesSinceStart * pixelsPerDecade;
+      
+      markers.push({
+        year: year.toString(), // 使用字符串格式以便显示
+        position
+      });
+    }
 
-    return years.map((yr) => {
-      const yearStart = new Date(yr, 0, 1);
-      const nextYearStart = new Date(yr, 0, 1);
-      const midYearTime = (yearStart.getTime() + nextYearStart.getTime()) / 2;
-      const midYearDate = new Date(midYearTime);
-
-      return {
-        year: yr,
-        position:
-          ((midYearDate - startDate) / (1000 * 60 * 60 * 24)) * pixelsPerDay,
-      };
-    });
-  }, [pixelsPerDay]);
+    return markers;
+  }, [pixelsPerDecade, START_YEAR, END_YEAR]);
 
   const tickMarkers = useMemo(() => {
-    const startDate = new Date(2015, 1, 1);
-    const endDate = new Date(2025, 2, 31);
     const ticks = [];
 
     // Create a map of positions to row heights
@@ -823,62 +815,50 @@ export default function Timeline() {
       positionToRowHeight[event.position] = `${totalHeight - rowMiddle}px`;
     });
 
-    const eventDates = new Set(
-      events.map(
-        (event) =>
-          new Date(
-            event.start_date.year,
-            event.start_date.month - 1,
-            event.start_date.day
-          )
-            .toISOString()
-            .split("T")[0]
-      )
+    // 为每个事件创建标记
+    const eventYears = new Set(
+      events.map(event => parseInt(event.start_date.year))
     );
 
-    let currentDate = new Date(startDate);
-    while (currentDate <= endDate) {
-      const dateString = currentDate.toISOString().split("T")[0];
-      const position =
-        ((currentDate - startDate) / (1000 * 60 * 60 * 24)) * pixelsPerDay;
-
+    // 为每个事件的年份创建标记
+    events.forEach(event => {
+      const eventYear = parseInt(event.start_date.year);
+      const decadesSinceStart = (eventYear - START_YEAR) / 10;
+      const position = decadesSinceStart * pixelsPerDecade;
+      
       ticks.push({
         position,
         isYearTick: false,
-        hasEvent: eventDates.has(dateString),
+        hasEvent: true,
         isActive: activeEventPositions.has(position),
         rowHeight: positionToRowHeight[position],
       });
-      currentDate.setDate(currentDate.getDate() + 1);
-    }
+    });
 
-    for (let year = 2022; year <= 2025; year++) {
-      const janFirst = new Date(year, 0, 1);
-      if (janFirst >= startDate && janFirst <= endDate) {
-        const dateString = janFirst.toISOString().split("T")[0];
-        const position =
-          ((janFirst - startDate) / (1000 * 60 * 60 * 24)) * pixelsPerDay;
-        ticks.push({
-          position,
-          isYearTick: true,
-          hasEvent: eventDates.has(dateString),
-          isActive: activeEventPositions.has(position),
-          rowHeight: positionToRowHeight[position],
-        });
-      }
+    // 为每个10年间隔创建年份标记
+    for (let year = START_YEAR; year <= END_YEAR; year += 10) {
+      const decadesSinceStart = (year - START_YEAR) / 10;
+      const position = decadesSinceStart * pixelsPerDecade;
+      
+      ticks.push({
+        position,
+        isYearTick: true,
+        hasEvent: eventYears.has(year),
+        isActive: activeEventPositions.has(position),
+        rowHeight: positionToRowHeight[position],
+      });
     }
 
     ticks.sort((a, b) => a.position - b.position);
 
     return ticks;
-  }, [pixelsPerDay, events, activeEventPositions, positionedEvents, rowCount]);
+  }, [pixelsPerDecade, events, activeEventPositions, positionedEvents, rowCount, START_YEAR, END_YEAR]);
 
   const totalWidth = useMemo(() => {
-    const startDate = new Date(2015, 1, 1);
-    const endDate = new Date(2025, 2, 31);
-    const totalDays = (endDate - startDate) / (1000 * 60 * 60 * 24);
-    return totalDays * pixelsPerDay + 200;
-  }, [pixelsPerDay]);
+    // 计算总宽度，基于10年单位
+    const totalDecades = (END_YEAR - START_YEAR) / 10;
+    return totalDecades * pixelsPerDecade + 200;
+  }, [pixelsPerDecade, START_YEAR, END_YEAR]);
 
   const zoomIn = () => {
     setZoomIndex((prev) => (prev < ZOOM_LEVELS.length - 1 ? prev + 1 : prev));
@@ -921,18 +901,17 @@ export default function Timeline() {
   // Add this useEffect to set initial scroll position
   useEffect(() => {
     if (containerRef.current && viewMode === "timeline") {
-      // Calculate position for 2022
-      const startDate = new Date(2015, 1, 1);
-      const targetDate = new Date(2022, 1, 1);
-      const daysSinceStart = (targetDate - startDate) / (1000 * 60 * 60 * 24);
-      const scrollPosition = daysSinceStart * pixelsPerDay;
+      // Calculate position for 2022 using decades
+      const targetYear = 2022;
+      const decadesSinceStart = (targetYear - START_YEAR) / 10;
+      const scrollPosition = decadesSinceStart * pixelsPerDecade;
 
       // Set the scroll position after a short delay to ensure the component is fully rendered
       setTimeout(() => {
         containerRef.current.scrollLeft = scrollPosition;
       }, 100);
     }
-  }, [viewMode, pixelsPerDay]);
+  }, [viewMode, pixelsPerDecade, START_YEAR]);
 
   // For cards view, add initial scroll position
   useEffect(() => {
@@ -1020,7 +999,7 @@ export default function Timeline() {
                                         hover:bg-white/30
                                     `}
                 >
-                  {t("categories." + categoryKey)}
+                  {categoryKey}
                 </button>
               ))}
             </div>
@@ -1051,7 +1030,7 @@ export default function Timeline() {
                     {t("zoomIn")}
                   </button>
                   <span className="text-white/60 ml-2 my-auto">
-                    {t("zoom", { value: pixelsPerDay })}
+                    {t("zoom", { value: pixelsPerDecade })}
                   </span>
                 </>
               )}
@@ -1107,7 +1086,7 @@ export default function Timeline() {
               <div className="relative z-10">
                 {positionedEvents.map((event, index) => (
                   <EventCard
-                    key={`${event.id}-${activeCategories[event.category]}`}
+                    key={`${event.id || Math.random().toString(36).substr(2, 9)}-${index}`}
                     event={event}
                     position={event.position}
                     row={event.row}

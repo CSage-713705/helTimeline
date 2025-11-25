@@ -1,7 +1,10 @@
 /* Tailwind base + utilities + components */
+/* stylelint-disable-next-line at-rule-no-unknown */
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* stylelint-disable-next-line at-rule-no-unknown */
+  @tailwind components;
+/* stylelint-disable-next-line at-rule-no-unknown */
+  @tailwind utilities;
 
 /* Custom global styling */
 body {
@@ -29,6 +32,13 @@ body {
   /* Add these Safari-specific properties */
   background-color: transparent;
   -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 5%,
+    black 95%,
+    transparent
+  );
+  mask-image: linear-gradient(
     to right,
     transparent,
     black 5%,
@@ -237,52 +247,52 @@ body {
 }
 
 /* 时期特定颜色 */
-.ENLIGHTENMENT .event-card {
+.Enlightenment .event-card {
   border-left: 3px solid var(--enlightenment-color);
 }
 
-.VICTORIAN .event-card {
+.Victorian .event-card {
   border-left: 3px solid var(--victorian-color);
 }
 
-.MODERNISM .event-card {
+.Modernism .event-card {
   border-left: 3px solid var(--modernism-color);
 }
 
-.POSTWAR .event-card {
+.Postwar .event-card {
   border-left: 3px solid var(--postwar-color);
 }
 
-.POSTMODERNISM .event-card {
+.Postmodernism .event-card {
   border-left: 3px solid var(--postmodernism-color);
 }
 
-.CONTEMPORARY .event-card {
+.Contemporary .event-card {
   border-left: 3px solid var(--contemporary-color);
 }
 
 /* 时期特定的分析区块左侧边框颜色 */
-.ENLIGHTENMENT .analysis-section {
+.Enlightenment .analysis-section {
   border-left-color: var(--enlightenment-color);
 }
 
-.VICTORIAN .analysis-section {
+.Victorian .analysis-section {
   border-left-color: var(--victorian-color);
 }
 
-.MODERNISM .analysis-section {
+.Modernism .analysis-section {
   border-left-color: var(--modernism-color);
 }
 
-.POSTWAR .analysis-section {
+.Postwar .analysis-section {
   border-left-color: var(--postwar-color);
 }
 
-.POSTMODERNISM .analysis-section {
+.Postmodernism .analysis-section {
   border-left-color: var(--postmodernism-color);
 }
 
-.CONTEMPORARY .analysis-section {
+.Contemporary .analysis-section {
   border-left-color: var(--contemporary-color);
 }
 
@@ -298,32 +308,32 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.ENLIGHTENMENT .event-category {
+.Enlightenment .event-category {
   background: rgba(243, 156, 18, 0.2);
   border-color: var(--enlightenment-color);
 }
 
-.VICTORIAN .event-category {
+.Victorian .event-category {
   background: rgba(231, 76, 60, 0.2);
   border-color: var(--victorian-color);
 }
 
-.MODERNISM .event-category {
+.Modernism .event-category {
   background: rgba(155, 89, 182, 0.2);
   border-color: var(--modernism-color);
 }
 
-.POSTWAR .event-category {
+.Postwar .event-category {
   background: rgba(230, 126, 34, 0.2);
   border-color: var(--postwar-color);
 }
 
-.POSTMODERNISM .event-category {
+.Postmodernism .event-category {
   background: rgba(26, 188, 156, 0.2);
   border-color: var(--postmodernism-color);
 }
 
-.CONTEMPORARY .event-category {
+.Contemporary .event-category {
   background: rgba(52, 152, 219, 0.2);
   border-color: var(--contemporary-color);
 }

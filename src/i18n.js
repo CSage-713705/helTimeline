@@ -21,7 +21,7 @@ const resources = {
       switchToTimeline: "Switch to Timeline",
       zoomOut: "Zoom Out",
       zoomIn: "Zoom In",
-      zoom: "Zoom: {{value}}px/day",
+      zoom: "Zoom: {{value}}px/decade",
       categories: {
         MODEL_RELEASE: "Model Release",
         CULTURE: "Culture & Society",
@@ -56,7 +56,7 @@ const resources = {
       switchToTimeline: "切换到时间轴",
       zoomOut: "缩小",
       zoomIn: "放大",
-      zoom: "缩放：{{value}}px/天",
+      zoom: "缩放：{{value}}px/十年",
       categories: {
         MODEL_RELEASE: "模型发布",
         CULTURE: "文化与社会",
@@ -91,7 +91,7 @@ const resources = {
       switchToTimeline: "Cambiar a Línea de Tiempo",
       zoomOut: "Alejar",
       zoomIn: "Acercar",
-      zoom: "Zoom: {{value}}px/día",
+      zoom: "Zoom: {{value}}px/década",
       categories: {
         MODEL_RELEASE: "Lanzamiento de Modelos",
         CULTURE: "Cultura y Sociedad",

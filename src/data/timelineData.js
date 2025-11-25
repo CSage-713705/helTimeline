@@ -1,10 +1,10 @@
 export const CATEGORIES = {
-  ENLIGHTENMENT: "ENLIGHTENMENT",
-  VICTORIAN: "VICTORIAN",
-  MODERNISM: "MODERNISM",
-  POSTWAR: "POSTWAR",
-  POSTMODERNISM: "POSTMODERNISM",
-  CONTEMPORARY: "CONTEMPORARY",
+  ENLIGHTENMENT: "Enlightenment",
+  VICTORIAN: "Victorian",
+  MODERNISM: "Modernism",
+  POSTWAR: "Postwar",
+  POSTMODERNISM: "Postmodernism",
+  CONTEMPORARY: "Contemporary",
 };
 
 function createLink(url, title) {
