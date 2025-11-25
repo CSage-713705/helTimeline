@@ -23,6 +23,63 @@ const INNER_CARD_PADDING = 60; // 内部小卡片额外padding
 // 修改为10年为单位的缩放级别
 const ZOOM_LEVELS = [50, 100, 150, 200, 250, 300];
 
+// 添加全局样式
+const styles = `
+  /* 文学分析卡片样式 */
+  .literary-analysis {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 8px 0;
+  }
+  
+  .analysis-section {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .analysis-section:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  .analysis-section h4 {
+    margin: 0 0 12px 0;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  
+  .analysis-section ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+  
+  .analysis-section li {
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+  
+  .analysis-section p {
+    margin: 0;
+    line-height: 1.5;
+  }
+`;
+
+// 注入样式
+if (typeof document !== 'undefined') {
+  const styleElement = document.createElement('style');
+  styleElement.textContent = styles;
+  document.head.appendChild(styleElement);
+}
+
 const BASE_ROW_COUNT_CARDS = 5;
 const BASE_TIMELINE_ROWS = 6;
 const MIN_ROW_COUNT = 4;
@@ -42,11 +99,12 @@ const CardsView = React.memo(function CardsView({
   const [scrollProgress, setScrollProgress] = useState(0);
   const [spineOffset, setSpineOffset] = useState(0);
   const [backgroundProgress, setBackgroundProgress] = useState(0);
+  const [hoveredEventIndex, setHoveredEventIndex] = useState(null);
 
   const filteredEvents = events.filter(
     (event) => activeCategories[event.category]
   );
-  const currentEvent = filteredEvents[activeEventIndex];
+  const currentEvent = hoveredEventIndex !== null ? filteredEvents[hoveredEventIndex] : filteredEvents[activeEventIndex];
 
   // Calculate which event is in view and update scroll progress
   useEffect(() => {
@@ -204,103 +262,50 @@ const CardsView = React.memo(function CardsView({
                     );
                     const startDate = new Date(2015, 0, 1);
                     const endDate = new Date(2025, 11, 31);
-                    const totalDays =
+                    const totalDays = 
                       (endDate - startDate) / (1000 * 60 * 60 * 24);
-                    const daysPassed =
+                    const daysPassed = 
                       (currentDate - startDate) / (1000 * 60 * 60 * 24);
                     const progress = daysPassed / totalDays;
 
                     const usableHeight = 1200 - 120;
                     return 60 + progress * usableHeight;
                   })()}px`,
-                  boxShadow: "0 0 10px rgba(255, 255, 255, 0.5)",
+                  boxShadow: hoveredEventIndex !== null ? "0 0 15px rgba(255, 255, 255, 0.8)" : "0 0 10px rgba(255, 255, 255, 0.5)",
+                  transform: hoveredEventIndex !== null ? "translate(-50%, -50%) scale(1.2)" : "translate(-50%, -50%) scale(1)",
                 }}
               />
 
-              {/* Year markers - update positioning */}
+              {/* Year markers - only show years corresponding to cards and align with card tops */}
               {(() => {
-                const years = [
-                  2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024,
-                  2025,
-                ];
-                const startDate = new Date(2015, 0, 1);
-                const endDate = new Date(2025, 11, 31);
-                const totalDays = (endDate - startDate) / (1000 * 60 * 60 * 24);
-
-                const totalSpacing = 1200;
-                const topPadding = 60;
-                const bottomPadding = 60;
-                const usableHeight = totalSpacing - topPadding - bottomPadding;
-
-                return years.map((year) => {
-                  const yearDate = new Date(year, 0, 1);
-                  const daysPassed =
-                    (yearDate - startDate) / (1000 * 60 * 60 * 24);
-                  const progress = daysPassed / totalDays;
-                  const position = topPadding + progress * usableHeight;
-
+                // Get unique years from filtered events
+                const cardYears = [...new Set(filteredEvents.map(event => event.start_date.year))];
+                
+                // Card spacing and positioning
+                const cardTopOffset = 60; // Adjusted value to align exactly with card tops
+                const cardGap = 8; // Match the space-y-8 class
+                
+                return filteredEvents.map((event, index) => {
+                  // Calculate position to align with card top (considering py-12 padding)
+                  const position = cardTopOffset + index * (cardGap * 16 + 20); // Adjusted spacing formula
+                  
                   return (
                     <div
-                      key={`year-${year}`}
+                      key={`card-year-${index}`}
                       className="absolute left-1/2 transform -translate-x-full pr-4 text-right"
                       style={{
                         top: `${position}px`,
                         transform: "translate(-100%, -50%)",
                       }}
                     >
-                      <span className="text-xl font-medium whitespace-nowrap text-white/90 year-glow">
-                        {year}
+                      <span className={`text-xl font-medium whitespace-nowrap transition-all duration-300 ${
+                        hoveredEventIndex === index ? 'text-white font-bold' : 'text-white/90 year-glow'
+                      }`}>
+                        {event.start_date.year}
                       </span>
                     </div>
                   );
                 });
-              })()}
-
-              {/* Month markers - update positioning */}
-              {(() => {
-                const startDate = new Date(2015, 0, 1);
-                const endDate = new Date(2025, 11, 31);
-                const totalDays = (endDate - startDate) / (1000 * 60 * 60 * 24);
-                const markers = [];
-                let currentDate = new Date(startDate);
-
-                const totalSpacing = 1200;
-                const topPadding = 60;
-                const bottomPadding = 60;
-                const usableHeight = totalSpacing - topPadding - bottomPadding;
-
-                while (currentDate <= endDate) {
-                  const isYearStart = currentDate.getMonth() === 0;
-
-                  if (!isYearStart) {
-                    const daysPassed =
-                      (currentDate - startDate) / (1000 * 60 * 60 * 24);
-                    const progress = daysPassed / totalDays;
-                    const position = topPadding + progress * usableHeight;
-
-                    markers.push(
-                      <div
-                        key={currentDate.toISOString()}
-                        className="absolute left-1/2 transform -translate-x-full pr-4 text-right"
-                        style={{
-                          top: `${position}px`,
-                          transform: "translate(-100%, -50%)",
-                        }}
-                      >
-                        <span className="text-sm font-medium whitespace-nowrap text-white/40">
-                          {currentDate.toLocaleDateString("en-US", {
-                            month: "short",
-                          })}
-                        </span>
-                      </div>
-                    );
-                  }
-
-                  // Advance by 3 months instead of 2 for more spacing
-                  currentDate.setMonth(currentDate.getMonth() + 3);
-                }
-
-                return markers;
               })()}
             </div>
           </div>
@@ -316,11 +321,13 @@ const CardsView = React.memo(function CardsView({
 
             return (
               <div
-                key={index}
-                className={`event-card p-6 ${
-                  index === activeEventIndex ? "active" : ""
-                }`}
-              >
+                  key={index}
+                  className={`event-card p-6 ${
+                    index === activeEventIndex ? "active" : ""
+                  }`}
+                  onMouseEnter={() => setHoveredEventIndex(index)}
+                  onMouseLeave={() => setHoveredEventIndex(null)}
+                >
                 <div className="text-sm text-white/60 font-medium tracking-wide">
                   {`${event.start_date.year}-${String(
                     event.start_date.month
@@ -444,10 +451,10 @@ const EventCard = React.memo(function EventCard({
       // 计算内容总高度
       if (isHovered && expandedContentRef.current) {
         const headlineHeight = contentRef.current.offsetHeight;
-        const expandedContentHeight = expandedContentRef.current.scrollHeight;
-        const totalHeight = headlineHeight + expandedContentHeight + 40;
-        setContentHeight(totalHeight);
-        setExpandedHeight(Math.max(MIN_EXPANDED_HEIGHT, 350)); // 设置最小展开高度为350px
+        // 为3个子卡片设置足够的高度，每个子卡片大约140px，加上间距和底部空间
+        const requiredHeight = 3 * 140 + 60; // 3个子卡片 + 间距
+        setContentHeight(headlineHeight + requiredHeight);
+        setExpandedHeight(Math.max(MIN_EXPANDED_HEIGHT, headlineHeight + requiredHeight + 20)); // 足够显示3个子卡片底部的高度
       }
     }
     return () => {
@@ -486,7 +493,14 @@ const EventCard = React.memo(function EventCard({
     };
   }, [isHovered, scrollTop]);
 
-  const topPos = row * rowHeight + TIME_MARKER_HEIGHT + ROW_GAP * row;
+  // 让所有卡片最上端齐平且靠最上方，参考Robinson Crusoe的高度
+  const topPos = TIME_MARKER_HEIGHT;
+  
+  // 卡片高度设置为足够显示3个子卡片
+  const getCardHeight = () => {
+    // 使用计算的内容高度，确保足够显示3个子卡片
+    return isHovered ? `${expandedHeight}px` : `${MIN_CARD_HEIGHT}px`;
+  };
 
   const handleScroll = (e) => {
     setScrollTop(e.target.scrollTop);
@@ -497,20 +511,20 @@ const EventCard = React.memo(function EventCard({
       ref={containerRef}
       className="event-card absolute"
       style={{
-        left: isHovered && isNearEdge 
-          ? "auto" 
-          : `${position - 20}px`,
-        right: isHovered && isNearEdge 
-          ? "20px" 
-          : "auto",
-        top: `${topPos}px`,
-        width: isHovered 
-          ? `${isNearEdge ? Math.min(width + 60, 600) : width + 60}px` // 增加宽度以容纳内部小卡片
-          : `${width}px`,
-        height: isHovered ? `${expandedHeight}px` : `${MIN_CARD_HEIGHT}px`,
-        transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-        zIndex: isHovered ? Z_INDEX_HOVER : Z_INDEX_BASE,
-      }}
+          left: isHovered && isNearEdge 
+            ? "auto" 
+            : `${position - 20}px`,
+          right: isHovered && isNearEdge 
+            ? "20px" 
+            : "auto",
+          top: `${topPos}px`,
+          width: isHovered 
+            ? `${isNearEdge ? Math.min(width + 60, 600) : width + 60}px` // 增加宽度以容纳内部小卡片
+            : `${width}px`,
+          height: getCardHeight(),
+          transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+          zIndex: isHovered ? Z_INDEX_HOVER : Z_INDEX_BASE,
+        }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, scale: 1 }}
       whileHover={{
@@ -536,30 +550,30 @@ const EventCard = React.memo(function EventCard({
                     ${hasLiteraryAnalysis ? "literary-event" : ""}
                 `}
         style={{
-          backgroundColor: isHovered
-            ? "rgba(58, 58, 102, 0.7)" // 修改透明度为70%
-            : `rgba(255, 255, 255, ${baseOpacity})`,
-          backgroundImage: isHovered
-            ? "radial-gradient(transparent 1px, rgba(255, 255, 255, 0.12) 1px)"
-            : "radial-gradient(transparent 1px, rgba(255, 255, 255, 0.05) 1px)",
-          backgroundSize: "4px 4px",
-          WebkitMaskImage: isHovered
-            ? "none"
-            : "linear-gradient(rgb(0, 0, 0) 60%, rgba(0, 0, 0, 0) 100%)",
-          maskImage: isHovered
-            ? "none"
-            : "linear-gradient(rgb(0, 0, 0) 60%, rgba(0, 0, 0, 0) 100%)",
-          boxShadow: isHovered
-            ? `
+            backgroundColor: isHovered
+              ? "rgba(58, 58, 102, 0.85)" // 修改透明度为85%
+              : `rgba(255, 255, 255, ${baseOpacity})`,
+            backgroundImage: isHovered
+              ? "radial-gradient(transparent 1px, rgba(255, 255, 255, 0.12) 1px)"
+              : "radial-gradient(transparent 1px, rgba(255, 255, 255, 0.05) 1px)",
+            backgroundSize: "4px 4px",
+            WebkitMaskImage: isHovered
+              ? "linear-gradient(rgb(0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)" // 底纹淡出
+              : "linear-gradient(rgb(0, 0, 0) 60%, rgba(0, 0, 0, 0) 100%)",
+            maskImage: isHovered
+              ? "linear-gradient(rgb(0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)" // 底纹淡出
+              : "linear-gradient(rgb(0, 0, 0) 60%, rgba(0, 0, 0, 0) 100%)",
+            boxShadow: isHovered
+              ? `
                             0 0 0 1px rgba(255, 255, 255, 0.1),
                             0 4px 6px -1px rgba(0, 0, 0, 0.2),
                             0 12px 24px -4px rgba(0, 0, 0, 0.5),
                             0 0 20px rgba(255, 255, 255, 0.1),
                             inset 0 0 20px rgba(255, 255, 255, 0.05)
                           `
-            : "none",
-          transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-        }}
+              : "none",
+            transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+          }}
       >
         <div className="relative" ref={contentRef}>
           <div
@@ -588,7 +602,7 @@ const EventCard = React.memo(function EventCard({
                   style={{
                       wordBreak: 'break-word',
                       whiteSpace: 'normal',
-                      height: "250px", // 增加滚动区域高度
+                      height: "420px", // 增加高度确保显示第三个子卡片底部
                       // 隐藏滚动条但保留滚动功能
                       msOverflowStyle: 'none', // IE 和 Edge
                       scrollbarWidth: 'none', // Firefox
@@ -604,10 +618,9 @@ const EventCard = React.memo(function EventCard({
                   {/* 内容区域 - 确保标题在滚动时保持可见性 */}
                   <div 
                     ref={expandedContentRef}
-                    className={`${hasLiteraryAnalysis ? 'literary-analysis' : ''}`}
                     style={{
                       // 确保内容有足够的底部空间，使最后一个卡片可以完全显示
-                      paddingBottom: '40px',
+                      paddingBottom: '60px',
                       // 进一步减少顶部内边距，使子卡片上移至与年份时代之间只相隔一行
                       paddingTop: '0px'
                     }}
@@ -845,8 +858,7 @@ export default function Timeline() {
       [CATEGORIES.VICTORIAN]: 2,
       [CATEGORIES.MODERNISM]: 3,
       [CATEGORIES.POSTWAR]: 4,
-      [CATEGORIES.POSTMODERNISM]: 5,
-      [CATEGORIES.CONTEMPORARY]: 6
+      [CATEGORIES.CONTEMPORARY]: 5
     };
 
     // Sort filtered events by ascending date and then by category (literary era)
