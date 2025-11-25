@@ -537,7 +537,7 @@ const EventCard = React.memo(function EventCard({
                 `}
         style={{
           backgroundColor: isHovered
-            ? "rgba(58, 58, 102, 0.95)"
+            ? "rgba(58, 58, 102, 0.7)" // 修改透明度为70%
             : `rgba(255, 255, 255, ${baseOpacity})`,
           backgroundImage: isHovered
             ? "radial-gradient(transparent 1px, rgba(255, 255, 255, 0.12) 1px)"
@@ -570,14 +570,7 @@ const EventCard = React.memo(function EventCard({
             dangerouslySetInnerHTML={{ __html: localizedContent.headline }}
           />
           <div className="text-sm font-sans text-white/60 font-medium">
-            {event.start_date.year}
-          </div>
-          <div
-            className={`text-xs font-sans mt-1 ${
-              isHovered ? "text-gray/50" : "text-white/0"
-            }`}
-          >
-            {event.category}
+            {event.start_date.year} | {event.category}
           </div>
           
           <AnimatePresence>
@@ -586,7 +579,7 @@ const EventCard = React.memo(function EventCard({
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                className="relative mt-1"
+                className="relative mt-0"
               >
                 {/* 可滚动内容区域 - 确保上端为作品标题，下端为最后一个卡片 */}
                 <div 
@@ -615,8 +608,8 @@ const EventCard = React.memo(function EventCard({
                     style={{
                       // 确保内容有足够的底部空间，使最后一个卡片可以完全显示
                       paddingBottom: '40px',
-                      // 确保内容不会紧贴顶部，以便淡入淡出效果能够正常工作
-                      paddingTop: '10px'
+                      // 进一步减少顶部内边距，使子卡片上移至与年份时代之间只相隔一行
+                      paddingTop: '0px'
                     }}
                     dangerouslySetInnerHTML={{ __html: localizedContent.text }}
                   />

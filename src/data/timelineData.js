@@ -16,7 +16,7 @@ export const TIMELINE_DATA = {
     {
       start_date: { year: "1719", month: "04", day: "25" },
       text: {
-        headline: "启蒙时代: 《鲁滨逊漂流记》",
+        headline: "<em>Robinson Crusoe</em>",
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
@@ -39,7 +39,7 @@ export const TIMELINE_DATA = {
         `,
       },
       chinese: {
-        headline: "启蒙时代: 《鲁滨逊漂流记》",
+        headline: "<em>Robinson Crusoe</em>",
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
@@ -67,7 +67,7 @@ export const TIMELINE_DATA = {
     {
       start_date: { year: "1838", month: "02", day: "01" },
       text: {
-        headline: "维多利亚时代: 《雾都孤儿》",
+        headline: "<em>Oliver Twist</em>",
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
@@ -90,7 +90,7 @@ export const TIMELINE_DATA = {
         `,
       },
       chinese: {
-        headline: "维多利亚时代: 《雾都孤儿》",
+        headline: "<em>Oliver Twist</em>",
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
@@ -118,7 +118,7 @@ export const TIMELINE_DATA = {
     {
       start_date: { year: "1925", month: "05", day: "14" },
       text: {
-        headline: "现代主义: 《达洛维夫人》",
+        headline: "<em>Mrs. Dalloway</em>",
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
@@ -141,7 +141,7 @@ export const TIMELINE_DATA = {
         `,
       },
       chinese: {
-        headline: "现代主义: 《达洛维夫人》",
+        headline: "<em>Mrs. Dalloway</em>",
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
@@ -169,7 +169,7 @@ export const TIMELINE_DATA = {
     {
       start_date: { year: "1954", month: "09", day: "17" },
       text: {
-        headline: "战后寓言: 《蝇王》",
+        headline: "<em>Lord of the Flies</em>",
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
@@ -192,7 +192,7 @@ export const TIMELINE_DATA = {
         `,
       },
       chinese: {
-        headline: "战后寓言: 《蝇王》",
+        headline: "<em>Lord of the Flies</em>",
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
@@ -218,60 +218,9 @@ export const TIMELINE_DATA = {
       category: CATEGORIES.POSTWAR,
     },
     {
-      start_date: { year: "1984", month: "03", day: "12" },
-      text: {
-        headline: "后现代主义: 《马戏团之夜》",
-        text: `
-          <div class="literary-analysis">
-            <div class="analysis-section">
-              <h4>叙事权威的构建方式:</h4>
-              <ul>
-                <li>狂欢化解构</li>
-                <li>不可靠叙事</li>
-                <li>颠覆权威</li>
-              </ul>
-            </div>
-            <div class="analysis-section">
-              <h4>在"民主化与分散化"历程中的位置:</h4>
-              <p>权威的主动解构：通过让边缘者（女性）、怪诞身体（翅膀）和不可靠叙述者掌握话语权，主动攻击并解构了传统的、中心的（尤其是父权的）叙事权威。</p>
-            </div>
-            <div class="analysis-section">
-              <h4>在"回归人类本体"历程中的位置:</h4>
-              <p>解构被建构的人：认为"人"的身份（尤其是性别）并非天生，而是被语言、文化和叙事所建构的。其目标是解放被固有叙事所禁锢的、更本真的人。</p>
-            </div>
-          </div>
-        `,
-      },
-      chinese: {
-        headline: "后现代主义: 《马戏团之夜》",
-        text: `
-          <div class="literary-analysis">
-            <div class="analysis-section">
-              <h4>叙事权威的构建方式:</h4>
-              <ul>
-                <li>狂欢化解构</li>
-                <li>不可靠叙事</li>
-                <li>颠覆权威</li>
-              </ul>
-            </div>
-            <div class="analysis-section">
-              <h4>在"民主化与分散化"历程中的位置:</h4>
-              <p>权威的主动解构：通过让边缘者（女性）、怪诞身体（翅膀）和不可靠叙述者掌握话语权，主动攻击并解构了传统的、中心的（尤其是父权的）叙事权威。</p>
-            </div>
-            <div class="analysis-section">
-              <h4>在"回归人类本体"历程中的位置:</h4>
-              <p>解构被建构的人：认为"人"的身份（尤其是性别）并非天生，而是被语言、文化和叙事所建构的。其目标是解放被固有叙事所禁锢的、更本真的人。</p>
-            </div>
-          </div>
-        `,
-      },
-      importance: 3,
-      category: CATEGORIES.POSTMODERNISM,
-    },
-    {
       start_date: { year: "2021", month: "03", day: "02" },
       text: {
-        headline: "当代: 《克拉拉与太阳》",
+        headline: "<em>Klara and the Sun</em>",
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
@@ -294,7 +243,7 @@ export const TIMELINE_DATA = {
         `,
       },
       chinese: {
-        headline: "当代: 《克拉拉与太阳》",
+        headline: "<em>Klara and the Sun</em>",
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
