@@ -41,6 +41,11 @@ jobs:
         run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v4
+        with:
+          # Enable GitHub Pages
+          enablement: true
+          # No custom domain
+          cname: ''
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -49,6 +54,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          # 自动启用GitHub Pages（如果尚未启用）
-          enablement: true

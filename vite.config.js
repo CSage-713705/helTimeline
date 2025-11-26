@@ -12,5 +12,5 @@ export default defineConfig({
             },
         }) : null
     ].filter(Boolean),
-    base: '/', // Use root path since we're using a custom domain
+    base: '/helTimeline/', // Use repository name for GitHub Pages default URL structure
 });
