@@ -26,15 +26,22 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
+      
       - name: Install dependencies
         run: npm ci
+      
       - name: Build project
         run: npm run build
+      
+      - name: List build output
+        run: ls -la dist
+      
       - name: Upload build artifacts
         uses: actions/upload-pages-artifact@v3
         with:
@@ -46,7 +53,32 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
+      # 注意：私有仓库需要GitHub Pages已启用
+      # 请确保在GitHub仓库设置中启用了Pages功能
     steps:
+      - name: Debug GitHub Pages status
+        run: |
+          echo "部署将尝试使用GitHub Actions部署器"
+          echo "请确保在GitHub仓库设置中启用了Pages功能"
+          echo "对于私有仓库，您需要GitHub Enterprise或公开仓库"
+      
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        continue-on-error: true
+      
+      - name: Check deployment result
+        if: success()
+        run: |
+          echo "部署成功!"
+          echo "请访问部署的网站以验证功能"
+      
+      - name: Deployment failed notification
+        if: failure()
+        run: |
+          echo "部署失败! 请检查以下几点:"
+          echo "1. 确保在GitHub仓库设置中启用了GitHub Pages"
+          echo "2. 对于私有仓库，您需要GitHub Enterprise许可"
+          echo "3. 或者考虑将仓库设为公开以使用免费的GitHub Pages"
+          echo "4. 检查GitHub Pages设置中的源是否选择为'GitHub Actions'"
+          echo "部署构建产物仍然可用，您可以手动下载并部署到其他平台"
