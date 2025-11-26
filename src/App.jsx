@@ -31,7 +31,7 @@ export default function App() {
           >
             <div className="flex flex-col items-center">
               <h1 className="font-serif text-4xl md:text-5xl font-normal text-white leading-tight mb-6">
-                {i18n.language === 'zh' ? '英国文学史时间轴' : 'Timeline of English Literature'}
+                {i18n.language === 'zh' ? '英国文学史时间轴' : 'A Timeline of English Literature'}
               </h1>
               <h2 className="font-serif text-2xl md:text-3xl font-normal text-white leading-tight mb-6">
                 {i18n.language === 'zh' ? '小说叙事权威与人性探索' : 'Narrative Authority and Humanity Exploration of Novels'}

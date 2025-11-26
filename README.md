@@ -46,4 +46,12 @@ We welcome contributions to the timeline! Either fill in the Google Form [here](
    - We may request changes or additional information
    - Once approved, the PR will be merged and the event will appear on the timeline
 
+## Deployment
+
+This project is deployed using GitHub Pages with GitHub Actions. Any changes pushed to the `master` branch will trigger a new build and deployment automatically.
+
+To check the deployment status, visit the "Actions" tab in the GitHub repository.
+
+## License
+
 This project is provided under the MIT license. See the LICENSE file for more details.
