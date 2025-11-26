@@ -329,12 +329,7 @@ const CardsView = React.memo(function CardsView({
                   onMouseLeave={() => setHoveredEventIndex(null)}
                 >
                 <div className="text-sm text-white/60 font-medium tracking-wide">
-                  {`${event.start_date.year}-${String(
-                    event.start_date.month
-                  ).padStart(2, "0")}-${String(event.start_date.day).padStart(
-                    2,
-                    "0"
-                  )}`}
+                  {event.start_date.year}
                 </div>
                 <div
                   className="font-serif text-2xl font-normal text-white leading-snug mt-2"

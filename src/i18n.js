@@ -32,27 +32,27 @@ const resources = {
           ]
         },
         section3: {
-          title: "Human as Rational Individual",
+          title: "Define Human as Rational Individual",
           points: [
             "Transformation and conquest of the external world",
-            "Define \"economic man\" as a rational subject"
+            "\"Economic man\" as a rational subject"
           ]
         }
       },
       oliverTwist: {
         section2: {
-          title: "Critical Focus on Narrative Authority",
+          title: "Critical Concentration of Narrative Authority",
           points: [
-            "Social reality and historical background",
+            "Social realism and historical background",
             "Typical characters",
             "Omniscient perspective"
           ]
         },
         section3: {
-          title: "Human Examining Society",
+          title: "Examine Human as Social Elements",
           points: [
-            "Social structure, class and institutions in industrial age",
-            "Remolding of human morality and destiny"
+            "Social structure, class and system in industrial age",
+            "Human morality and destiny being reshaped"
           ]
         }
       },
@@ -66,29 +66,29 @@ const resources = {
           ]
         },
         section3: {
-          title: "Human as Discoverer of Psychology",
+          title: "Discover Human as Psychologic Being",
           points: [
             "Focus shifts to the inner world",
-            "Consciousness flow, memory and trauma",
-            "Deepening cognition of complex human nature"
+            "Human consciousness flow, memory and trauma",
+            "Deeper cognition of complex human nature"
           ]
         }
       },
       lordOfTheFlies: {
         section2: {
-          title: "Philosophical Migration of Narrative Authority",
+          title: "Philosophical Transfer of Narrative Authority",
           points: [
-            "Thought experiment",
             "Allegorical structure",
-            "Sacred tragedy"
+            "Thought experiment",
+            "Divine tragedy"
           ]
         },
         section3: {
-          title: "The Human Facing Evil",
+          title: "Confront Human as Sinful Creature",
           points: [
-            "Stripping away society to question human nature",
-            "Subversion of the Enlightenment \"rational man\"",
-            "Inherent darkness and evil in human nature"
+            "Strip away the cloak of society to question human nature",
+            "A direct objection to the Enlightenment \"rational man\"",
+            "Dissect the darkness and evilness inherent in human"
           ]
         }
       },
@@ -101,10 +101,10 @@ const resources = {
           ]
         },
         section3: {
-          title: "The Human Returning to Self",
+          title: "Rediscover Human as Yearning Self",
           points: [
-            "Narrative authority granted to non-human intelligence",
-            "Love and hope facing ultimate challenge",
+            "Non-human agents as the owner of narrative authority",
+            "The uniqueness of human love and hope facing the ultimate trial",
             "Through non-human perspective: What is irreplaceable humanity?"
           ]
         }
