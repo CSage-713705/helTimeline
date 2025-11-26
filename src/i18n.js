@@ -129,8 +129,8 @@ const resources = {
         Enlightenment: "启蒙时代",
         Victorian: "维多利亚时代",
         Modernism: "现代主义",
-        Postwar: "战后文学",
-        Contemporary: "当代文学"
+        Postwar: "战后",
+        Contemporary: "当代"
       },
       cards: {
       robinsonCrusoe: {
