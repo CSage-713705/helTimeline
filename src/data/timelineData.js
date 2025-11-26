@@ -17,7 +17,7 @@ export const TIMELINE_DATA = {
     {
       start_date: { year: "1719"},
       text: {
-        headline: "<em>Robinson Crusoe</em>",
+        headline: "<em>Robinson Crusoe</em> \| Daniel Defoe",
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
@@ -41,7 +41,7 @@ export const TIMELINE_DATA = {
         `,
       },
       chinese: {
-        headline: "<em>《鲁滨逊漂流记》</em>",
+        headline: "<em>《鲁滨逊漂流记》</em> \| 丹尼尔·笛福",
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
@@ -70,7 +70,7 @@ export const TIMELINE_DATA = {
     {
       start_date: { year: "1838"},
       text: {
-        headline: "<em>Oliver Twist</em>",
+        headline: "<em>Oliver Twist</em> \| Charles Dickens",
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
@@ -95,7 +95,7 @@ export const TIMELINE_DATA = {
         `,
       },
       chinese: {
-        headline: "<em>《雾都孤儿》</em>",
+        headline: "<em>《雾都孤儿》</em> \| 查尔斯·狄更斯",
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
@@ -125,7 +125,7 @@ export const TIMELINE_DATA = {
     {
       start_date: { year: "1925"},
       text: {
-        headline: "<em>Mrs. Dalloway</em>",
+        headline: "<em>Mrs. Dalloway</em> \| Virginia Woolf",
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
@@ -151,7 +151,7 @@ export const TIMELINE_DATA = {
         `,
       },
       chinese: {
-        headline: "<em>《达洛维夫人》</em>",
+        headline: "<em>《达洛维夫人》</em> \|  弗吉尼亚·伍尔弗",
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
@@ -182,7 +182,7 @@ export const TIMELINE_DATA = {
     {
       start_date: { year: "1954"},
       text: {
-        headline: "<em>Lord of the Flies</em>",
+        headline: "<em>Lord of the Flies</em> \| William Golding",
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
@@ -208,7 +208,7 @@ export const TIMELINE_DATA = {
         `,
       },
       chinese: {
-        headline: "<em>《蝇王》</em>",
+        headline: "<em>《蝇王》</em> \| 威廉·戈尔丁",
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
@@ -239,7 +239,7 @@ export const TIMELINE_DATA = {
     {
       start_date: { year: "2021"},
       text: {
-        headline: "<em>Klara and the Sun</em>",
+        headline: "<em>Klara and the Sun</em> \| Kazuo Ishiguro",
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
@@ -264,7 +264,7 @@ export const TIMELINE_DATA = {
         `,
       },
       chinese: {
-        headline: "<em>《克拉拉与太阳》</em>",
+        headline: "<em>《克拉拉与太阳》</em> \| 石黑一雄",
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">

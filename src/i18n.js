@@ -10,7 +10,7 @@ const resources = {
       zoomIn: "Zoom In",
       zoom: "Zoom: {{value}}px/decade",
       footer: {
-        createdBy: "© {{year}} . Source code created by",
+        createdBy: "© {{year}}. Source code created by",
         and: "and",
         contributors: "Open-source contributors:",
       },
@@ -120,7 +120,7 @@ const resources = {
       zoomIn: "放大",
       zoom: "缩放：{{value}}px/十年",
       footer: {
-        createdBy: "© {{year}} 源代码由",
+        createdBy: "© {{year}}. 源代码由",
         and: "和",
         contributors: "开源贡献者：",
       },
