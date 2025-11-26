@@ -40,25 +40,25 @@ export const TIMELINE_DATA = {
           </div>
         `,
       },
-      chinese: { // TODO:中文翻译
-        headline: "<em>Robinson Crusoe</em>",
+      chinese: {
+        headline: "<em>《鲁滨逊漂流记》</em>",
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
               <!-- 第一个子卡片留空 -->
             </div>
             <div class="analysis-section">
-              <h4>Monopoly of Narrative Authority</h4>
+              <h4>叙事权威的垄断</h4>
               <ul>
-                <li>Documentary writing style</li>
-                <li>"Authorship": pages & frontispieces</li>
+                <li>纪实写作手法</li>
+                <li>"虚构作者"：副文本</li>
               </ul>
             </div>
             <div class="analysis-section">
-              <h4>Human as Rational Individual</h4>
+              <h4>定义理性的人</h4>
               <ul>
-                <li>Transformation and conquest of the external world</li>
-                <li>Define "economic man" as a rational subject</li>
+                <li>重塑与征服外在世界</li>
+                <li>作为理性主体的\“经济人\”</li>
               </ul>
             </div>
           </div>
@@ -94,26 +94,26 @@ export const TIMELINE_DATA = {
           </div>
         `,
       },
-      chinese: {// TODO:中文翻译
-        headline: "<em>Oliver Twist</em>",
+      chinese: {
+        headline: "<em>《雾都孤儿》</em>",
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
               <!-- 第一个子卡片留空 -->
             </div>
             <div class="analysis-section">
-              <h4>Critical Concentration of Authority</h4>
+              <h4>叙事权威的批判性集中</h4>
               <ul>
-                <li>Social realism</li>
-                <li>Typical character</li>
-                <li>Omniscient perspective</li>
+                <li>社会写实与历史背景</li>
+                <li>典型人物</li>
+                <li>全知视角</li>
               </ul>
             </div>
             <div class="analysis-section">
-              <h4>Human as Social Examiner</h4>
+              <h4>审视社会的人</h4>
               <ul>
-                <li>Social structure, class and system in an industrial society</li>
-                <li>Human morality and destiny being reshaped</li>
+                <li>工业时代的社会结构、阶级和制度</li>
+                <li>人类道德和命运的重塑</li>
               </ul>
             </div>
           </div>
@@ -150,27 +150,27 @@ export const TIMELINE_DATA = {
           </div>
         `,
       },
-      chinese: {// TODO:中文翻译
-        headline: "<em>Mrs. Dalloway</em>",
+      chinese: {
+        headline: "<em>《达洛维夫人》</em>",
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
               <!-- 第一个子卡片留空 -->
             </div>
             <div class="analysis-section">
-              <h4>Internalization and Dispersion of Narrative Authority</h4>
+              <h4>叙事权威的内化与分散</h4>
               <ul>
-                <li>Stream of consciousness</li>
-                <li>Internal reality</li>
-                <li>Multiple focalization</li>
+                <li>意识流</li>
+                <li>内在现实</li>
+                <li>多重聚焦</li>
               </ul>
             </div>
             <div class="analysis-section">
-              <h4>Human as Psychological Being</h4>
+              <h4>发现心理的人</h4>
               <ul>
-                <li>The exploration of human turns to the inner world</li>
-                <li>Human consciousness flow, memory and trauma</li>
-                <li>Deeper understanding of the complexity of human nature</li>
+                <li>探讨焦点转向内在世界</li>
+                <li>人的意识流动、记忆与创伤</li>
+                <li>深化复杂人性的认知</li>
               </ul>
             </div>
           </div>
@@ -207,27 +207,27 @@ export const TIMELINE_DATA = {
           </div>
         `,
       },
-      chinese: {// TODO:中文翻译
-        headline: "<em>Lord of the Flies</em>",
+      chinese: {
+        headline: "<em>《蝇王》</em>",
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
               <!-- 第一个子卡片留空 -->
             </div>
             <div class="analysis-section">
-              <h4>Philosophical Transfer of Authority</h4>
+              <h4>叙事权威的哲学化迁移</h4>
               <ul>
-                <li>Allegorical structure</li>
-                <li>Thought experiment</li>
-                <li>Divine tragedy</li>
+                <li>寓言结构</li>
+                <li>思想实验</li>
+                <li>神圣悲剧</li>
               </ul>
             </div>
             <div class="analysis-section">
-              <h4>Human as Sinful Creature</h4>
+              <h4>直面罪恶的人</h4>
               <ul>
-                <li>Strip off the cloak of society to question human nature</li>
-                <li>Dissect the darkness and evilness inherent in mind</li>
-                <li>A direct objection to the "rational man" of Enlightenment</li>
+                <li>剥离社会，直接质问人的本性</li>
+                <li>二战后对启蒙时代\“理性人\”的颠覆</li>
+                <li>人性固有的黑暗与邪恶</li>
               </ul>
             </div>
           </div>
@@ -263,26 +263,26 @@ export const TIMELINE_DATA = {
           </div>
         `,
       },
-      chinese: {// TODO:中文翻译
-        headline: "<em>Klara and the Sun</em>",
+      chinese: {
+        headline: "<em>《克拉拉与太阳》</em>",
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
               <!-- 第一个子卡片留空 -->
             </div>
             <div class="analysis-section">
-              <h4>Diffusion of Narrative Authority</h4>
+              <h4>叙事权威的扩散</h4>
               <ul>
-                <li>Post-human perspective</li>
-                <li>Technical Apocalypse</li>
+                <li>后人类视角</li>
+                <li>科技爆发与价值观危机</li>
               </ul>
             </div>
             <div class="analysis-section">
-              <h4>Human as Yearning Self</h4>
+              <h4>回归自我的人</h4>
               <ul>
-                <li>Non-human agents as the owner of narrative authority</li>
-                <li>The uniqueness of human love and hope faces the ultimate trial</li>
-                <li>Reverse questioning by AI: What is irreplaceable "human nature"?</li>
+                <li>叙事权威赋予非人智能体</li>
+                <li>爱与希望的独特性面临终极挑战</li>
+                <li>非人视角的反向质询：何为不可替代的\“人性\”\？</li>
               </ul>
             </div>
           </div>

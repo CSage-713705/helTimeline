@@ -69,7 +69,7 @@ const resources = {
           title: "Discover Human as Psychologic Being",
           points: [
             "Focus shifts to the inner world",
-            "Human consciousness flow, memory and trauma",
+            "Human consciousness flow, memory and trauma in World War I",
             "Deeper cognition of complex human nature"
           ]
         }
@@ -87,7 +87,7 @@ const resources = {
           title: "Confront Human as Sinful Creature",
           points: [
             "Strip away the cloak of society to question human nature",
-            "A direct objection to the Enlightenment \"rational man\"",
+            "A direct objection to the Enlightenment \"rational man\" after World War II",
             "Dissect the darkness and evilness inherent in human"
           ]
         }
@@ -138,7 +138,7 @@ const resources = {
           title: "叙事权威的垄断",
           points: [
             "纪实写作手法",
-            "\"虚构作者\"：扉页装帧"
+            "\"虚构作者\"：副文本"
           ]
         },
         section3: {
@@ -179,7 +179,7 @@ const resources = {
           title: "发现心理的人",
           points: [
             "探讨焦点转向内在世界",
-            "人的意识流动、记忆与创伤",
+            "人的意识流动、记忆与一战的创伤",
             "深化复杂人性的认知"
           ]
         }
@@ -188,8 +188,8 @@ const resources = {
         section2: {
           title: "叙事权威的哲学化迁移",
           points: [
-            "思想实验",
             "寓言结构",
+            "思想实验",
             "神圣悲剧"
           ]
         },
@@ -197,7 +197,7 @@ const resources = {
           title: "直面罪恶的人",
           points: [
             "剥离社会，直接质问人的本性",
-            "对启蒙时代\"理性人\"的颠覆",
+            "二战后对启蒙时代\“理性人\”的颠覆",
             "人性固有的黑暗与邪恶"
           ]
         }
@@ -215,7 +215,7 @@ const resources = {
           points: [
             "叙事权威赋予非人智能体",
             "爱与希望的独特性面临终极挑战",
-            "通过非人视角反向质询：何为不可替代的人性？"
+            "非人视角的反向质询：何为不可替代的\“人性\”\？"
           ]
         }
       }
