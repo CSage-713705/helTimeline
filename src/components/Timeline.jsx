@@ -12,6 +12,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import RobinsonCrusoeParatext from '../assets/1_paratext.png';
 import FridayRobinsonImage from '../assets/2_FridayRobinson.webp';
+import OliverTwist from '../assets/3_OliverTwist.webp';
+import Victorian from '../assets/4_victorian.jpg';
 
 const MIN_CARD_WIDTH = 300; // 增加最小卡片宽度
 const ROW_GAP = 10;
@@ -367,6 +369,7 @@ const CardsView = React.memo(function CardsView({
                               <li>{i18n.language === "zh" ? "纪实写作手法" : "Documentary writing style"}</li>
                               <li>{i18n.language === "zh" ? '"虚构作者"：副文本' : '"Authorship" created by paratexts'}</li>
                             </ul>
+                            {/* TODO：这里是正确的图片 */}
                             <div className="mt-4 w-full">
                               <img 
                                 src={RobinsonCrusoeParatext} 
@@ -392,6 +395,57 @@ const CardsView = React.memo(function CardsView({
                               />
                               <div className="text-center mt-2 text-sm text-white/50">
                                 Friday and Robinson Crusoe, lithograph by Currier & Ives, c. 1874.
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    }
+                    // 为Oliver Twist的子板块添加图片和注释（仅在卡片视图中显示）
+                    else if (event.start_date.year === "1838" && event.text.headline.includes("Oliver Twist")) {
+                      // 手动构建卡片视图的内容，包含两张图片
+                      return (
+                        <div className="literary-analysis">
+                          <div className="analysis-section">
+                            {/* 第一个子卡片留空 */}
+                          </div>
+                          <div className="analysis-section">
+                            <h4>{i18n.language === "zh" ? "叙事权威的批判性集中" : "Identity, Class and Growth"}</h4>
+                            <ul>
+                              <li>{i18n.language === "zh" ? "社会写实与历史背景" : "Orphan protagonist"}</li>
+                              <li>{i18n.language === "zh" ? "典型人物" : "Class mobility"}</li>
+                              <li>{i18n.language === "zh" ? "全知视角" : "Omnicient perspective"}</li>
+                            </ul>
+                            <div className="mt-4 w-full">
+                              <img 
+                                src={OliverTwist} 
+                                alt="Oliver Twist" 
+                                className="w-full rounded-md shadow-lg mx-auto" 
+                              />
+                              <div className="text-center mt-2 text-sm text-white/50">
+                                {/* TODO：换行处理 */}
+                                {/* TODO：引用格式 */}
+                                The Artful Dodger picking a pocket to the amazement of Oliver Twist (far right); illustration by George Cruikshank for Charles Dickens's Oliver Twist (1837–39).
+                              </div>
+                            </div>
+                          </div>
+                          <div className="analysis-section">
+                            <h4>{i18n.language === "zh" ? "审视社会的人" : "Examine Human as Social Elements"}</h4>
+                            <ul>
+                              <li>{i18n.language === "zh" ? "工业时代的社会结构、阶级和制度" : "Social structure, class and system in industrial age"}</li>
+                              <li>{i18n.language === "zh" ? "人类道德和命运的重塑" : "Human morality and destiny being reshaped"}</li>
+                            </ul>
+                            <div className="mt-4 w-full">
+                              <img 
+                                src={Victorian} 
+                                alt="Victorian Era" 
+                                className="w-full rounded-md shadow-lg mx-auto" 
+                              />
+                              <div className="text-center mt-2 text-sm text-white/50">
+                                {/* TODO：换行处理 */}
+                                {/* TODO：引用格式 */}
+                                The Victorians rise to power of Great Britain.
+                                https://www.historic-uk.com/HistoryUK/HistoryofBritain/Victorian-Workhouse/
                               </div>
                             </div>
                           </div>
