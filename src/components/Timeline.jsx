@@ -493,7 +493,7 @@ const EventCard = React.memo(function EventCard({
   const [showTopFade, setShowTopFade] = useState(false);
   const [showBottomFade, setShowBottomFade] = useState(false);
 
-  // Add effect to update active position
+  // 更新动态位置
   // 移除重复的状态更新，避免无限循环
   // 状态更新已经在鼠标事件处理函数中完成
 
