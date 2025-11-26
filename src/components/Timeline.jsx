@@ -369,7 +369,6 @@ const CardsView = React.memo(function CardsView({
                               <li>{i18n.language === "zh" ? "纪实写作手法" : "Documentary writing style"}</li>
                               <li>{i18n.language === "zh" ? '"虚构作者"：副文本' : '"Authorship" created by paratexts'}</li>
                             </ul>
-                            {/* TODO：这里是正确的图片 */}
                             <div className="mt-4 w-full">
                               <img 
                                 src={RobinsonCrusoeParatext} 
