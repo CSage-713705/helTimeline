@@ -1,5 +1,6 @@
 /* card mode */
 
+// 时代分类
 export const CATEGORIES = {
   ENLIGHTENMENT: "Enlightenment",
   VICTORIAN: "Victorian",
@@ -8,21 +9,21 @@ export const CATEGORIES = {
   CONTEMPORARY: "Contemporary",
 };
 
-// 中文时代名称映射
+// 时代分类名称映射（中英文）
 export const CATEGORY_NAMES = {
-  Chinese: {
-    [CATEGORIES.ENLIGHTENMENT]: "启蒙时代",
-    [CATEGORIES.VICTORIAN]: "维多利亚时代",
-    [CATEGORIES.MODERNISM]: "现代主义",
-    [CATEGORIES.POSTWAR]: "战后",
-    [CATEGORIES.CONTEMPORARY]: "当代",
-  },
   English: {
     [CATEGORIES.ENLIGHTENMENT]: "Enlightenment",
     [CATEGORIES.VICTORIAN]: "Victorian",
     [CATEGORIES.MODERNISM]: "Modernism",
     [CATEGORIES.POSTWAR]: "Postwar",
     [CATEGORIES.CONTEMPORARY]: "Contemporary",
+  },
+  Chinese: {
+    [CATEGORIES.ENLIGHTENMENT]: "启蒙时代",
+    [CATEGORIES.VICTORIAN]: "维多利亚时代",
+    [CATEGORIES.MODERNISM]: "现代主义",
+    [CATEGORIES.POSTWAR]: "战后",
+    [CATEGORIES.CONTEMPORARY]: "当代",
   }
 };
 
