@@ -333,13 +333,11 @@ const CardsView = React.memo(function CardsView({
 
             return (
               <div
-                  key={index}
-                  className={`event-card p-6 ${
-                    index === activeEventIndex ? "active" : ""
-                  }`}
-                  onMouseEnter={() => setHoveredEventIndex(index)}
-                  onMouseLeave={() => setHoveredEventIndex(null)}
-                >
+                key={index}
+                className={`event-card p-6 ${index === activeEventIndex ? "active" : ""}`}
+                onMouseEnter={() => setHoveredEventIndex(index)}
+                onMouseLeave={() => setHoveredEventIndex(null)}
+              >
                 <div className="text-sm text-white/60 font-medium tracking-wide">
                   {event.start_date.year}
                 </div>
@@ -376,6 +374,7 @@ const CardsView = React.memo(function CardsView({
                                 className="w-full rounded-md shadow-lg" 
                               />
                               <div className="text-center mt-2 text-sm text-white/50">
+                              {/* TODO: 检查cite */}
                                 {i18n.language === 'zh' ? '此处添加注释' : 'here for citation'}
                               </div>
                             </div>
@@ -393,7 +392,8 @@ const CardsView = React.memo(function CardsView({
                                 className="w-full rounded-md shadow-lg" 
                               />
                               <div className="text-center mt-2 text-sm text-white/50">
-                                Friday and Robinson Crusoe, lithograph by Currier & Ives, c. 1874.
+                                {i18n.language === 'zh' ? '此处添加注释' : 'Friday and Robinson Crusoe'}. 
+                                lithograph by Currier & Ives, c. 1874.
                               </div>
                             </div>
                           </div>
@@ -445,6 +445,152 @@ const CardsView = React.memo(function CardsView({
                                 {/* TODO：引用格式 */}
                                 The Victorians rise to power of Great Britain.
                                 https://www.historic-uk.com/HistoryUK/HistoryofBritain/Victorian-Workhouse/
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    }
+                    // 为Mrs Dalloway的子板块添加图片和注释（仅在卡片视图中显示）
+                    else if (event.start_date.year === "1925" && event.text.headline.includes("Mrs. Dalloway")) {
+                      // 手动构建卡片视图的内容，包含两张图片
+                      return (
+                        <div className="literary-analysis">
+                          <div className="analysis-section">
+                            {/* 第一个子卡片留空 */}
+                          </div>
+                          <div className="analysis-section">
+                            <h4>{i18n.language === "zh" ? "叙事权威的批判性集中" : "Internalization and Dispersion of Narrative Authority"}</h4>
+                            <ul>
+                              <li>{i18n.language === "zh" ? "意识流" : "Stream of consciousness"}</li>
+                              <li>{i18n.language === "zh" ? "内在现实" : "Internal reality"}</li>
+                              <li>{i18n.language === "zh" ? "多重聚焦" : "Multiple focalization"}</li>
+                            </ul>
+                            <div className="mt-4 w-full">
+                              {/* TODO：不是这个图 */}
+                              <img 
+                                src={OliverTwist} 
+                                alt="Oliver Twist" 
+                                className="w-full rounded-md shadow-lg mx-auto" 
+                              />
+                              <div className="text-center mt-2 text-sm text-white/50">
+                                {/* TODO：找个图 */}
+                              </div>
+                            </div>
+                          </div>
+                          <div className="analysis-section">
+                            <h4>{i18n.language === "zh" ? "审视社会的人" : "Discover Human as Psychological Being"}</h4>
+                            <ul>
+                              <li>{i18n.language === "zh" ? "探讨焦点转向内在世界" : "Focus shifts to the inner world"}</li>
+                              <li>{i18n.language === "zh" ? "人的意识流动、记忆和创伤" : "Human consciousness flow, memory and trauma"}</li>
+                              <li>{i18n.language === "zh" ? "深化复杂人性的认知" : "Deeper cognition of complex human nature"}</li>
+                            </ul>
+                            <div className="mt-4 w-full">
+                              <img 
+                              // TODO：不是这个图
+                                src={Victorian} 
+                                alt="Victorian Era" 
+                                className="w-full rounded-md shadow-lg mx-auto" 
+                              />
+                              <div className="text-center mt-2 text-sm text-white/50">
+                                {/* TODO：找个图 */}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    }
+                    // 为Lor of the Flies的子板块添加图片和注释（仅在卡片视图中显示）
+                    else if (event.start_date.year === "1954" && event.text.headline.includes("Lord of the Flies")) {
+                      // 手动构建卡片视图的内容，包含两张图片
+                      return (
+                        <div className="literary-analysis">
+                          <div className="analysis-section">
+                            {/* 第一个子卡片留空 */}
+                          </div>
+                          <div className="analysis-section">
+                            <h4>{i18n.language === "zh" ? "叙事权威的哲学化迁移" : "Philosophical Transfer of Narrative Authority"}</h4>
+                            <ul>
+                              <li>{i18n.language === "zh" ? "寓言结构" : "Allegorical structure"}</li>
+                              <li>{i18n.language === "zh" ? "思想实验" : "Thought experiment"}</li>
+                              <li>{i18n.language === "zh" ? "神圣悲剧" : "Divine tragedy"}</li>
+                            </ul>
+                            <div className="mt-4 w-full">
+                              {/* TODO：不是这个图 */}
+                              <img 
+                                src={OliverTwist} 
+                                alt="Oliver Twist" 
+                                className="w-full rounded-md shadow-lg mx-auto" 
+                              />
+                              <div className="text-center mt-2 text-sm text-white/50">
+                                {/* TODO：找个图 */}
+                              </div>
+                            </div>
+                          </div>
+                          <div className="analysis-section">
+                            <h4>{i18n.language === "zh" ? "直面罪恶的人" : "Confront Human as Sinful Creature"}</h4>
+                            <ul>
+                              <li>{i18n.language === "zh" ? "剥离社会，直接质问人的本性" : "Strip away the cloak of society to question human nature"}</li>
+                              <li>{i18n.language === "zh" ? "二战后对启蒙时代\“理性人\”的颠覆" : "A direct objection to the Enlighenment \"rational man\""}</li>
+                              <li>{i18n.language === "zh" ? "人性固有的黑暗与邪恶" : "Dissect the darkness and evilness inherent in human"}</li>
+                            </ul>
+                            <div className="mt-4 w-full">
+                              <img 
+                              // TODO：不是这个图
+                                src={Victorian} 
+                                alt="Victorian Era" 
+                                className="w-full rounded-md shadow-lg mx-auto" 
+                              />
+                              <div className="text-center mt-2 text-sm text-white/50">
+                                {/* TODO：找个图 */}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    }
+                    // 为Klara and the Sun的子板块添加图片和注释（仅在卡片视图中显示）
+                    else if (event.start_date.year === "2021" && event.text.headline.includes("Klara and the Sun")) {
+                      // 手动构建卡片视图的内容，包含两张图片
+                      return (
+                        <div className="literary-analysis">
+                          <div className="analysis-section">
+                            {/* 第一个子卡片留空 */}
+                          </div>
+                          <div className="analysis-section">
+                            <h4>{i18n.language === "zh" ? "叙事权威的扩散" : "Diffusion of Narrative Authority"}</h4>
+                            <ul>
+                              <li>{i18n.language === "zh" ? "后人类视角" : "Post-human perspective"}</li>
+                              <li>{i18n.language === "zh" ? "科技爆发与价值观危机" : "Technical explosion and value crisis"}</li>
+                            </ul>
+                            <div className="mt-4 w-full">
+                              {/* TODO：不是这个图 */}
+                              <img 
+                                src={OliverTwist} 
+                                alt="Oliver Twist" 
+                                className="w-full rounded-md shadow-lg mx-auto" 
+                              />
+                              <div className="text-center mt-2 text-sm text-white/50">
+                                {/* TODO：找个图 */}
+                              </div>
+                            </div>
+                          </div>
+                          <div className="analysis-section">
+                            <h4>{i18n.language === "zh" ? "回归自我的人" : "Confront Human as Sinful Creature"}</h4>
+                            <ul>
+                              <li>{i18n.language === "zh" ? "叙事权威赋予非人智能体" : "Non-human agents as the owner of narrative authority"}</li>
+                              <li>{i18n.language === "zh" ? "爱与希望的独特性面临终极挑战" : "The uniqueness of human love and hope facing the ultimate trial"}</li>
+                              <li>{i18n.language === "zh" ? "非人视角的反向质询：何为不可替代的\“人性\”\？" : "Through non-human perspective: What is irreplaceable \"humanity\"\?"}</li>
+                            </ul>
+                            <div className="mt-4 w-full">
+                              <img 
+                              // TODO：不是这个图
+                                src={Victorian} 
+                                alt="Victorian Era" 
+                                className="w-full rounded-md shadow-lg mx-auto" 
+                              />
+                              <div className="text-center mt-2 text-sm text-white/50">
+                                {/* TODO：找个图 */}
                               </div>
                             </div>
                           </div>
