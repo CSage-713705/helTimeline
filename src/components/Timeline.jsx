@@ -409,11 +409,11 @@ const CardsView = React.memo(function CardsView({
                             {/* 第一个子卡片留空 */}
                           </div>
                           <div className="analysis-section">
-                            <h4>{i18n.language === "zh" ? "叙事权威的批判性集中" : "Identity, Class and Growth"}</h4>
+                            <h4>{i18n.language === "zh" ? "叙事权威的批判性集中" : "Critical Concentration of Narrative Authority"}</h4>
                             <ul>
-                              <li>{i18n.language === "zh" ? "社会写实与历史背景" : "Orphan protagonist"}</li>
-                              <li>{i18n.language === "zh" ? "典型人物" : "Class mobility"}</li>
-                              <li>{i18n.language === "zh" ? "全知视角" : "Omnicient perspective"}</li>
+                              <li>{i18n.language === "zh" ? "社会写实与历史背景" : "Social realism and historical background"}</li>
+                              <li>{i18n.language === "zh" ? "典型人物" : "Typical character"}</li>
+                              <li>{i18n.language === "zh" ? "全知视角" : "Omniscient perspective"}</li>
                             </ul>
                             <div className="mt-4 w-full">
                               <img 
