@@ -27,7 +27,7 @@ export const TIMELINE_DATA = {
               <h4>Monopoly of Narrative Authority</h4>
               <ul>
                 <li>Documentary writing style</li>
-                <li>\"Authorship\": pages & frontispieces</li>
+                <li>\"Authorship\" created by paratexts</li>
               </ul>
             </div>
             <div class="analysis-section">

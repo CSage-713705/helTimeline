@@ -39,7 +39,7 @@ export default function App() {
                 You can see the characteristics and construction of narrative authority of each work, as well as what interpretation of human nature they represent.
                 {/* 本时间轴展示了由启蒙时代到当代5个关键文学时期的代表作品。
                 您可以阅览各作品叙事权威的特征与构建方式，以及它们代表了何种对人性的诠释。 */}
-                {/* TODO:这里需要添加中文翻译版本 */}
+                {/* TODO:添加中文翻译版本 */}
 
               </p>
             </div>

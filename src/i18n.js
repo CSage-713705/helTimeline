@@ -28,7 +28,7 @@ const resources = {
           title: "Monopoly of Narrative Authority",
           points: [
             "Documentary writing style",
-            "\"Authorship\": pages & frontispieces"
+            "\"Authorship\" created by paratexts"
           ]
         },
         section3: {
