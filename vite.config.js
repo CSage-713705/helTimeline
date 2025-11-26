@@ -5,11 +5,12 @@ import { VitePluginRadar } from 'vite-plugin-radar'
 export default defineConfig({
     plugins: [
         react(),
-        VitePluginRadar({
+        // 只在生产环境加载Google Analytics，避免开发环境的错误
+        process.env.NODE_ENV === 'production' ? VitePluginRadar({
             analytics: {
                 id: 'G-NGY6H64ENF',
             },
-        })
-    ],
+        }) : null
+    ].filter(Boolean),
     base: '/', // Use root path since we're using a custom domain
 });
