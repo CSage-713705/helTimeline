@@ -7,7 +7,7 @@ import React, {
   useLayoutEffect,
   useCallback,
 } from "react";
-import { TIMELINE_DATA, CATEGORIES } from "../data/timelineData";
+import { TIMELINE_DATA, CATEGORIES, CATEGORY_NAMES } from "../data/timelineData";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
@@ -23,7 +23,7 @@ const INNER_CARD_PADDING = 60; // add inner card padding
 // 10 year per scale
 const ZOOM_LEVELS = [50, 100, 150, 200, 250, 300];
 
-// add global pattern
+// 全局卡片样式
 const styles = `
   /* 文学分析卡片样式 */
   .literary-analysis {
@@ -339,7 +339,7 @@ const CardsView = React.memo(function CardsView({
                   }}
                 />
                 <div className="text-xs font-sans mt-1 text-white/40">
-                  {event.category}
+                  {CATEGORY_NAMES[i18n.language === "zh" ? "Chinese" : "English"][event.category]}
                 </div>
                 <div
                   className="text-white/80 text-base leading-relaxed mt-3"
@@ -579,7 +579,7 @@ const EventCard = React.memo(function EventCard({
             dangerouslySetInnerHTML={{ __html: localizedContent.headline }}
           />
           <div className="text-sm font-sans text-white/60 font-medium">
-            {event.start_date.year} | {event.category}
+            {event.start_date.year} | {CATEGORY_NAMES[i18n.language === "zh" ? "Chinese" : "English"][event.category]}
           </div>
           
           <AnimatePresence>

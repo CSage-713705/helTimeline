@@ -8,6 +8,24 @@ export const CATEGORIES = {
   CONTEMPORARY: "Contemporary",
 };
 
+// 中文时代名称映射
+export const CATEGORY_NAMES = {
+  Chinese: {
+    [CATEGORIES.ENLIGHTENMENT]: "启蒙时代",
+    [CATEGORIES.VICTORIAN]: "维多利亚时代",
+    [CATEGORIES.MODERNISM]: "现代主义",
+    [CATEGORIES.POSTWAR]: "战后",
+    [CATEGORIES.CONTEMPORARY]: "当代",
+  },
+  English: {
+    [CATEGORIES.ENLIGHTENMENT]: "Enlightenment",
+    [CATEGORIES.VICTORIAN]: "Victorian",
+    [CATEGORIES.MODERNISM]: "Modernism",
+    [CATEGORIES.POSTWAR]: "Postwar",
+    [CATEGORIES.CONTEMPORARY]: "Contemporary",
+  }
+};
+
 function createLink(url, title) {
   return `<a href="${url}" target="_blank" rel="noopener noreferrer">${title}</a>`;
 }
