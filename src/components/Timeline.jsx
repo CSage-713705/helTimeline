@@ -19,11 +19,11 @@ const Z_INDEX_HOVER = 100;
 const MIN_CARD_HEIGHT = 70;
 const MIN_EXPANDED_HEIGHT = 350; // 增加最小展开高度
 const ROW_HEIGHT = 70;
-const INNER_CARD_PADDING = 60; // 内部小卡片额外padding
-// 修改为10年为单位的缩放级别
+const INNER_CARD_PADDING = 60; // add inner card padding
+// 10 year per scale
 const ZOOM_LEVELS = [50, 100, 150, 200, 250, 300];
 
-// 添加全局样式
+// add global pattern
 const styles = `
   /* 文学分析卡片样式 */
   .literary-analysis {
@@ -73,7 +73,7 @@ const styles = `
   }
 `;
 
-// 注入样式
+// insert pattern
 if (typeof document !== 'undefined') {
   const styleElement = document.createElement('style');
   styleElement.textContent = styles;
@@ -123,11 +123,11 @@ const CardsView = React.memo(function CardsView({
         ticking = true;
       }
 
-      // Debounce the active card update
+      // debounce the active card update
       clearTimeout(scrollTimeout);
       scrollTimeout = setTimeout(() => {
         updateActiveCard(lastScrollY);
-      }, 100); // Wait for scroll to settle
+      }, 100); // wait for scroll to settle
     };
 
     const updateActiveCard = (scrollY) => {
@@ -493,7 +493,7 @@ const EventCard = React.memo(function EventCard({
   
   // 卡片高度设置为足够显示3个子卡片
   const getCardHeight = () => {
-    // 使用计算的内容高度，确保足够显示3个子卡片
+    // 使用计算的内容高度
     return isHovered ? `${expandedHeight}px` : `${MIN_CARD_HEIGHT}px`;
   };
 
@@ -546,7 +546,7 @@ const EventCard = React.memo(function EventCard({
                 `}
         style={{
             backgroundColor: isHovered
-              ? "rgba(58, 58, 102, 0.85)" // 修改透明度为85%
+              ? "rgba(58, 58, 102, 0.85)" // transparency 85%
               : `rgba(255, 255, 255, ${baseOpacity})`,
             backgroundImage: isHovered
               ? "radial-gradient(transparent 1px, rgba(255, 255, 255, 0.12) 1px)"

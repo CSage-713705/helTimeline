@@ -132,7 +132,7 @@ export const TIMELINE_DATA = {
               <!-- 第一个子卡片留空 -->
             </div>
             <div class="analysis-section">
-              <h4>Internalization and Dispersion of Authority</h4>
+              <h4>Internalization and Dispersion of Narrative Authority</h4>
               <ul>
                 <li>Stream of consciousness</li>
                 <li>Internal reality</li>
@@ -158,7 +158,7 @@ export const TIMELINE_DATA = {
               <!-- 第一个子卡片留空 -->
             </div>
             <div class="analysis-section">
-              <h4>Internalization and Dispersion of Authority</h4>
+              <h4>Internalization and Dispersion of Narrative Authority</h4>
               <ul>
                 <li>Stream of consciousness</li>
                 <li>Internal reality</li>

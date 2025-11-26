@@ -33,9 +33,14 @@ export default function App() {
               <h1 className="font-serif text-4xl md:text-5xl font-normal text-white leading-tight mb-6">
                 英国近现代文学"叙事权威"演变分析
               </h1>
-              <p className="text-gray-100 font-sans max-w-xl px-2 text-lg leading-relaxed mb-1 justify">
-                本时间轴展示了从启蒙时代到当代六个关键文学时期的代表作品，
-                分析了各时期叙事权威的构建方式及其在"民主化与分散化"和"回归人类本体"历程中的位置。
+              <p className="text-gray-100 font-sans max-w-xl px-2 text-lg leading-relaxed mb-6 justify">
+                This timeline showcases 5 representative works from the Age of Enlightenment to the contemporary era.<br/>
+                <br/>
+                You can see the characteristics and construction of narrative authority of each work, as well as what interpretation of human nature they represent.
+                {/* 本时间轴展示了由启蒙时代到当代5个关键文学时期的代表作品。
+                您可以阅览各作品叙事权威的特征与构建方式，以及它们代表了何种对人性的诠释。 */}
+                {/* TODO:这里需要添加中文翻译版本 */}
+
               </p>
             </div>
           </section>

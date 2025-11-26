@@ -5,7 +5,7 @@ export default function LanguageSwitcher() {
   const { i18n } = useTranslation();
 
   const handleLanguageChange = (event) => {
-    // Change the active language
+    // 修改活动语言
     i18n.changeLanguage(event.target.value);
   };
 
@@ -14,7 +14,7 @@ export default function LanguageSwitcher() {
       <select
         value={i18n.language}
         onChange={handleLanguageChange}
-        // Styling similar to timeline control buttons
+        // 与时间轴控制按钮样式相同
         className=" text-white bg-transparent focus:outline-none rounded  whitespace-nowrap "
       >
         <option value="en">English</option>
