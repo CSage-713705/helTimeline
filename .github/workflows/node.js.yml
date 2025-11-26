@@ -14,6 +14,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  actions: read
 
 # Allow one concurrent deployment
 concurrency:
@@ -26,6 +27,11 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -44,8 +50,6 @@ jobs:
         with:
           # Enable GitHub Pages
           enablement: true
-          # No custom domain
-          cname: ''
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
