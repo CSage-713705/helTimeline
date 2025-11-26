@@ -22,7 +22,7 @@ export const CATEGORY_NAMES = {
     [CATEGORIES.ENLIGHTENMENT]: "启蒙时代",
     [CATEGORIES.VICTORIAN]: "维多利亚时代",
     [CATEGORIES.MODERNISM]: "现代主义",
-    [CATEGORIES.POSTWAR]: "战后",
+    [CATEGORIES.POSTWAR]: "二战后",
     [CATEGORIES.CONTEMPORARY]: "当代",
   }
 };

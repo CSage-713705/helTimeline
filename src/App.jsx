@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 const Timeline = lazy(() => import("./components/Timeline"));
 
 export default function App() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <>
@@ -31,19 +31,16 @@ export default function App() {
           >
             <div className="flex flex-col items-center">
               <h1 className="font-serif text-4xl md:text-5xl font-normal text-white leading-tight mb-6">
-                Timeline of English Literature
+                {i18n.language === 'zh' ? '英国文学史时间轴' : 'Timeline of English Literature'}
               </h1>
               <h2 className="font-serif text-2xl md:text-3xl font-normal text-white leading-tight mb-6">
-                Narrative Authority and Human Interpretation of Novels
+                {i18n.language === 'zh' ? '小说叙事权威与人性探索' : 'Narrative Authority and Humanity Exploration of Novels'}
               </h2>
-              <p className="text-gray-100 font-sans max-w-xl px-2 text-lg leading-relaxed mb-6 justify">
-                This timeline showcases 5 representative works from the Age of Enlightenment to the contemporary era.<br/>
-                <br/>
-                You can see the characteristics and construction of narrative authority of each work, as well as what interpretation and exploration of human nature they represent.
-                {/* 本时间轴展示了由启蒙时代到当代5个关键文学时期的代表作品。
-                您可以阅览各作品叙事权威的特征与构建方式，以及它们代表了何种对人性的诠释与追求。 */}
-                {/* TODO:添加中文翻译版本 */}
-
+              <p className="text-gray-100 font-sans max-w-5xl px-2 text-lg leading-relaxed mb-6 justify">
+                {i18n.language === 'zh' ? '本时间轴展示了由启蒙时代到当代5个关键文学时期的代表作品。' : 'This timeline showcases 5 representative works from the Age of Enlightenment to the contemporary era.'}
+              </p>
+              <p className="text-gray-100 font-sans max-w-6xl px-2 text-lg leading-relaxed mb-6 justify">
+                {i18n.language === 'zh' ? '您可以阅览各作品叙事权威的特征与构建方式，了解它们代表了何种对人性的诠释与追求。' : 'You can see the characteristics and construction of narrative authority of each work, as well as what interpretation and exploration of human nature they represent.'}
               </p>
             </div>
           </section>

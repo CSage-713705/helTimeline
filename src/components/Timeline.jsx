@@ -10,6 +10,8 @@ import React, {
 import { TIMELINE_DATA, CATEGORIES, CATEGORY_NAMES } from "../data/timelineData";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import RobinsonCrusoeParatext from '../assets/1_paratext.png';
+import FridayRobinsonImage from '../assets/2_FridayRobinson.webp';
 
 const MIN_CARD_WIDTH = 300; // 增加最小卡片宽度
 const ROW_GAP = 10;
@@ -157,7 +159,10 @@ const CardsView = React.memo(function CardsView({
     };
 
     const updateSpinePosition = (scrollY) => {
-      if (!currentEvent) return;
+      if (!currentEvent) {
+        setBackgroundProgress(0); // 确保即使没有currentEvent也有默认值
+        return;
+      }
 
       const currentDate = new Date(
         currentEvent.start_date.year,
@@ -168,7 +173,12 @@ const CardsView = React.memo(function CardsView({
       const endDate = new Date(2025, 11, 31);
       const totalDays = (endDate - startDate) / (1000 * 60 * 60 * 24);
       const daysPassed = (currentDate - startDate) / (1000 * 60 * 60 * 24);
-      const progress = daysPassed / totalDays;
+      
+      // 添加安全检查，确保progress是有效的数字
+      let progress = daysPassed / totalDays;
+      if (isNaN(progress)) {
+        progress = 0;
+      }
 
       const viewportHeight = window.innerHeight;
       const spineHeight = 1200;
@@ -341,11 +351,56 @@ const CardsView = React.memo(function CardsView({
                 <div className="text-xs font-sans mt-1 text-white/40">
                   {CATEGORY_NAMES[i18n.language === "zh" ? "Chinese" : "English"][event.category]}
                 </div>
-                <div
-                  className="text-white/80 text-base leading-relaxed mt-3"
-                  // Use localized text
-                  dangerouslySetInnerHTML={{ __html: localizedContent.text }}
-                />
+                <div className="text-white/80 text-base leading-relaxed mt-3">
+                  {(() => {
+                    // 为Robinson Crusoe的子板块添加图片和注释（仅在卡片视图中显示）
+                    if (event.start_date.year === "1719" && event.text.headline.includes("Robinson Crusoe")) {
+                      // 手动构建卡片视图的内容，包含两张图片
+                      return (
+                        <div className="literary-analysis">
+                          <div className="analysis-section">
+                            {/* 第一个子卡片留空 */}
+                          </div>
+                          <div className="analysis-section">
+                            <h4>{i18n.language === "zh" ? "叙事权威的垄断" : "Monopoly of Narrative Authority"}</h4>
+                            <ul>
+                              <li>{i18n.language === "zh" ? "纪实写作手法" : "Documentary writing style"}</li>
+                              <li>{i18n.language === "zh" ? '"虚构作者"：副文本' : '"Authorship" created by paratexts'}</li>
+                            </ul>
+                            <div className="mt-4 w-full">
+                              <img 
+                                src={RobinsonCrusoeParatext} 
+                                alt="Robinson Crusoe Paratext" 
+                                className="w-full rounded-md shadow-lg" 
+                              />
+                              <div className="text-center mt-2 text-sm text-white/50">
+                                {i18n.language === 'zh' ? '此处添加注释' : 'here for citation'}
+                              </div>
+                            </div>
+                          </div>
+                          <div className="analysis-section">
+                            <h4>{i18n.language === "zh" ? "将人类定义为理性个体" : "Define Human as Rational Individual"}</h4>
+                            <ul>
+                              <li>{i18n.language === "zh" ? "对外部世界的改造和征服" : "Transformation and conquest of the external world"}</li>
+                              <li>{i18n.language === "zh" ? '作为理性主体的"经济人"' : '"Economic man" as a rational subject'}</li>
+                            </ul>
+                            <div className="mt-4 w-full">
+                              <img 
+                                src={FridayRobinsonImage} 
+                                alt="Friday and Robinson" 
+                                className="w-full rounded-md shadow-lg" 
+                              />
+                              <div className="text-center mt-2 text-sm text-white/50">
+                                Friday and Robinson Crusoe, lithograph by Currier & Ives, c. 1874.
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    }
+                    return <div dangerouslySetInnerHTML={{ __html: localizedContent.text }} />;
+                  })()}
+                </div>
               </div>
             );
           })}
