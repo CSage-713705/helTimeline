@@ -624,8 +624,122 @@ const EventCard = React.memo(function EventCard({
                       // 进一步减少顶部内边距，使子卡片上移至与年份时代之间只相隔一行
                       paddingTop: '0px'
                     }}
-                    dangerouslySetInnerHTML={{ __html: localizedContent.text }}
-                  />
+                  >
+                    {/* 特殊处理文学分析卡片，使用i18n翻译 */}
+                    {localizedContent.headline.includes('Robinson Crusoe') ? (
+                      <div className="literary-analysis">
+                        <div className="analysis-section">
+                          {/* 第一个子卡片留空 */}
+                        </div>
+                        <div className="analysis-section">
+                          <h4>{t('cards.robinsonCrusoe.section2.title')}</h4>
+                          <ul>
+                            {t('cards.robinsonCrusoe.section2.points', { returnObjects: true }).map((point, i) => (
+                              <li key={i}>{point}</li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div className="analysis-section">
+                          <h4>{t('cards.robinsonCrusoe.section3.title')}</h4>
+                          <ul>
+                            {t('cards.robinsonCrusoe.section3.points', { returnObjects: true }).map((point, i) => (
+                              <li key={i}>{point}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    ) : localizedContent.headline.includes('Oliver Twist') ? (
+                      <div className="literary-analysis">
+                        <div className="analysis-section">
+                          {/* 第一个子卡片留空 */}
+                        </div>
+                        <div className="analysis-section">
+                          <h4>{t('cards.oliverTwist.section2.title')}</h4>
+                          <ul>
+                            {t('cards.oliverTwist.section2.points', { returnObjects: true }).map((point, i) => (
+                              <li key={i}>{point}</li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div className="analysis-section">
+                          <h4>{t('cards.oliverTwist.section3.title')}</h4>
+                          <ul>
+                            {t('cards.oliverTwist.section3.points', { returnObjects: true }).map((point, i) => (
+                              <li key={i}>{point}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    ) : localizedContent.headline.includes('Mrs Dalloway') ? (
+                      <div className="literary-analysis">
+                        <div className="analysis-section">
+                          {/* 第一个子卡片留空 */}
+                        </div>
+                        <div className="analysis-section">
+                          <h4>{t('cards.mrsDalloway.section2.title')}</h4>
+                          <ul>
+                            {t('cards.mrsDalloway.section2.points', { returnObjects: true }).map((point, i) => (
+                              <li key={i}>{point}</li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div className="analysis-section">
+                          <h4>{t('cards.mrsDalloway.section3.title')}</h4>
+                          <ul>
+                            {t('cards.mrsDalloway.section3.points', { returnObjects: true }).map((point, i) => (
+                              <li key={i}>{point}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    ) : localizedContent.headline.includes('Lord of the Flies') ? (
+                      <div className="literary-analysis">
+                        <div className="analysis-section">
+                          {/* 第一个子卡片留空 */}
+                        </div>
+                        <div className="analysis-section">
+                          <h4>{t('cards.lordOfTheFlies.section2.title')}</h4>
+                          <ul>
+                            {t('cards.lordOfTheFlies.section2.points', { returnObjects: true }).map((point, i) => (
+                              <li key={i}>{point}</li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div className="analysis-section">
+                          <h4>{t('cards.lordOfTheFlies.section3.title')}</h4>
+                          <ul>
+                            {t('cards.lordOfTheFlies.section3.points', { returnObjects: true }).map((point, i) => (
+                              <li key={i}>{point}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    ) : localizedContent.headline.includes('Klara and the Sun') ? (
+                      <div className="literary-analysis">
+                        <div className="analysis-section">
+                          {/* 第一个子卡片留空 */}
+                        </div>
+                        <div className="analysis-section">
+                          <h4>{t('cards.klaraAndTheSun.section2.title')}</h4>
+                          <ul>
+                            {t('cards.klaraAndTheSun.section2.points', { returnObjects: true }).map((point, i) => (
+                              <li key={i}>{point}</li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div className="analysis-section">
+                          <h4>{t('cards.klaraAndTheSun.section3.title')}</h4>
+                          <ul>
+                            {t('cards.klaraAndTheSun.section3.points', { returnObjects: true }).map((point, i) => (
+                              <li key={i}>{point}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    ) : (
+                      <div dangerouslySetInnerHTML={{ __html: localizedContent.text }} />
+                    )}
+                  </div>
                 </div>
                 
                 {/* 顶部淡入淡出效果 - 确保在滚动时作品标题不会突然出现 */}
@@ -1161,7 +1275,7 @@ export default function Timeline() {
                                         hover:bg-white/30
                                     `}
                 >
-                  {categoryKey}
+                  {t(`periods.${categoryKey}`)}
                 </button>
               ))}
             </div>

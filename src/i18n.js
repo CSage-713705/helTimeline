@@ -10,12 +10,107 @@ const resources = {
       zoomIn: "Zoom In",
       zoom: "Zoom: {{value}}px/decade",
       footer: {
-        createdBy: "© {{year}} 英国近现代文学'叙事权威'演变分析. Created by",
+        createdBy: "© {{year}} . Source code created by",
         and: "and",
         contributors: "Open-source contributors:",
       },
       loading: "Loading timeline...",
-    },
+      periods: {
+        Enlightenment: "Enlightenment",
+        Victorian: "Victorian",
+        Modernism: "Modernism",
+        Postwar: "Postwar",
+        Contemporary: "Contemporary"
+      },
+      cards: {
+      robinsonCrusoe: {
+        section2: {
+          title: "Monopoly of Narrative Authority",
+          points: [
+            "Documentary writing style",
+            "\"Authorship\": pages & frontispieces"
+          ]
+        },
+        section3: {
+          title: "Human as Rational Individual",
+          points: [
+            "Transformation and conquest of the external world",
+            "Define \"economic man\" as a rational subject"
+          ]
+        }
+      },
+      oliverTwist: {
+        section2: {
+          title: "Critical Focus on Narrative Authority",
+          points: [
+            "Social reality and historical background",
+            "Typical characters",
+            "Omniscient perspective"
+          ]
+        },
+        section3: {
+          title: "Human Examining Society",
+          points: [
+            "Social structure, class and institutions in industrial age",
+            "Remolding of human morality and destiny"
+          ]
+        }
+      },
+      mrsDalloway: {
+        section2: {
+          title: "Internalization and Dispersion of Narrative Authority",
+          points: [
+            "Stream of consciousness",
+            "Internal reality",
+            "Multiple focalization"
+          ]
+        },
+        section3: {
+          title: "Human as Discoverer of Psychology",
+          points: [
+            "Focus shifts to the inner world",
+            "Consciousness flow, memory and trauma",
+            "Deepening cognition of complex human nature"
+          ]
+        }
+      },
+      lordOfTheFlies: {
+        section2: {
+          title: "Philosophical Migration of Narrative Authority",
+          points: [
+            "Thought experiment",
+            "Allegorical structure",
+            "Sacred tragedy"
+          ]
+        },
+        section3: {
+          title: "The Human Facing Evil",
+          points: [
+            "Stripping away society to question human nature",
+            "Subversion of the Enlightenment \"rational man\"",
+            "Inherent darkness and evil in human nature"
+          ]
+        }
+      },
+      klaraAndTheSun: {
+        section2: {
+          title: "Diffusion of Narrative Authority",
+          points: [
+            "Post-human perspective",
+            "Technological explosion and values crisis"
+          ]
+        },
+        section3: {
+          title: "The Human Returning to Self",
+          points: [
+            "Narrative authority granted to non-human intelligence",
+            "Love and hope facing ultimate challenge",
+            "Through non-human perspective: What is irreplaceable humanity?"
+          ]
+        }
+      }
+    }
+    }
   },
   zh: {
     translation: {
@@ -25,28 +120,108 @@ const resources = {
       zoomIn: "放大",
       zoom: "缩放：{{value}}px/十年",
       footer: {
-        createdBy: "© {{year}} 英国近现代文学'叙事权威'演变分析。由",
+        createdBy: "© {{year}} 源代码由",
         and: "和",
         contributors: "开源贡献者：",
       },
       loading: "正在加载时间轴...",
-    },
-  },
-  es: {
-    translation: {
-      switchToCards: "Cambiar a Tarjetas",
-      switchToTimeline: "Cambiar a Línea de Tiempo",
-      zoomOut: "Alejar",
-      zoomIn: "Acercar",
-      zoom: "Zoom: {{value}}px/década",
-      footer: {
-        createdBy: "© {{year}} 英国近现代文学'叙事权威'演变分析. Creado por",
-        and: "y",
-        contributors: "Colaboradores de código abierto:",
+      periods: {
+        Enlightenment: "启蒙时代",
+        Victorian: "维多利亚时代",
+        Modernism: "现代主义",
+        Postwar: "战后文学",
+        Contemporary: "当代文学"
       },
-      loading: "Cargando línea de tiempo...",
-    },
-  },
+      cards: {
+      robinsonCrusoe: {
+        section2: {
+          title: "叙事权威的垄断",
+          points: [
+            "纪实写作手法",
+            "\"虚构作者\"：扉页装帧"
+          ]
+        },
+        section3: {
+          title: "定义理性的人",
+          points: [
+            "重塑与征服外在世界",
+            "作为理性主体的\"经济人\""
+          ]
+        }
+      },
+      oliverTwist: {
+        section2: {
+          title: "叙事权威的批判性集中",
+          points: [
+            "社会写实与历史背景",
+            "典型人物",
+            "全知视角"
+          ]
+        },
+        section3: {
+          title: "审视社会的人",
+          points: [
+            "工业时代的社会结构、阶级和制度",
+            "人类道德和命运的重塑"
+          ]
+        }
+      },
+      mrsDalloway: {
+        section2: {
+          title: "叙事权威的内化与分散",
+          points: [
+            "意识流",
+            "内在真实",
+            "多重聚焦"
+          ]
+        },
+        section3: {
+          title: "发现心理的人",
+          points: [
+            "探讨焦点转向内在世界",
+            "人的意识流动、记忆与创伤",
+            "深化复杂人性的认知"
+          ]
+        }
+      },
+      lordOfTheFlies: {
+        section2: {
+          title: "叙事权威的哲学化迁移",
+          points: [
+            "思想实验",
+            "寓言结构",
+            "神圣悲剧"
+          ]
+        },
+        section3: {
+          title: "直面罪恶的人",
+          points: [
+            "剥离社会，直接质问人的本性",
+            "对启蒙时代\"理性人\"的颠覆",
+            "人性固有的黑暗与邪恶"
+          ]
+        }
+      },
+      klaraAndTheSun: {
+        section2: {
+          title: "叙事权威的扩散",
+          points: [
+            "后人类视角",
+            "科技爆发与价值观危机"
+          ]
+        },
+        section3: {
+          title: "回归自我的人",
+          points: [
+            "叙事权威赋予非人智能体",
+            "爱与希望的独特性面临终极挑战",
+            "通过非人视角反向质询：何为不可替代的人性？"
+          ]
+        }
+      }
+    }
+    }
+  }
 };
 i18n
   .use(initReactI18next) // Integrates with React
