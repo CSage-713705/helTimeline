@@ -4,8 +4,8 @@
 export const CATEGORIES = {
   ENLIGHTENMENT: "Enlightenment",
   VICTORIAN: "Victorian",
-  MODERNISM: "Modernism",
-  POSTWAR: "Postwar",
+  MODERNISM: "Post-WW1",//  modernism 修改为更准确时期
+  POSTWAR: "Post-WW2", // postwar 修改为更准确时期
   CONTEMPORARY: "Contemporary",
 };
 
@@ -14,15 +14,15 @@ export const CATEGORY_NAMES = {
   English: {
     [CATEGORIES.ENLIGHTENMENT]: "Enlightenment",
     [CATEGORIES.VICTORIAN]: "Victorian",
-    [CATEGORIES.MODERNISM]: "Modernism",
-    [CATEGORIES.POSTWAR]: "Postwar",
+    [CATEGORIES.MODERNISM]: "Post-WW1",//  modernism 修改为更准确时期
+    [CATEGORIES.POSTWAR]: "Post-WW2", // postwar 修改为更准确时期
     [CATEGORIES.CONTEMPORARY]: "Contemporary",
   },
   Chinese: {
     [CATEGORIES.ENLIGHTENMENT]: "启蒙时代",
     [CATEGORIES.VICTORIAN]: "维多利亚时代",
-    [CATEGORIES.MODERNISM]: "现代主义",
-    [CATEGORIES.POSTWAR]: "二战后",
+    [CATEGORIES.MODERNISM]: "一战后", //  modernism 修改为更准确时期
+    [CATEGORIES.POSTWAR]: "二战后", // postwar 修改为更准确时期
     [CATEGORIES.CONTEMPORARY]: "当代",
   }
 };
