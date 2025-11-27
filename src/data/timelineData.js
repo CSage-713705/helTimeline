@@ -4,8 +4,8 @@
 export const CATEGORIES = {
   ENLIGHTENMENT: "Enlightenment",
   VICTORIAN: "Victorian",
-  MODERNISM: "Post-WW1",//  modernism 修改为更准确时期
-  POSTWAR: "Post-WW2", // postwar 修改为更准确时期
+  POST_WW1: "Post-WW1",
+  POST_WW2: "Post-WW2",
   CONTEMPORARY: "Contemporary",
 };
 
@@ -14,15 +14,15 @@ export const CATEGORY_NAMES = {
   English: {
     [CATEGORIES.ENLIGHTENMENT]: "Enlightenment",
     [CATEGORIES.VICTORIAN]: "Victorian",
-    [CATEGORIES.MODERNISM]: "Post-WW1",//  modernism 修改为更准确时期
-    [CATEGORIES.POSTWAR]: "Post-WW2", // postwar 修改为更准确时期
+    [CATEGORIES.POST_WW1]: "Post-WW1",
+    [CATEGORIES.POST_WW2]: "Post-WW2",
     [CATEGORIES.CONTEMPORARY]: "Contemporary",
   },
   Chinese: {
     [CATEGORIES.ENLIGHTENMENT]: "启蒙时代",
     [CATEGORIES.VICTORIAN]: "维多利亚时代",
-    [CATEGORIES.MODERNISM]: "一战后", //  modernism 修改为更准确时期
-    [CATEGORIES.POSTWAR]: "二战后", // postwar 修改为更准确时期
+    [CATEGORIES.POST_WW1]: "一战后",
+    [CATEGORIES.POST_WW2]: "二战后",
     [CATEGORIES.CONTEMPORARY]: "当代",
   }
 };
@@ -196,7 +196,7 @@ export const TIMELINE_DATA = {
         `,
       },
       importance: 3,
-      category: CATEGORIES.MODERNISM,
+      category: CATEGORIES.POST_WW1,
     },
     {
       start_date: { year: "1954"},
@@ -253,7 +253,7 @@ export const TIMELINE_DATA = {
         `,
       },
       importance: 3,
-      category: CATEGORIES.POSTWAR,
+      category: CATEGORIES.POST_WW2,
     },
     {
       start_date: { year: "2021"},

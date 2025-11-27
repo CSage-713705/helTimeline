@@ -474,7 +474,7 @@ const CardsView = React.memo(function CardsView({
                                 className="w-full rounded-md shadow-lg mx-auto" 
                               />
                               <div className="text-center mt-2 text-sm text-white/50">
-                                {/* TODO：找个图 */}
+                                {/* TODO：注释 */} here for citation
                               </div>
                             </div>
                           </div>
@@ -493,7 +493,7 @@ const CardsView = React.memo(function CardsView({
                                 className="w-full rounded-md shadow-lg mx-auto" 
                               />
                               <div className="text-center mt-2 text-sm text-white/50">
-                                {/* TODO：找个图 */}
+                                {/* TODO：找个图 */} here for citation
                               </div>
                             </div>
                           </div>
@@ -523,7 +523,7 @@ const CardsView = React.memo(function CardsView({
                                 className="w-full rounded-md shadow-lg mx-auto" 
                               />
                               <div className="text-center mt-2 text-sm text-white/50">
-                                {/* TODO：找个图 */}
+                                {/* TODO：citation */} here for citation
                               </div>
                             </div>
                           </div>
@@ -542,7 +542,7 @@ const CardsView = React.memo(function CardsView({
                                 className="w-full rounded-md shadow-lg mx-auto" 
                               />
                               <div className="text-center mt-2 text-sm text-white/50">
-                                {/* TODO：找个图 */}
+                                {/* TODO：citation */} here for citation
                               </div>
                             </div>
                           </div>
@@ -571,7 +571,7 @@ const CardsView = React.memo(function CardsView({
                                 className="w-full rounded-md shadow-lg mx-auto" 
                               />
                               <div className="text-center mt-2 text-sm text-white/50">
-                                {/* TODO：找个图 */}
+                                {/* TODO：citation */} here for citation
                               </div>
                             </div>
                           </div>
@@ -590,7 +590,7 @@ const CardsView = React.memo(function CardsView({
                                 className="w-full rounded-md shadow-lg mx-auto" 
                               />
                               <div className="text-center mt-2 text-sm text-white/50">
-                                {/* TODO：找个图 */}
+                                {/* TODO：citation */} here for citation
                               </div>
                             </div>
                           </div>
@@ -1219,8 +1219,8 @@ export default function Timeline() {
     const categoryOrder = {
       [CATEGORIES.ENLIGHTENMENT]: 1,
       [CATEGORIES.VICTORIAN]: 2,
-      [CATEGORIES.MODERNISM]: 3,
-      [CATEGORIES.POSTWAR]: 4,
+      [CATEGORIES.POST_WW1]: 3,
+      [CATEGORIES.POST_WW2]: 4,
       [CATEGORIES.CONTEMPORARY]: 5
     };
 

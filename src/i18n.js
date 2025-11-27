@@ -18,8 +18,8 @@ const resources = {
       periods: {
         Enlightenment: "Enlightenment",
         Victorian: "Victorian",
-        Modernism: "Post-WW1", //  modernism 修改为更准确时期
-        Postwar: "Post-WW2", //  postwar 修改为更准确时期
+        "Post-WW1": "Post-WW1",
+        "Post-WW2": "Post-WW2",
         Contemporary: "Contemporary"
       },
       cards: {
@@ -128,8 +128,8 @@ const resources = {
       periods: {
         Enlightenment: "启蒙时代",
         Victorian: "维多利亚时代",
-        Modernism: "一战后",  // 现代主义修改为更准确时期
-        Postwar: "二战后",
+        "Post-WW1": "一战后",
+        "Post-WW2": "二战后",
         Contemporary: "当代"
       },
       cards: {
