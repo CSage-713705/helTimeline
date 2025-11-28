@@ -379,7 +379,7 @@ const CardsView = React.memo(function CardsView({
                               </div>
                             </div>
                           </div>
-                          <div className="analysis-section">
+                          {/* <div className="analysis-section">
                             <h4>{i18n.language === "zh" ? "将人类定义为理性个体" : "Define Human as Rational Individual"}</h4>
                             <ul>
                               <li>{i18n.language === "zh" ? "对外部世界的改造和征服" : "Transformation and conquest of the external world"}</li>
@@ -396,7 +396,7 @@ const CardsView = React.memo(function CardsView({
                                 lithograph by Currier & Ives, c. 1874.
                               </div>
                             </div>
-                          </div>
+                          </div> */}
                         </div>
                       );
                     }
@@ -428,7 +428,7 @@ const CardsView = React.memo(function CardsView({
                               </div>
                             </div>
                           </div>
-                          <div className="analysis-section">
+                          {/* <div className="analysis-section">
                             <h4>{i18n.language === "zh" ? "审视社会的人" : "Examine Human as Social Elements"}</h4>
                             <ul>
                               <li>{i18n.language === "zh" ? "工业时代的社会结构、阶级和制度" : "Social structure, class and system in industrial age"}</li>
@@ -441,13 +441,12 @@ const CardsView = React.memo(function CardsView({
                                 className="w-full rounded-md shadow-lg mx-auto" 
                               />
                               <div className="text-center mt-2 text-sm text-white/50">
-                                {/* TODO：换行处理 */}
-                                {/* TODO：引用格式 */}
+                                
                                 The Victorians rise to power of Great Britain.
                                 https://www.historic-uk.com/HistoryUK/HistoryofBritain/Victorian-Workhouse/
                               </div>
                             </div>
-                          </div>
+                          </div> */}
                         </div>
                       );
                     }
@@ -478,7 +477,7 @@ const CardsView = React.memo(function CardsView({
                               </div>
                             </div>
                           </div>
-                          <div className="analysis-section">
+                          {/* <div className="analysis-section">
                             <h4>{i18n.language === "zh" ? "审视社会的人" : "Discover Human as Psychological Being"}</h4>
                             <ul>
                               <li>{i18n.language === "zh" ? "探讨焦点转向内在世界" : "Focus shifts to the inner world"}</li>
@@ -493,10 +492,10 @@ const CardsView = React.memo(function CardsView({
                                 className="w-full rounded-md shadow-lg mx-auto" 
                               />
                               <div className="text-center mt-2 text-sm text-white/50">
-                                {/* TODO：找个图 */} here for citation
+                                 here for citation
                               </div>
                             </div>
-                          </div>
+                          </div> */}
                         </div>
                       );
                     }
@@ -527,7 +526,7 @@ const CardsView = React.memo(function CardsView({
                               </div>
                             </div>
                           </div>
-                          <div className="analysis-section">
+                          {/* <div className="analysis-section">
                             <h4>{i18n.language === "zh" ? "直面罪恶的人" : "Confront Human as Sinful Creature"}</h4>
                             <ul>
                               <li>{i18n.language === "zh" ? "剥离社会，直接质问人的本性" : "Strip away the cloak of society to question human nature"}</li>
@@ -542,10 +541,10 @@ const CardsView = React.memo(function CardsView({
                                 className="w-full rounded-md shadow-lg mx-auto" 
                               />
                               <div className="text-center mt-2 text-sm text-white/50">
-                                {/* TODO：citation */} here for citation
+                                here for citation
                               </div>
                             </div>
-                          </div>
+                          </div> */}
                         </div>
                       );
                     }
@@ -575,7 +574,7 @@ const CardsView = React.memo(function CardsView({
                               </div>
                             </div>
                           </div>
-                          <div className="analysis-section">
+                          {/* <div className="analysis-section">
                             <h4>{i18n.language === "zh" ? "回归自我的人" : "Confront Human as Sinful Creature"}</h4>
                             <ul>
                               <li>{i18n.language === "zh" ? "叙事权威赋予非人智能体" : "Non-human agents as the owner of narrative authority"}</li>
@@ -590,10 +589,10 @@ const CardsView = React.memo(function CardsView({
                                 className="w-full rounded-md shadow-lg mx-auto" 
                               />
                               <div className="text-center mt-2 text-sm text-white/50">
-                                {/* TODO：citation */} here for citation
+                                here for citation
                               </div>
                             </div>
-                          </div>
+                          </div> */}
                         </div>
                       );
                     }
@@ -888,6 +887,7 @@ const EventCard = React.memo(function EventCard({
                             ))}
                           </ul>
                         </div>
+                        {/* 注释掉第三个子卡片
                         <div className="analysis-section">
                           <h4>{t('cards.robinsonCrusoe.section3.title')}</h4>
                           <ul>
@@ -896,6 +896,7 @@ const EventCard = React.memo(function EventCard({
                             ))}
                           </ul>
                         </div>
+                        */}
                       </div>
                     ) : localizedContent.headline.includes('Oliver Twist') ? (
                       <div className="literary-analysis">
@@ -910,6 +911,7 @@ const EventCard = React.memo(function EventCard({
                             ))}
                           </ul>
                         </div>
+                        {/* 注释掉第三个子卡片
                         <div className="analysis-section">
                           <h4>{t('cards.oliverTwist.section3.title')}</h4>
                           <ul>
@@ -918,6 +920,7 @@ const EventCard = React.memo(function EventCard({
                             ))}
                           </ul>
                         </div>
+                        */}
                       </div>
                     ) : localizedContent.headline.includes('Mrs Dalloway') ? (
                       <div className="literary-analysis">
@@ -932,6 +935,7 @@ const EventCard = React.memo(function EventCard({
                             ))}
                           </ul>
                         </div>
+                        {/* 注释掉第三个子卡片
                         <div className="analysis-section">
                           <h4>{t('cards.mrsDalloway.section3.title')}</h4>
                           <ul>
@@ -940,6 +944,7 @@ const EventCard = React.memo(function EventCard({
                             ))}
                           </ul>
                         </div>
+                        */}
                       </div>
                     ) : localizedContent.headline.includes('Lord of the Flies') ? (
                       <div className="literary-analysis">
@@ -954,6 +959,7 @@ const EventCard = React.memo(function EventCard({
                             ))}
                           </ul>
                         </div>
+                        {/* 注释掉第三个子卡片
                         <div className="analysis-section">
                           <h4>{t('cards.lordOfTheFlies.section3.title')}</h4>
                           <ul>
@@ -962,6 +968,7 @@ const EventCard = React.memo(function EventCard({
                             ))}
                           </ul>
                         </div>
+                        */}
                       </div>
                     ) : localizedContent.headline.includes('Klara and the Sun') ? (
                       <div className="literary-analysis">
@@ -976,6 +983,7 @@ const EventCard = React.memo(function EventCard({
                             ))}
                           </ul>
                         </div>
+                        {/* 注释掉第三个子卡片
                         <div className="analysis-section">
                           <h4>{t('cards.klaraAndTheSun.section3.title')}</h4>
                           <ul>
@@ -984,6 +992,7 @@ const EventCard = React.memo(function EventCard({
                             ))}
                           </ul>
                         </div>
+                        */}
                       </div>
                     ) : (
                       <div dangerouslySetInnerHTML={{ __html: localizedContent.text }} />
