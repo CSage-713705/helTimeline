@@ -11,9 +11,9 @@ import { TIMELINE_DATA, CATEGORIES, CATEGORY_NAMES } from "../data/timelineData"
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import RobinsonCrusoeParatext from '../assets/1_paratext.png';
-import FridayRobinsonImage from '../assets/2_FridayRobinson.webp';
+// import FridayRobinsonImage from '../assets/2_FridayRobinson.webp';
 import OliverTwist from '../assets/3_OliverTwist.webp';
-import Victorian from '../assets/4_victorian.jpg';
+// import Victorian from '../assets/4_victorian.jpg';
 
 const MIN_CARD_WIDTH = 300; // 增加最小卡片宽度
 const ROW_GAP = 10;
