@@ -18,8 +18,8 @@ const resources = {
       periods: {
         Enlightenment: "Enlightenment",
         Victorian: "Victorian",
-        "Post-WW1": "Post-WW1",
-        "Post-WW2": "Post-WW2",
+        "Post-WWI": "Post-WWI",
+        "Post-WWII": "Post-WWII",
         Contemporary: "Contemporary"
       },
       cards: {
@@ -128,8 +128,8 @@ const resources = {
       periods: {
         Enlightenment: "启蒙时代",
         Victorian: "维多利亚时代",
-        "Post-WW1": "一战后",
-        "Post-WW2": "二战后",
+        "Post-WWI": "一战后",
+        "Post-WWII": "二战后",
         Contemporary: "当代"
       },
       cards: {

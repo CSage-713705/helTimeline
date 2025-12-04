@@ -1228,8 +1228,8 @@ export default function Timeline() {
     const categoryOrder = {
       [CATEGORIES.ENLIGHTENMENT]: 1,
       [CATEGORIES.VICTORIAN]: 2,
-      [CATEGORIES.POST_WW1]: 3,
-      [CATEGORIES.POST_WW2]: 4,
+      [CATEGORIES.POST_WWI]: 3,
+      [CATEGORIES.POST_WWII]: 4,
       [CATEGORIES.CONTEMPORARY]: 5
     };
 
