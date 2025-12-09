@@ -25,7 +25,7 @@ const resources = {
       cards: {
       robinsonCrusoe: {
         section2: {
-          title: "Monopoly of Narrative Authority",
+          title: "Paratext and Author's Manipulation",
           points: [
             "Documentary writing style",
             "\"Authorship\" created by paratexts"
@@ -41,7 +41,7 @@ const resources = {
       },
       oliverTwist: {
         section2: {
-          title: "Critical Concentration of Narrative Authority",
+          title: "Illustrations Bringing Realism",
           points: [
             "Social realism and historical background",
             "Typical characters",
@@ -58,8 +58,9 @@ const resources = {
       },
       mrsDalloway: {
         section2: {
-          title: "Internalization and Dispersion of Narrative Authority",
+          title: "Author Participation in Publication",
           points: [
+            "Author's own thoughts and ideas for real presentation:",
             "Stream of consciousness",
             "Internal reality",
             "Multiple focalization"
@@ -76,8 +77,9 @@ const resources = {
       },
       lordOfTheFlies: {
         section2: {
-          title: "Philosophical Transfer of Narrative Authority",
+          title: "Author and Recreation of Film",
           points: [
+            "The author Golding liked his simplified treatment of the original work, believing that the film placed too much emphasis on the nature of the allegory",
             "Allegorical structure",
             "Thought experiment",
             "Divine tragedy"
@@ -94,10 +96,11 @@ const resources = {
       },
       klaraAndTheSun: {
         section2: {
-          title: "Diffusion of Narrative Authority",
+          title: "Digital Reading for Revolutionary Change",
           points: [
-            "Post-human perspective",
-            "Technological explosion and values crisis"
+            "Highly flexible page design: Mimic AI's perception",
+            "Public forum discussions: Readers participating in theme interpretation",
+            "A meta-text ecological system: How modern technology shapes the life?"
           ]
         },
         section3: {

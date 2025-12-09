@@ -43,7 +43,7 @@ export const TIMELINE_DATA = {
               <!-- 第一个子卡片留空 -->
             </div>
             <div class="analysis-section">
-              <h4>Monopoly of Narrative Authority</h4>
+              <h4>Paratext and Author's Manipulation</h4>
               <ul>
                 <li>Documentary writing style</li>
                 <li>\"Authorship\" created by paratexts</li>
@@ -96,7 +96,7 @@ export const TIMELINE_DATA = {
               <!-- 第一个子卡片留空 -->
             </div>
             <div class="analysis-section">
-              <h4>Critical Concentration of Narrative Authority</h4>
+              <h4></h4>
               <ul>
                 <li>Social realism and historical background</li>
                 <li>Typical character</li>
@@ -208,8 +208,9 @@ export const TIMELINE_DATA = {
               <!-- 第一个子卡片留空 -->
             </div>
             <div class="analysis-section">
-              <h4>Philosophical Transfer of Narrative Authority</h4>
+              <h4>Author and Recreation of Film</h4>
               <ul>
+                <li>Golding liked his simplified treatment of the original work, believing that the film placed too much emphasis on the nature of the allegory</li>
                 <li>Allegorical structure</li>
                 <li>Thought experiment</li>
                 <li>Divine tragedy</li>
@@ -265,10 +266,11 @@ export const TIMELINE_DATA = {
               <!-- 第一个子卡片留空 -->
             </div>
             <div class="analysis-section">
-              <h4>Diffusion of Narrative Authority</h4>
+              <h4>Digital Reading for Revolutionary Change</h4>
               <ul>
-                <li>Post-human perspective</li>
-                <li>Technical explosion and value crisis</li>
+                <li>Highly flexible page design: Mimic AI's perception</li>
+                <li>Public forum discussions: Readers participating in theme interpretation</li>
+                <li>A meta-text ecological system: How modern technology shapes the life?</li>
               </ul>
             </div>
             <div class="analysis-section">

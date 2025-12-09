@@ -14,6 +14,10 @@ import RobinsonCrusoeParatext from '../assets/1_paratext.png';
 // import FridayRobinsonImage from '../assets/2_FridayRobinson.webp';
 import OliverTwist from '../assets/3_OliverTwist.webp';
 // import Victorian from '../assets/4_victorian.jpg';
+import MrsDalloway from '../assets/5_MrsDalloway.png';
+import LordOfTheFlies from '../assets/6_LordoftheFlies.png';
+import DigitalReading from '../assets/7_DigitalReading.png';
+
 
 const MIN_CARD_WIDTH = 300; // 增加最小卡片宽度
 const ROW_GAP = 10;
@@ -362,7 +366,7 @@ const CardsView = React.memo(function CardsView({
                             {/* 第一个子卡片留空 */}
                           </div>
                           <div className="analysis-section">
-                            <h4>{i18n.language === "zh" ? "叙事权威的垄断" : "Monopoly of Narrative Authority"}</h4>
+                            <h4>{i18n.language === "zh" ? "副文本与和作者操控的真实" : "Paratext and Author's Manipulation"}</h4>
                             <ul>
                               <li>{i18n.language === "zh" ? "纪实写作手法" : "Documentary writing style"}</li>
                               <li>{i18n.language === "zh" ? '"虚构作者"：副文本' : '"Authorship" created by paratexts'}</li>
@@ -409,7 +413,7 @@ const CardsView = React.memo(function CardsView({
                             {/* 第一个子卡片留空 */}
                           </div>
                           <div className="analysis-section">
-                            <h4>{i18n.language === "zh" ? "叙事权威的批判性集中" : "Critical Concentration of Narrative Authority"}</h4>
+                            <h4>{i18n.language === "zh" ? "插图与故事现实感" : "Illustrations Bringing Realism"}</h4>
                             <ul>
                               <li>{i18n.language === "zh" ? "社会写实与历史背景" : "Social realism and historical background"}</li>
                               <li>{i18n.language === "zh" ? "典型人物" : "Typical character"}</li>
@@ -459,7 +463,7 @@ const CardsView = React.memo(function CardsView({
                             {/* 第一个子卡片留空 */}
                           </div>
                           <div className="analysis-section">
-                            <h4>{i18n.language === "zh" ? "叙事权威的批判性集中" : "Internalization and Dispersion of Narrative Authority"}</h4>
+                            <h4>{i18n.language === "zh" ? "作者参与出版" : "Author Participation in Publication"}</h4>
                             <ul>
                               <li>{i18n.language === "zh" ? "意识流" : "Stream of consciousness"}</li>
                               <li>{i18n.language === "zh" ? "内在现实" : "Internal reality"}</li>
@@ -468,8 +472,8 @@ const CardsView = React.memo(function CardsView({
                             <div className="mt-4 w-full">
                               {/* TODO：不是这个图 */}
                               <img 
-                                src={OliverTwist} 
-                                alt="Oliver Twist" 
+                                src={MrsDalloway} 
+                                alt="Mrs Dalloway" 
                                 className="w-full rounded-md shadow-lg mx-auto" 
                               />
                               <div className="text-center mt-2 text-sm text-white/50">
@@ -508,17 +512,18 @@ const CardsView = React.memo(function CardsView({
                             {/* 第一个子卡片留空 */}
                           </div>
                           <div className="analysis-section">
-                            <h4>{i18n.language === "zh" ? "叙事权威的哲学化迁移" : "Philosophical Transfer of Narrative Authority"}</h4>
+                            <h4>{i18n.language === "zh" ? "作者原著和电影再创作" : "Author and Recreation of Film"}</h4>
                             <ul>
+                              <li>{i18n.language === "zh" ? "Golding liked his simplified treatment of the original work, believing that the film placed too much emphasis on the nature of the allegory" : "Golding liked his simplified treatment of the original work, believing that the film placed too much emphasis on the nature of the allegory"}</li>
                               <li>{i18n.language === "zh" ? "寓言结构" : "Allegorical structure"}</li>
                               <li>{i18n.language === "zh" ? "思想实验" : "Thought experiment"}</li>
                               <li>{i18n.language === "zh" ? "神圣悲剧" : "Divine tragedy"}</li>
                             </ul>
                             <div className="mt-4 w-full">
-                              {/* TODO：不是这个图 */}
+                              {/* TODO：换成视频？ */}
                               <img 
-                                src={OliverTwist} 
-                                alt="Oliver Twist" 
+                                src={LordOfTheFlies} 
+                                alt="Lord of the Flies" 
                                 className="w-full rounded-md shadow-lg mx-auto" 
                               />
                               <div className="text-center mt-2 text-sm text-white/50">
@@ -557,16 +562,17 @@ const CardsView = React.memo(function CardsView({
                             {/* 第一个子卡片留空 */}
                           </div>
                           <div className="analysis-section">
-                            <h4>{i18n.language === "zh" ? "叙事权威的扩散" : "Diffusion of Narrative Authority"}</h4>
+                            <h4>{i18n.language === "zh" ? "数字阅读的媒体革命" : "Digital Reading for Revolutionary Change"}</h4>
                             <ul>
-                              <li>{i18n.language === "zh" ? "后人类视角" : "Post-human perspective"}</li>
-                              <li>{i18n.language === "zh" ? "科技爆发与价值观危机" : "Technical explosion and value crisis"}</li>
+                              <li>{i18n.language === "zh" ? "高度灵活的页面设计：模拟AI的感知" : "Highly flexible page design: Mimic AI's perception"}</li>
+                              <li>{i18n.language === "zh" ? "公共论坛讨论：读者参与主题解释" : "Public forum discussions: Readers participating in theme interpretation"}</li>
+                              <li>{i18n.language === "zh" ? "元文本生态：现代科技如何塑造生活？" : "A meta-text ecological system: How modern technology shapes the life?"}</li>
                             </ul>
                             <div className="mt-4 w-full">
                               {/* TODO：不是这个图 */}
                               <img 
-                                src={OliverTwist} 
-                                alt="Oliver Twist" 
+                                src={DigitalReading} 
+                                alt="Digital Reading" 
                                 className="w-full rounded-md shadow-lg mx-auto" 
                               />
                               <div className="text-center mt-2 text-sm text-white/50">
