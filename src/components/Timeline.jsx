@@ -367,10 +367,10 @@ const CardsView = React.memo(function CardsView({
                           </div>
                           <div className="analysis-section">
                             <h4>{i18n.language === "zh" ? "副文本与和作者操控的真实" : "Paratext and Author's Manipulation"}</h4>
-                            <ul>
-                              <li>{i18n.language === "zh" ? "纪实写作手法" : "Documentary writing style"}</li>
-                              <li>{i18n.language === "zh" ? '"虚构作者"：副文本' : '"Authorship" created by paratexts'}</li>
-                            </ul>
+                            <div className="ml-4">
+                              <p className="mb-4">Daniel Defoe skillfully uses <strong>subtexts</strong> (such as the statement "written by him himself" on the title page, the editor's note in the preface) to construct <strong>a documentary impression</strong> that packages the fictional adventure into a real historical record.</p>
+                              <p>This <strong>manipulation of authorship</strong> blurs the boundaries between novel and documentary, author and narrator, and thus profoundly affects the reader's understanding of the story: it gives the miracle of survival on a desert island a convincing sense of reality, and quietly disguises the ideology of personal struggle and colonial expansion as objective and natural "facts" to present to readers. Therefore, the construction of the medium itself has become an indispensable part of the meaning of the story.</p>
+                            </div>
                             <div className="mt-4 w-full">
                               <img 
                                 src={RobinsonCrusoeParatext} 
