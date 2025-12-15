@@ -40,7 +40,7 @@ export default function App() {
                 {i18n.language === 'zh' ? '本时间轴展示了由启蒙时代到当代5个关键文学时期的代表作品。' : 'This timeline showcases 5 representative works from the Age of Enlightenment to the contemporary era.'}
               </p>
               <p className="text-gray-100 font-sans max-w-6xl px-2 text-lg leading-relaxed mb-6 justify">
-                {i18n.language === 'zh' ? '您可以阅览各个作者如何参与其媒体构建，了解它们如何影响故事的诠释。' : 'You can see how each author contributed to the construction of their media, as well as how it impacted the interpretation of the story.'}
+                {i18n.language === 'zh' ? '您可以阅览各个作者如何参与其媒体构建，了解它们如何影响故事的诠释。' : 'You can see how authors actively shaped their medium of publication, and how that medium, in turn, fundamentally shaped the narrative\'s form and its interpretation.'}
               </p>
             </div>
           </section>
