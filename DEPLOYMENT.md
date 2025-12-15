@@ -5,16 +5,15 @@
 本项目已经配置好以下GitHub Pages部署所需的文件：
 
 1. **构建脚本**：package.json中包含`npm run build`脚本
-2. **CNAME文件**：包含自定义域名`ai-timeline.org`
-3. **GitHub Actions Workflow**：配置了自动部署到GitHub Pages的工作流
-4. **Vite配置**：设置了正确的base路径
+2. **GitHub Actions Workflow**：配置了自动部署到GitHub Pages的工作流
+3. **Vite配置**：设置了正确的base路径
 
 ## 部署步骤
 
 ### 1. 创建GitHub仓库
 
 1. 登录您的GitHub账号
-2. 创建一个新的仓库，名称建议为`ai-timeline`或您喜欢的名称
+2. 创建一个新的仓库，名称建议为`timeline`或您喜欢的名称
 3. 选择是否将仓库设置为公开或私有（GitHub Pages对公共仓库是免费的）
 
 ### 2. 推送代码到GitHub仓库
