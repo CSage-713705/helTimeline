@@ -10,7 +10,8 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div className="bg-white/10 text-white px-4 mx-2 py-1 rounded hover:bg-white/20 transition whitespace-nowrap backdrop-blur-[1px] cursor-pointer">
+    // 隐藏语言切换逻辑
+    <div className="hidden bg-white/10 text-white px-4 mx-2 py-1 rounded hover:bg-white/20 transition whitespace-nowrap backdrop-blur-[1px] cursor-pointer">
       <select
         value={i18n.language}
         onChange={handleLanguageChange}

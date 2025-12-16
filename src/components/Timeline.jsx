@@ -368,8 +368,8 @@ const CardsView = React.memo(function CardsView({
                           <div className="analysis-section">
                             <h4>{i18n.language === "zh" ? "副文本与和作者操控的真实" : "Paratext and Author's Manipulation"}</h4>
                             <div className="ml-4">
-                              <p className="mb-4">Daniel Defoe skillfully uses <strong>subtexts</strong> (such as the statement "written by him himself" on the title page, the editor's note in the preface) to construct <strong>a documentary impression</strong> that packages the fictional adventure into a real historical record.</p>
-                              <p>This <strong>manipulation of authorship</strong> blurs the boundaries between novel and documentary, author and narrator, and thus profoundly affects the reader's understanding of the story: it gives the miracle of survival on a desert island a convincing sense of reality, and quietly disguises the ideology of personal struggle and colonial expansion as objective and natural "facts" to present to readers. Therefore, the construction of the medium itself has become an indispensable part of the meaning of the story.</p>
+                              <li>Daniel Defoe skillfully uses <strong>subtexts</strong> (such as the statement "written by him himself" on the title page, the editor's note in the preface) to construct <strong>a documentary impression</strong> that packages the fictional adventure into a real historical record.</li>
+                              <li>This <strong>manipulation of authorship</strong> blurs the boundaries between novel and documentary, author and narrator, and thus profoundly affects the reader's understanding of the story: it gives the miracle of survival on a desert island a convincing sense of reality, and quietly disguises the ideology of personal struggle and colonial expansion as objective and natural "facts" to present to readers. Therefore, the construction of the medium itself has become an indispensable part of the meaning of the story.</li>
                             </div>
                             <div className="mt-4 w-full">
                               <img 
@@ -414,11 +414,10 @@ const CardsView = React.memo(function CardsView({
                           </div>
                           <div className="analysis-section">
                             <h4>{i18n.language === "zh" ? "插图与故事现实感" : "Illustrations Bringing Realism"}</h4>
-                            <ul>
-                              <li>{i18n.language === "zh" ? "社会写实与历史背景" : "Social realism and historical background"}</li>
-                              <li>{i18n.language === "zh" ? "典型人物" : "Typical character"}</li>
-                              <li>{i18n.language === "zh" ? "全知视角" : "Omniscient perspective"}</li>
-                            </ul>
+                            <div className="ml-4">
+                              <li>Charles Dickens closely stitches the fate of individuals with the entire <strong>social reality</strong> and <strong>historical background</strong> through a grand narrative from an <strong>omniscient perspective</strong>. This broad vision is obtained through the illustrations of painters such as George Cruikshank: the squalor of the slums and the coldness of the workhouse are intuitively presented, and <strong>typical characters</strong> such as the innocent Oliver and the cunning Fagin are also stereotyped and deeply rooted in the hearts of the readers.</li>
+                              <li>Writers and Painters are always good co-authors. Illustration in <em>Oliver Twist</em> is not a simple decoration, but serves as a visual medium that reinforces the social realism impact of the novel, transforming the class divisions and moral anxieties of Victorian London into images that can be directly "witnessed" and empathized with by the public, thus profoundly shaping the social critical interpretation of the story.</li>
+                            </div>
                             <div className="mt-4 w-full">
                               <img 
                                 src={OliverTwist} 
@@ -467,19 +466,16 @@ const CardsView = React.memo(function CardsView({
                           <div className="analysis-section">
                             <h4>{i18n.language === "zh" ? "作者参与出版" : "Author Participation in Publication"}</h4>
                             <ul>
-                              <li>{i18n.language === "zh" ? "意识流" : "Stream of consciousness"}</li>
-                              <li>{i18n.language === "zh" ? "内在现实" : "Internal reality"}</li>
-                              <li>{i18n.language === "zh" ? "多重聚焦" : "Multiple focalization"}</li>
+                              <li>In the creation and publication of Mrs. Dalloway, Virginia Woolf's <strong>deep involvement in the publishing process</strong> (from text arrangement to cover design) is an extension of authorship, ensuring that her <strong>experimental writing</strong> (e.g. stream-of-consciousness techniques, multi-focused perspective) reach the reader in the most precise form. The fragments of inner reality are a kaleidoscopic collage of a day in post-war London, focusing no longer on external events, but on the ripples of war trauma, the passage of time, and the meaning of existence in individual consciousness. The author's full control of the medium, thus became the essential condition for rendering the <strong>fragmented, psychological reality</strong> of the post-WWI world, where the true plot unfolds within the silent theater of the mind.</li>
                             </ul>
                             <div className="mt-4 w-full">
-                              {/* TODO：不是这个图 */}
                               <img 
                                 src={MrsDalloway} 
                                 alt="Mrs Dalloway" 
                                 className="w-full rounded-md shadow-lg mx-auto" 
                               />
                               <div className="text-center mt-2 text-sm text-white/50">
-                                {/* TODO：注释 */} here for citation
+                              Created by Doubao AI
                               </div>
                             </div>
                           </div>
@@ -505,7 +501,7 @@ const CardsView = React.memo(function CardsView({
                         </div>
                       );
                     }
-                    // 为Lor of the Flies的子板块添加图片和注释（仅在卡片视图中显示）
+                    // 为Lord of the Flies的子板块添加图片和注释（仅在卡片视图中显示）
                     else if (event.start_date.year === "1954" && event.text.headline.includes("Lord of the Flies")) {
                       // 手动构建卡片视图的内容，包含两张图片
                       return (
