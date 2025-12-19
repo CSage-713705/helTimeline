@@ -25,7 +25,7 @@ const resources = {
       cards: {
       robinsonCrusoe: {
         section2: {
-          title: "Paratext and Author's Manipulation",
+          title: "Paratext and Constructed Authorial Persona",
           points: [
             "Documentary writing style",
             "\"Authorship\" created by paratexts"
@@ -77,7 +77,7 @@ const resources = {
       },
       lordOfTheFlies: {
         section2: {
-          title: "Author and Recreation of Film",
+          title: "Novel and Recreation of Film",
           points: [
             "The author Golding liked his simplified treatment of the original work, believing that the film placed too much emphasis on the nature of the allegory",
             "Allegorical structure",

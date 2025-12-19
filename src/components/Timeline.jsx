@@ -179,7 +179,7 @@ const CardsView = React.memo(function CardsView({
       const endDate = new Date(2025, 11, 31);
       const totalDays = (endDate - startDate) / (1000 * 60 * 60 * 24);
       const daysPassed = (currentDate - startDate) / (1000 * 60 * 60 * 24);
-      
+
       // 添加安全检查，确保progress是有效的数字
       let progress = daysPassed / totalDays;
       if (isNaN(progress)) {
@@ -278,9 +278,9 @@ const CardsView = React.memo(function CardsView({
                     );
                     const startDate = new Date(2015, 0, 1);
                     const endDate = new Date(2025, 11, 31);
-                    const totalDays = 
+                    const totalDays =
                       (endDate - startDate) / (1000 * 60 * 60 * 24);
-                    const daysPassed = 
+                    const daysPassed =
                       (currentDate - startDate) / (1000 * 60 * 60 * 24);
                     const progress = daysPassed / totalDays;
 
@@ -296,15 +296,15 @@ const CardsView = React.memo(function CardsView({
               {(() => {
                 // Get unique years from filtered events
                 const cardYears = [...new Set(filteredEvents.map(event => event.start_date.year))];
-                
+
                 // Card spacing and positioning
                 const cardTopOffset = 60; // Adjusted value to align exactly with card tops
                 const cardGap = 8; // Match the space-y-8 class
-                
+
                 return filteredEvents.map((event, index) => {
                   // Calculate position to align with card top (considering py-12 padding)
                   const position = cardTopOffset + index * (cardGap * 16 + 20); // Adjusted spacing formula
-                  
+
                   return (
                     <div
                       key={`card-year-${index}`}
@@ -314,9 +314,8 @@ const CardsView = React.memo(function CardsView({
                         transform: "translate(-100%, -50%)",
                       }}
                     >
-                      <span className={`text-xl font-medium whitespace-nowrap transition-all duration-300 ${
-                        hoveredEventIndex === index ? 'text-white font-bold' : 'text-white/90 year-glow'
-                      }`}>
+                      <span className={`text-xl font-medium whitespace-nowrap transition-all duration-300 ${hoveredEventIndex === index ? 'text-white font-bold' : 'text-white/90 year-glow'
+                        }`}>
                         {event.start_date.year}
                       </span>
                     </div>
@@ -363,22 +362,27 @@ const CardsView = React.memo(function CardsView({
                       return (
                         <div className="literary-analysis">
                           <div className="analysis-section">
-                            {/* 第一个子卡片留空 */}
+                            <div className="text-left text-white/90 mb-4">
+                              "... All the good things of this world are no farther good to us than they are for our use."
+                            </div>
+                            <div className="text-right text-sm text-white/70">
+                              (ch. XII, "<em>I Make Myself a Canoe</em>")
+                            </div>
                           </div>
                           <div className="analysis-section">
-                            <h4>{i18n.language === "zh" ? "副文本与和作者操控的真实" : "Paratext and Author's Manipulation"}</h4>
+                            <h4>{i18n.language === "zh" ? "副文本与虚构作者" : "Paratext and Constructed Authorial Persona"}</h4>
                             <div className="ml-4">
-                              <li>Daniel Defoe skillfully uses <strong>subtexts</strong> (such as the statement "written by him himself" on the title page, the editor's note in the preface) to construct <strong>a documentary impression</strong> that packages the fictional adventure into a real historical record.</li>
-                              <li>This <strong>manipulation of authorship</strong> blurs the boundaries between novel and documentary, author and narrator, and thus profoundly affects the reader's understanding of the story: it gives the miracle of survival on a desert island a convincing sense of reality, and quietly disguises the ideology of personal struggle and colonial expansion as objective and natural "facts" to present to readers. Therefore, the construction of the medium itself has become an indispensable part of the meaning of the story.</li>
+                              <li>The <strong>paratext</strong> is cleverly used (such as the statement "written by him himself" on the title page, the editor's note in the preface) to construct a <strong>documentary writing style</strong> that packages the fictional adventure as a real historical record.</li>
+                              <li>This shaping of <strong>"constructed authorial persona"</strong> not only blurs the boundaries between fiction and documentary, author and narrator, but also profoundly affects the reader's understanding of the story: it gives the miracle of survival on a desert island a convincing sense of reality, and quietly presents <strong>the ideology of personal struggle and colonial expansion</strong> as objective and natural "facts" in front of readers. Therefore, the construction of the medium itself has become an indispensable part of the meaning of the story.</li>
                             </div>
                             <div className="mt-4 w-full">
-                              <img 
-                                src={RobinsonCrusoeParatext} 
-                                alt="Robinson Crusoe Paratext" 
-                                className="w-full rounded-md shadow-lg" 
+                              <img
+                                src={RobinsonCrusoeParatext}
+                                alt="Robinson Crusoe Paratext"
+                                className="w-full rounded-md shadow-lg"
                               />
                               <div className="text-center mt-2 text-sm text-white/50">
-                              {/* TODO: 检查cite */}
+                                {/* TODO: 检查cite */}
                                 {i18n.language === 'zh' ? '此处添加注释' : 'here for citation'}
                               </div>
                             </div>
@@ -411,6 +415,12 @@ const CardsView = React.memo(function CardsView({
                         <div className="literary-analysis">
                           <div className="analysis-section">
                             {/* 第一个子卡片留空 */}
+                            <div className="text-left text-white/90 mb-4">
+                              "Let the tears which fell, and the broken words which were exchanged in the long close embrace between the orphans, be sacred."
+                            </div>
+                            <div className="text-right text-sm text-white/70">
+                              (ch. LI)
+                            </div>
                           </div>
                           <div className="analysis-section">
                             <h4>{i18n.language === "zh" ? "插图与故事现实感" : "Illustrations Bringing Realism"}</h4>
@@ -419,10 +429,10 @@ const CardsView = React.memo(function CardsView({
                               <li>Writers and Painters are always good co-authors. Illustration in <em>Oliver Twist</em> is not a simple decoration, but serves as a visual medium that reinforces the social realism impact of the novel, transforming the class divisions and moral anxieties of Victorian London into images that can be directly "witnessed" and empathized with by the public, thus profoundly shaping the social critical interpretation of the story.</li>
                             </div>
                             <div className="mt-4 w-full">
-                              <img 
-                                src={OliverTwist} 
-                                alt="Oliver Twist" 
-                                className="w-full rounded-md shadow-lg mx-auto" 
+                              <img
+                                src={OliverTwist}
+                                alt="Oliver Twist"
+                                className="w-full rounded-md shadow-lg mx-auto"
                               />
                               <div className="text-center mt-2 text-sm text-white/50">
                                 {/* TODO：换行处理 */}
@@ -462,20 +472,26 @@ const CardsView = React.memo(function CardsView({
                         <div className="literary-analysis">
                           <div className="analysis-section">
                             {/* 第一个子卡片留空 */}
+                            <div className="text-left text-white/90 mb-4">
+                              "These triumphs... had a hollowness; at arm’s length they were, not in the heart; and it might be that she was growing old, but they satisfied her no longer as they used. "
+                            </div>
+                            {/* Mr Dalloway 没有分章节 */}
+                            {/* </div> */}
                           </div>
                           <div className="analysis-section">
                             <h4>{i18n.language === "zh" ? "作者参与出版" : "Author Participation in Publication"}</h4>
                             <ul>
+                              {/* TODO：换行处理 */}
                               <li>In the creation and publication of Mrs. Dalloway, Virginia Woolf's <strong>deep involvement in the publishing process</strong> (from text arrangement to cover design) is an extension of authorship, ensuring that her <strong>experimental writing</strong> (e.g. stream-of-consciousness techniques, multi-focused perspective) reach the reader in the most precise form. The fragments of inner reality are a kaleidoscopic collage of a day in post-war London, focusing no longer on external events, but on the ripples of war trauma, the passage of time, and the meaning of existence in individual consciousness. The author's full control of the medium, thus became the essential condition for rendering the <strong>fragmented, psychological reality</strong> of the post-WWI world, where the true plot unfolds within the silent theater of the mind.</li>
                             </ul>
                             <div className="mt-4 w-full">
-                              <img 
-                                src={MrsDalloway} 
-                                alt="Mrs Dalloway" 
-                                className="w-full rounded-md shadow-lg mx-auto" 
+                              <img
+                                src={MrsDalloway}
+                                alt="Mrs Dalloway"
+                                className="w-full rounded-md shadow-lg mx-auto"
                               />
                               <div className="text-center mt-2 text-sm text-white/50">
-                              Created by Doubao AI
+                                Created by Doubao AI
                               </div>
                             </div>
                           </div>
@@ -507,22 +523,26 @@ const CardsView = React.memo(function CardsView({
                       return (
                         <div className="literary-analysis">
                           <div className="analysis-section">
-                            {/* 第一个子卡片留空 */}
+                            <div className="text-left text-white/90 mb-4">
+                              "Which is better--to have rules and agree, or to hunt and kill?"
+                            </div>
+                            <div className="text-right text-sm text-white/70">
+                              (ch. XI, "<em>Castle Rock</em>")
+                            </div>
                           </div>
                           <div className="analysis-section">
-                            <h4>{i18n.language === "zh" ? "作者原著和电影再创作" : "Author and Recreation of Film"}</h4>
+                            <h4>{i18n.language === "zh" ? "作者原著和电影再创作" : "Novel and Recreation of Film"}</h4>
                             <ul>
-                              <li>{i18n.language === "zh" ? "Golding liked his simplified treatment of the original work, believing that the film placed too much emphasis on the nature of the allegory" : "Golding liked his simplified treatment of the original work, believing that the film placed too much emphasis on the nature of the allegory"}</li>
-                              <li>{i18n.language === "zh" ? "寓言结构" : "Allegorical structure"}</li>
-                              <li>{i18n.language === "zh" ? "思想实验" : "Thought experiment"}</li>
-                              <li>{i18n.language === "zh" ? "神圣悲剧" : "Divine tragedy"}</li>
+                              <li>William Golding's interaction with the film medium is presented as a tense antagonistic relationship. Golding preferred his own simplified treatment of the <strong>allegorical structure</strong>, and as a result, he felt that the film overemphasized the fable itself, reducing <strong>a profound thought experiment</strong> to an overly straightforward moral story.</li>
+                              <li>This disapproval highlights Golding's core intention: his desert island is not a mere allegory of good and evil, but a <strong>sacred tragedy</strong> that reveals the inevitability of human fall, and its power stems from the psychological truth and abstract speculation constructed by words.</li>
+                              <li>The author's struggle with the film adaptation of this <strong>"re-creation"</strong> instead defines and defends the unique medium of the original work: <strong>the power of the novel lies in its obscure and complex meaning that refuses to be completely tamed by the visuals.</strong></li>
                             </ul>
                             <div className="mt-4 w-full">
                               {/* TODO：换成视频？ */}
-                              <img 
-                                src={LordOfTheFlies} 
-                                alt="Lord of the Flies" 
-                                className="w-full rounded-md shadow-lg mx-auto" 
+                              <img
+                                src={LordOfTheFlies}
+                                alt="Lord of the Flies"
+                                className="w-full rounded-md shadow-lg mx-auto"
                               />
                               <div className="text-center mt-2 text-sm text-white/50">
                                 {/* TODO：citation */} here for citation
@@ -557,24 +577,30 @@ const CardsView = React.memo(function CardsView({
                       return (
                         <div className="literary-analysis">
                           <div className="analysis-section">
-                            {/* 第一个子卡片留空 */}
+                            <div className="text-left text-white/90 mb-4">
+                              "Of course, a human heart is bound to be complex. But it must be limited."
+                            </div>
+                            <div className="text-right text-sm text-white/70">
+                              (Part IX)
+                            </div>
                           </div>
                           <div className="analysis-section">
                             <h4>{i18n.language === "zh" ? "数字阅读的媒体革命" : "Digital Reading for Revolutionary Change"}</h4>
                             <ul>
-                              <li>{i18n.language === "zh" ? "高度灵活的页面设计：模拟AI的感知" : "Highly flexible page design: Mimic AI's perception"}</li>
-                              <li>{i18n.language === "zh" ? "公共论坛讨论：读者参与主题解释" : "Public forum discussions: Readers participating in theme interpretation"}</li>
-                              <li>{i18n.language === "zh" ? "元文本生态：现代科技如何塑造生活？" : "A meta-text ecological system: How modern technology shapes the life?"}</li>
+                              <li>As a contemporary literature of the 21st century, "Clara and the Sun" cleverly uses the characteristics of digital media to build <strong>a dynamic metatext ecosystem</strong>.</li>
+                              <li><strong>The e-book replicates the logic of robot processing information through form.</strong> The frequent <strong>noun highlighting</strong> directly mimics Clara's visual perception pattern of labeling, classifying, and digitizing solid objects. In addition, the <strong>non-linear narrative jumps of e-book pages</strong> imitate flashbacks and juxtapositions of information fragments.</li>
+                              <li>Once published, the work was quickly integrated into the secondary interpretation layer composed of <strong>online public forum discussions</strong>, and <strong>readers deeply participated</strong> in the interpretation of the theme (such as gene editing, AI ethics, what is love), and jointly extended the core of the story: <strong>How does modern technology shape the definition of life and love?</strong> The novel is no longer a closed text, but a continuous dialogue about technology and human nature, designed by the author, participated by readers, and supported by media forms.</li>
                             </ul>
                             <div className="mt-4 w-full">
-                              {/* TODO：不是这个图 */}
-                              <img 
-                                src={DigitalReading} 
-                                alt="Digital Reading" 
-                                className="w-full rounded-md shadow-lg mx-auto" 
+                              <img
+                                src={DigitalReading}
+                                alt="Digital Reading"
+                                className="w-full rounded-md shadow-lg mx-auto"
                               />
                               <div className="text-center mt-2 text-sm text-white/50">
-                                {/* TODO：citation */} here for citation
+                                <a href="https://zh.zlib.li/book/11747982/d33271/klara-and-the-sun.html" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline">
+                                  Discussions and shared citations in an online community
+                                </a>
                               </div>
                             </div>
                           </div>
@@ -623,7 +649,7 @@ const EventCard = React.memo(function EventCard({
   setActiveEventPositions,
 }) {
   const { i18n, t } = useTranslation();
-  const localizedContent = 
+  const localizedContent =
     i18n.language === "zh" && event.chinese ? event.chinese : event.text;
   // 检测文学分析内容
   const hasLiteraryAnalysis = localizedContent.text && localizedContent.text.includes('class="literary-analysis"');
@@ -652,24 +678,24 @@ const EventCard = React.memo(function EventCard({
   // 检测是否靠近视口边缘
   useEffect(() => {
     if (!isHovered) return;
-    
+
     const checkEdgeProximity = () => {
       if (!containerRef.current) return;
-      
+
       const container = containerRef.current;
       const rect = container.getBoundingClientRect();
       const viewportWidth = window.innerWidth;
       const rightMargin = 40; // 右侧边距
-      
+
       // 如果卡片右侧距离视口右侧不足一定距离，则认为靠近边缘
       const isEdge = rect.right > viewportWidth - rightMargin;
       setIsNearEdge(isEdge);
     };
-    
+
     checkEdgeProximity();
     // 添加窗口调整大小监听
     window.addEventListener('resize', checkEdgeProximity);
-    
+
     return () => {
       window.removeEventListener('resize', checkEdgeProximity);
     };
@@ -683,12 +709,12 @@ const EventCard = React.memo(function EventCard({
       // 增加基础宽度以确保能完全容纳内部小卡片
       // 基于内容宽度加上内部小卡片所需的额外空间
       let newWidth = Math.max(MIN_CARD_WIDTH, contentWidth + INNER_CARD_PADDING);
-      
+
       // 对于包含文学分析的事件，进一步增加宽度以容纳内部卡片
       if (hasLiteraryAnalysis) {
         newWidth += 60; // 为文学分析内部卡片额外增加宽度
       }
-      
+
       // 如果靠近边缘，调整宽度以确保不超出视口
       if (isHovered && isNearEdge && containerRef.current) {
         const rect = containerRef.current.getBoundingClientRect();
@@ -697,9 +723,9 @@ const EventCard = React.memo(function EventCard({
         const maxAllowedWidth = viewportWidth - rect.left - rightMargin;
         newWidth = Math.min(newWidth, maxAllowedWidth);
       }
-      
+
       setWidth(newWidth);
-      
+
       // 计算内容总高度
       if (isHovered && expandedContentRef.current) {
         const headlineHeight = contentRef.current.offsetHeight;
@@ -718,26 +744,26 @@ const EventCard = React.memo(function EventCard({
   useEffect(() => {
     const handleScroll = () => {
       if (!scrollableContentRef.current) return;
-      
+
       const scrollEl = scrollableContentRef.current;
       const currentScrollTop = scrollEl.scrollTop;
       const scrollHeight = scrollEl.scrollHeight;
       const clientHeight = scrollEl.clientHeight;
-      
+
       setScrollTop(currentScrollTop);
-      
+
       // 显示/隐藏顶部淡入淡出效果
       setShowTopFade(currentScrollTop > 10);
       // 显示/隐藏底部淡入淡出效果
       setShowBottomFade(scrollTop < scrollHeight - clientHeight - 10);
     };
-    
+
     const scrollEl = scrollableContentRef.current;
     if (scrollEl && isHovered) {
       scrollEl.addEventListener('scroll', handleScroll);
       handleScroll(); // 初始检查
     }
-    
+
     return () => {
       if (scrollEl) {
         scrollEl.removeEventListener('scroll', handleScroll);
@@ -747,7 +773,7 @@ const EventCard = React.memo(function EventCard({
 
   // 让所有卡片最上端齐平且靠最上方，参考Robinson Crusoe的高度
   const topPos = TIME_MARKER_HEIGHT;
-  
+
   // 卡片高度设置为足够显示3个子卡片
   const getCardHeight = () => {
     // 使用计算的内容高度
@@ -763,20 +789,20 @@ const EventCard = React.memo(function EventCard({
       ref={containerRef}
       className="event-card absolute"
       style={{
-          left: isHovered && isNearEdge 
-            ? "auto" 
-            : `${position - 20}px`,
-          right: isHovered && isNearEdge 
-            ? "20px" 
-            : "auto",
-          top: `${topPos}px`,
-          width: isHovered 
-            ? `${isNearEdge ? Math.min(width + 60, 600) : width + 60}px` // 增加宽度以容纳内部小卡片
-            : `${width}px`,
-          height: getCardHeight(),
-          transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-          zIndex: isHovered ? Z_INDEX_HOVER : Z_INDEX_BASE,
-        }}
+        left: isHovered && isNearEdge
+          ? "auto"
+          : `${position - 20}px`,
+        right: isHovered && isNearEdge
+          ? "20px"
+          : "auto",
+        top: `${topPos}px`,
+        width: isHovered
+          ? `${isNearEdge ? Math.min(width + 60, 600) : width + 60}px` // 增加宽度以容纳内部小卡片
+          : `${width}px`,
+        height: getCardHeight(),
+        transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+        zIndex: isHovered ? Z_INDEX_HOVER : Z_INDEX_BASE,
+      }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, scale: 1 }}
       whileHover={{
@@ -802,30 +828,30 @@ const EventCard = React.memo(function EventCard({
                     ${hasLiteraryAnalysis ? "literary-event" : ""}
                 `}
         style={{
-            backgroundColor: isHovered
-              ? "rgba(58, 58, 102, 0.85)" // transparency 85%
-              : `rgba(255, 255, 255, ${baseOpacity})`,
-            backgroundImage: isHovered
-              ? "radial-gradient(transparent 1px, rgba(255, 255, 255, 0.12) 1px)"
-              : "radial-gradient(transparent 1px, rgba(255, 255, 255, 0.05) 1px)",
-            backgroundSize: "4px 4px",
-            WebkitMaskImage: isHovered
-              ? "linear-gradient(rgb(0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)" // 底纹淡出
-              : "linear-gradient(rgb(0, 0, 0) 60%, rgba(0, 0, 0, 0) 100%)",
-            maskImage: isHovered
-              ? "linear-gradient(rgb(0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)" // 底纹淡出
-              : "linear-gradient(rgb(0, 0, 0) 60%, rgba(0, 0, 0, 0) 100%)",
-            boxShadow: isHovered
-              ? `
+          backgroundColor: isHovered
+            ? "rgba(58, 58, 102, 0.85)" // transparency 85%
+            : `rgba(255, 255, 255, ${baseOpacity})`,
+          backgroundImage: isHovered
+            ? "radial-gradient(transparent 1px, rgba(255, 255, 255, 0.12) 1px)"
+            : "radial-gradient(transparent 1px, rgba(255, 255, 255, 0.05) 1px)",
+          backgroundSize: "4px 4px",
+          WebkitMaskImage: isHovered
+            ? "linear-gradient(rgb(0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)" // 底纹淡出
+            : "linear-gradient(rgb(0, 0, 0) 60%, rgba(0, 0, 0, 0) 100%)",
+          maskImage: isHovered
+            ? "linear-gradient(rgb(0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)" // 底纹淡出
+            : "linear-gradient(rgb(0, 0, 0) 60%, rgba(0, 0, 0, 0) 100%)",
+          boxShadow: isHovered
+            ? `
                             0 0 0 1px rgba(255, 255, 255, 0.1),
                             0 4px 6px -1px rgba(0, 0, 0, 0.2),
                             0 12px 24px -4px rgba(0, 0, 0, 0.5),
                             0 0 20px rgba(255, 255, 255, 0.1),
                             inset 0 0 20px rgba(255, 255, 255, 0.05)
                           `
-              : "none",
-            transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-          }}
+            : "none",
+          transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+        }}
       >
         <div className="relative" ref={contentRef}>
           <div
@@ -838,7 +864,7 @@ const EventCard = React.memo(function EventCard({
           <div className="text-sm font-sans text-white/60 font-medium">
             {event.start_date.year} | {CATEGORY_NAMES[i18n.language === "zh" ? "Chinese" : "English"][event.category]}
           </div>
-          
+
           <AnimatePresence>
             {isHovered && (
               <motion.div
@@ -848,27 +874,27 @@ const EventCard = React.memo(function EventCard({
                 className="relative mt-0"
               >
                 {/* 可滚动内容区域 - 确保上端为作品标题，下端为最后一个卡片 */}
-                <div 
+                <div
                   ref={scrollableContentRef}
                   className="text-sm font-sans text-white/80 overflow-y-auto pr-2"
                   style={{
-                      wordBreak: 'break-word',
-                      whiteSpace: 'normal',
-                      height: "420px", // 增加高度确保显示第三个子卡片底部
-                      // 隐藏滚动条但保留滚动功能
-                      msOverflowStyle: 'none', // IE 和 Edge
-                      scrollbarWidth: 'none', // Firefox
-                      scrollbarColor: 'rgba(255, 255, 255, 0.2) transparent'
-                    }}
+                    wordBreak: 'break-word',
+                    whiteSpace: 'normal',
+                    height: "420px", // 增加高度确保显示第三个子卡片底部
+                    // 隐藏滚动条但保留滚动功能
+                    msOverflowStyle: 'none', // IE 和 Edge
+                    scrollbarWidth: 'none', // Firefox
+                    scrollbarColor: 'rgba(255, 255, 255, 0.2) transparent'
+                  }}
                   onScroll={handleScroll}
                 >
                   {/* 使用内联样式实现滚动条隐藏 */}
                   <div style={{ display: 'none' }} className="scrollbar-hide">
                     {/* 隐藏滚动条的样式通过内联样式实现，避免运行时DOM引用问题 */}
                   </div>
-                  
+
                   {/* 内容区域 - 确保标题在滚动时保持可见性 */}
-                  <div 
+                  <div
                     ref={expandedContentRef}
                     style={{
                       // 确保内容有足够的底部空间，使最后一个卡片可以完全显示
@@ -1003,10 +1029,10 @@ const EventCard = React.memo(function EventCard({
                     )}
                   </div>
                 </div>
-                
+
                 {/* 顶部淡入淡出效果 - 确保在滚动时作品标题不会突然出现 */}
                 {showTopFade && (
-                  <div 
+                  <div
                     className="absolute top-0 left-0 right-0 h-16 pointer-events-none"
                     style={{
                       // 渐变背景确保内容平滑过渡，匹配卡片背景色
@@ -1017,10 +1043,10 @@ const EventCard = React.memo(function EventCard({
                     }}
                   />
                 )}
-                
+
                 {/* 底部淡入淡出效果 - 确保最后一个卡片滑出时有平滑过渡 */}
                 {showBottomFade && (
-                  <div 
+                  <div
                     className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none"
                     style={{
                       // 渐变背景确保内容平滑过渡，匹配卡片背景色
@@ -1099,11 +1125,10 @@ const TickMarker = React.memo(function TickMarker({
         <div
           className={`
                         absolute left-0
-                        ${
-                          isYearTick
-                            ? "border-l h-6 border-white/40"
-                            : "border-l h-3 border-white/20"
-                        }
+                        ${isYearTick
+              ? "border-l h-6 border-white/40"
+              : "border-l h-3 border-white/20"
+            }
                     `}
         />
         {hasEvent && (
@@ -1111,11 +1136,10 @@ const TickMarker = React.memo(function TickMarker({
             <div
               className={`
                                 absolute w-[2px] transition-opacity duration-300
-                                ${
-                                  isActive
-                                    ? "bg-gradient-to-b from-white/10 via-white/20 to-white/20 opacity-100"
-                                    : "bg-gradient-to-b from-transparent via-white/10 to-white/20 opacity-30"
-                                }
+                                ${isActive
+                  ? "bg-gradient-to-b from-white/10 via-white/20 to-white/20 opacity-100"
+                  : "bg-gradient-to-b from-transparent via-white/10 to-white/20 opacity-30"
+                }
                             `}
               style={{
                 height: lineHeight,
@@ -1128,11 +1152,10 @@ const TickMarker = React.memo(function TickMarker({
               className={`
                                 absolute w-[6px] h-[6px] bg-white/60 rounded-full -bottom-2
                                 transition-all duration-300
-                                ${
-                                  isActive
-                                    ? "bg-white scale-150"
-                                    : "bg-white/60 scale-100"
-                                }
+                                ${isActive
+                  ? "bg-white scale-150"
+                  : "bg-white/60 scale-100"
+                }
                             `}
               style={{ left: "0px" }}
             />
@@ -1244,7 +1267,7 @@ export default function Timeline() {
       const yearB = parseInt(b.start_date.year);
       const yearCompare = yearA - yearB;
       if (yearCompare !== 0) return yearCompare;
-      
+
       // 同一年份按文学时代排序
       return (categoryOrder[a.category] || 999) - (categoryOrder[b.category] || 999);
     });
@@ -1303,13 +1326,13 @@ export default function Timeline() {
 
   const timeMarkers = useMemo(() => {
     const markers = [];
-    
+
     // 创建10年间隔的时间标记
     for (let year = START_YEAR; year <= END_YEAR; year += 10) {
       const date = new Date(year, 0, 1); // 使用每年的1月1日
       const decadesSinceStart = (year - START_YEAR) / 10;
       const position = decadesSinceStart * pixelsPerDecade;
-      
+
       markers.push({
         date,
         position
@@ -1322,11 +1345,11 @@ export default function Timeline() {
   const yearMarkers = useMemo(() => {
     // 创建10年间隔的年份标记
     const markers = [];
-    
+
     for (let year = START_YEAR; year <= END_YEAR; year += 10) {
       const decadesSinceStart = (year - START_YEAR) / 10;
       const position = decadesSinceStart * pixelsPerDecade;
-      
+
       markers.push({
         year: year.toString(), // 使用字符串格式以便显示
         position
@@ -1363,7 +1386,7 @@ export default function Timeline() {
       const eventYear = parseInt(event.start_date.year);
       const decadesSinceStart = (eventYear - START_YEAR) / 10;
       const position = decadesSinceStart * pixelsPerDecade;
-      
+
       ticks.push({
         position,
         isYearTick: false,
@@ -1377,7 +1400,7 @@ export default function Timeline() {
     for (let year = START_YEAR; year <= END_YEAR; year += 10) {
       const decadesSinceStart = (year - START_YEAR) / 10;
       const position = decadesSinceStart * pixelsPerDecade;
-      
+
       ticks.push({
         position,
         isYearTick: true,
@@ -1446,7 +1469,9 @@ export default function Timeline() {
 
       // Set the scroll position after a short delay to ensure the component is fully rendered
       setTimeout(() => {
-        containerRef.current.scrollLeft = scrollPosition;
+        if (containerRef.current) {
+          containerRef.current.scrollLeft = scrollPosition;
+        }
       }, 100);
     }
   }, [viewMode, pixelsPerDecade, START_YEAR]);
@@ -1529,11 +1554,10 @@ export default function Timeline() {
                   onClick={() => toggleCategory(categoryKey)}
                   className={`
                                         px-3 py-1 rounded-full text-sm font-sans transition-all backdrop-blur-[1px]
-                                        ${
-                                          activeCategories[categoryKey]
-                                            ? "bg-white/20 text-white"
-                                            : "bg-white/5 text-white/40"
-                                        }
+                                        ${activeCategories[categoryKey]
+                      ? "bg-white/20 text-white"
+                      : "bg-white/5 text-white/40"
+                    }
                                         hover:bg-white/30
                                     `}
                 >
@@ -1586,11 +1610,10 @@ export default function Timeline() {
               className="relative"
               style={{
                 width: `${totalWidth}px`,
-                height: `${
-                  rowCount * (ROW_HEIGHT + 10) +
+                height: `${rowCount * (ROW_HEIGHT + 10) +
                   TIME_MARKER_HEIGHT +
                   (rowCount - 1) * (ROW_GAP + 5)
-                }px`,
+                  }px`,
                 padding: "0 2rem",
               }}
             >

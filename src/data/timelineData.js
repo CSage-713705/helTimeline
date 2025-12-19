@@ -43,7 +43,7 @@ export const TIMELINE_DATA = {
               <!-- 第一个子卡片留空 -->
             </div>
             <div class="analysis-section">
-              <h4>Paratext and Author's Manipulation</h4>
+              <h4>Paratext and Constructed Authorial Persona</h4>
               <ul>
                 <li>Documentary writing style</li>
                 <li>\"Authorship\" created by paratexts</li>
@@ -208,7 +208,7 @@ export const TIMELINE_DATA = {
               <!-- 第一个子卡片留空 -->
             </div>
             <div class="analysis-section">
-              <h4>Author and Recreation of Film</h4>
+              <h4>Novel and Recreation of Film</h4>
               <ul>
                 <li>Golding liked his simplified treatment of the original work, believing that the film placed too much emphasis on the nature of the allegory</li>
                 <li>Allegorical structure</li>
