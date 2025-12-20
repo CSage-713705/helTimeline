@@ -414,8 +414,7 @@ const CardsView = React.memo(function CardsView({
                       // 手动构建卡片视图的内容，包含两张图片
                       return (
                         <div className="literary-analysis">
-                          <div className="analysis-section">
-                            {/* 第一个子卡片留空 */}
+                          <div className="analysis-section">                            
                             <div className="text-left text-white/90 mb-4">
                               "Let the tears which fell, and the broken words which were exchanged in the long close embrace between the orphans, be sacred."
                             </div>
@@ -908,7 +907,12 @@ const EventCard = React.memo(function EventCard({
                     {localizedContent.headline.includes('Robinson Crusoe') ? (
                       <div className="literary-analysis">
                         <div className="analysis-section">
-                          {/* 第一个子卡片留空 */}
+                          <div className="text-left text-white/90 mb-4">
+                            "... All the good things of this world are no farther good to us than they are for our use."
+                          </div>
+                          <div className="text-right text-sm text-white/70">
+                            (ch. XII, "<em>I Make Myself a Canoe</em>")
+                          </div>
                         </div>
                         <div className="analysis-section">
                           <h4>{t('cards.robinsonCrusoe.section2.title')}</h4>
@@ -932,7 +936,12 @@ const EventCard = React.memo(function EventCard({
                     ) : localizedContent.headline.includes('Oliver Twist') ? (
                       <div className="literary-analysis">
                         <div className="analysis-section">
-                          {/* 第一个子卡片留空 */}
+                          <div className="text-left text-white/90 mb-4">
+                            "Let the tears which fell, and the broken words which were exchanged in the long close embrace between the orphans, be sacred."
+                          </div>
+                          <div className="text-right text-sm text-white/70">
+                            (ch. LI)
+                          </div>
                         </div>
                         <div className="analysis-section">
                           <h4>{t('cards.oliverTwist.section2.title')}</h4>
@@ -956,7 +965,9 @@ const EventCard = React.memo(function EventCard({
                     ) : localizedContent.headline.includes('Mrs Dalloway') ? (
                       <div className="literary-analysis">
                         <div className="analysis-section">
-                          {/* 第一个子卡片留空 */}
+                          <div className="text-left text-white/90 mb-4">
+                            "These triumphs... had a hollowness; at arm\'s length they were, not in the heart; and it might be that she was growing old, but they satisfied her no longer as they used. "
+                          </div>
                         </div>
                         <div className="analysis-section">
                           <h4>{t('cards.mrsDalloway.section2.title')}</h4>
@@ -980,7 +991,12 @@ const EventCard = React.memo(function EventCard({
                     ) : localizedContent.headline.includes('Lord of the Flies') ? (
                       <div className="literary-analysis">
                         <div className="analysis-section">
-                          {/* 第一个子卡片留空 */}
+                          <div className="text-left text-white/90 mb-4">
+                            "Which is better--to have rules and agree, or to hunt and kill?"
+                          </div>
+                          <div className="text-right text-sm text-white/70">
+                            (ch. XI, "<em>Castle Rock</em>")
+                          </div>
                         </div>
                         <div className="analysis-section">
                           <h4>{t('cards.lordOfTheFlies.section2.title')}</h4>
@@ -1004,7 +1020,12 @@ const EventCard = React.memo(function EventCard({
                     ) : localizedContent.headline.includes('Klara and the Sun') ? (
                       <div className="literary-analysis">
                         <div className="analysis-section">
-                          {/* 第一个子卡片留空 */}
+                          <div className="text-left text-white/90 mb-4">
+                            "Of course, a human heart is bound to be complex. But it must be limited."
+                          </div>
+                          <div className="text-right text-sm text-white/70">
+                            (Part IX)
+                          </div>
                         </div>
                         <div className="analysis-section">
                           <h4>{t('cards.klaraAndTheSun.section2.title')}</h4>

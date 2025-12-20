@@ -34,19 +34,24 @@ function createLink(url, title) {
 export const TIMELINE_DATA = {
   events: [
     {
-      start_date: { year: "1719"},
+      start_date: { year: "1719" },
       text: {
         headline: "<em>Robinson Crusoe</em> \| Daniel Defoe",
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
-              <!-- 第一个子卡片留空 -->
+              <div className="text-left text-white/90 mb-4">
+                "... All the good things of this world are no farther good to us than they are for our use."
+              </div>
+              <div className="text-right text-sm text-white/70">
+                (ch. XII, "<em>I Make Myself a Canoe</em>")
+              </div>
             </div>
             <div class="analysis-section">
-              <h4>Paratext and Constructed Authorial Persona</h4>
+              <h4>Paratexts and Constructed Authorial Persona</h4>
               <ul>
-                <li>Documentary writing style</li>
-                <li>\"Authorship\" created by paratexts</li>
+                <li>Interaction between narrative and paratexts</li>
+                <li>Realistic style and \“constructed author\”</li>
               </ul>
             </div>
             <div class="analysis-section">
@@ -64,7 +69,12 @@ export const TIMELINE_DATA = {
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
-              <!-- 第一个子卡片留空 -->
+              <div className="text-left text-white/90 mb-4">
+                "... All the good things of this world are no farther good to us than they are for our use."
+              </div>
+              <div className="text-right text-sm text-white/70">
+                (ch. XII, "<em>I Make Myself a Canoe</em>")
+              </div>
             </div>
             <div class="analysis-section">
               <h4>叙事权威的垄断</h4>
@@ -87,20 +97,24 @@ export const TIMELINE_DATA = {
       category: CATEGORIES.ENLIGHTENMENT,
     },
     {
-      start_date: { year: "1838"},
+      start_date: { year: "1838" },
       text: {
         headline: "<em>Oliver Twist</em> \| Charles Dickens",
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
-              <!-- 第一个子卡片留空 -->
+              <div className="text-left text-white/90 mb-4">
+                "Let the tears which fell, and the broken words which were exchanged in the long close embrace between the orphans, be sacred."
+              </div>
+              <div className="text-right text-sm text-white/70">
+                (ch. LI)
+              </div>
             </div>
             <div class="analysis-section">
-              <h4></h4>
+              <h4>Collaboration of Writer and Illustrator</h4>
               <ul>
-                <li>Social realism and historical background</li>
-                <li>Typical character</li>
-                <li>Omniscient perspective</li>
+                <li>Combination of narrative and visual art</li>
+                <li>The influence on public reception of social realism</li>
               </ul>
             </div>
             <div class="analysis-section">
@@ -118,7 +132,12 @@ export const TIMELINE_DATA = {
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
-              <!-- 第一个子卡片留空 -->
+              <div className="text-left text-white/90 mb-4">
+                "Let the tears which fell, and the broken words which were exchanged in the long close embrace between the orphans, be sacred."
+              </div>
+              <div className="text-right text-sm text-white/70">
+                (ch. LI)
+              </div>
             </div>
             <div class="analysis-section">
               <h4>叙事权威的批判性集中</h4>
@@ -142,30 +161,24 @@ export const TIMELINE_DATA = {
       category: CATEGORIES.VICTORIAN,
     },
     {
-      start_date: { year: "1925"},
+      start_date: { year: "1925" },
       text: {
         headline: "<em>Mrs. Dalloway</em> \| Virginia Woolf",
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
-              <!-- 第一个子卡片留空 -->
+              <div className="text-left text-white/90 mb-4">
+                "These triumphs... had a hollowness; at arm’s length they were, not in the heart; and it might be that she was growing old, but they satisfied her no longer as they used. "
+              </div>
             </div>
             <div class="analysis-section">
-              <h4>Internalization and Dispersion of Narrative Authority</h4>
+              <h4>Author Participation in Publication</h4>
               <ul>
-                <li>Stream of consciousness</li>
-                <li>Internal reality</li>
-                <li>Multiple focalization</li>
+                <li>Author’s direct control over the medium</li>
+                <li>Modernist experimental elements conveyed as author intended</li>
               </ul>
             </div>
-            <div class="analysis-section">
-              <h4>Discover Human as Psychological Being</h4>
-              <ul>
-                <li>Focus shifts to the inner world</li>
-                <li>Human consciousness flow, memory and trauma</li>
-                <li>Deeper cognition of complex human nature</li>
-              </ul>
-            </div>
+            <!-- 第三个子卡片已移除 -->
           </div>
         `,
       },
@@ -174,7 +187,9 @@ export const TIMELINE_DATA = {
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
-              <!-- 第一个子卡片留空 -->
+              <div className="text-left text-white/90 mb-4">
+                "These triumphs... had a hollowness; at arm\'s length they were, not in the heart; and it might be that she was growing old, but they satisfied her no longer as they used. "
+              </div>
             </div>
             <div class="analysis-section">
               <h4>叙事权威的内化与分散</h4>
@@ -184,14 +199,7 @@ export const TIMELINE_DATA = {
                 <li>多重聚焦</li>
               </ul>
             </div>
-            <div class="analysis-section">
-              <h4>发现心理的人</h4>
-              <ul>
-                <li>探讨焦点转向内在世界</li>
-                <li>人的意识流动、记忆与创伤</li>
-                <li>深化复杂人性的认知</li>
-              </ul>
-            </div>
+            <!-- 第三个子卡片已移除 -->
           </div>
         `,
       },
@@ -199,21 +207,24 @@ export const TIMELINE_DATA = {
       category: CATEGORIES.POST_WWI,
     },
     {
-      start_date: { year: "1954"},
+      start_date: { year: "1954" },
       text: {
         headline: "<em>Lord of the Flies</em> \| William Golding",
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
-              <!-- 第一个子卡片留空 -->
+              <div className="text-left text-white/90 mb-4">
+                "Which is better--to have rules and agree, or to hunt and kill?"
+              </div>
+              <div className="text-right text-sm text-white/70">
+                (ch. XI, "<em>Castle Rock</em>")
+              </div>
             </div>
             <div class="analysis-section">
-              <h4>Novel and Recreation of Film</h4>
+              <h4>The Multimedia Tension</h4>
               <ul>
-                <li>Golding liked his simplified treatment of the original work, believing that the film placed too much emphasis on the nature of the allegory</li>
-                <li>Allegorical structure</li>
-                <li>Thought experiment</li>
-                <li>Divine tragedy</li>
+                <li>The limitation in sophistication of visual form</li>
+                <li>The abstract, multi-layered meanings within language</li>              
               </ul>
             </div>
             <div class="analysis-section">
@@ -232,7 +243,12 @@ export const TIMELINE_DATA = {
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
-              <!-- 第一个子卡片留空 -->
+              <div className="text-left text-white/90 mb-4">
+                "Which is better--to have rules and agree, or to hunt and kill?"
+              </div>
+              <div className="text-right text-sm text-white/70">
+                (ch. XI, "<em>Castle Rock</em>")
+              </div>
             </div>
             <div class="analysis-section">
               <h4>叙事权威的哲学化迁移</h4>
@@ -257,28 +273,24 @@ export const TIMELINE_DATA = {
       category: CATEGORIES.POST_WWII,
     },
     {
-      start_date: { year: "2021"},
+      start_date: { year: "2021" },
       text: {
         headline: "<em>Klara and the Sun</em> \| Kazuo Ishiguro",
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
-              <!-- 第一个子卡片留空 -->
+              <div className="text-left text-white/90 mb-4">
+                "Of course, a human heart is bound to be complex. But it must be limited."
+              </div>
+              <div className="text-right text-sm text-white/70">
+                (Part IX)
+              </div>
             </div>
             <div class="analysis-section">
-              <h4>Digital Reading for Revolutionary Change</h4>
+              <h4>Dynamic meta-textual ecosystem of digital media</h4>
               <ul>
-                <li>Highly flexible page design: Mimic AI's perception</li>
-                <li>Public forum discussions: Readers participating in theme interpretation</li>
-                <li>A meta-text ecological system: How modern technology shapes the life?</li>
-              </ul>
-            </div>
-            <div class="analysis-section">
-              <h4>Rediscover Human as Yearning Self</h4>
-              <ul>
-                <li>Non-human agents as the owner of narrative authority</li>
-                <li>The uniqueness of human love and hope facing the ultimate trial</li>
-                <li>Through non-human perspective: What is irreplaceable \"humanity\"\?</li>
+                <li>Digital interface and online community</li>
+                <li>The co-construction of the novel theme in digital era</li>
               </ul>
             </div>
           </div>
@@ -289,7 +301,12 @@ export const TIMELINE_DATA = {
         text: `
           <div class="literary-analysis">
             <div class="analysis-section">
-              <!-- 第一个子卡片留空 -->
+              <div className="text-left text-white/90 mb-4">
+                "Of course, a human heart is bound to be complex. But it must be limited."
+              </div>
+              <div className="text-right text-sm text-white/70">
+                (Part IX)
+              </div>
             </div>
             <div class="analysis-section">
               <h4>叙事权威的扩散</h4>
