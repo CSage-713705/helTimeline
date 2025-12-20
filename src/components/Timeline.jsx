@@ -423,7 +423,7 @@ const CardsView = React.memo(function CardsView({
                             </div>
                           </div>
                           <div className="analysis-section">
-                            <h4>{i18n.language === "zh" ? "插图与故事现实感" : "Illustrations Bringing Realism"}</h4>
+                            <h4>{i18n.language === "zh" ? "作家与插画师合作" : "Collaboration of Writer and Illustrator"}</h4>
                             <div className="ml-4">
                               <li>Charles Dickens closely stitches the fate of individuals with the entire <strong>social reality</strong> and <strong>historical background</strong> through a grand narrative from an <strong>omniscient perspective</strong>. This broad vision is obtained through the illustrations of painters such as George Cruikshank: the squalor of the slums and the coldness of the workhouse are intuitively presented, and <strong>typical characters</strong> such as the innocent Oliver and the cunning Fagin are also stereotyped and deeply rooted in the hearts of the readers.</li>
                               <li>Writers and Painters are always good co-authors. Illustration in <em>Oliver Twist</em> is not a simple decoration, but serves as a visual medium that reinforces the social realism impact of the novel, transforming the class divisions and moral anxieties of Victorian London into images that can be directly "witnessed" and empathized with by the public, thus profoundly shaping the social critical interpretation of the story.</li>
@@ -471,7 +471,6 @@ const CardsView = React.memo(function CardsView({
                       return (
                         <div className="literary-analysis">
                           <div className="analysis-section">
-                            {/* 第一个子卡片留空 */}
                             <div className="text-left text-white/90 mb-4">
                               "These triumphs... had a hollowness; at arm’s length they were, not in the heart; and it might be that she was growing old, but they satisfied her no longer as they used. "
                             </div>
@@ -531,7 +530,7 @@ const CardsView = React.memo(function CardsView({
                             </div>
                           </div>
                           <div className="analysis-section">
-                            <h4>{i18n.language === "zh" ? "作者原著和电影再创作" : "Novel and Recreation of Film"}</h4>
+                            <h4>{i18n.language === "zh" ? "多媒体的冲突张力" : "The Multimedia Tension"}</h4>
                             <ul>
                               <li>William Golding's interaction with the film medium is presented as a tense antagonistic relationship. Golding preferred his own simplified treatment of the <strong>allegorical structure</strong>, and as a result, he felt that the film overemphasized the fable itself, reducing <strong>a profound thought experiment</strong> to an overly straightforward moral story.</li>
                               <li>This disapproval highlights Golding's core intention: his desert island is not a mere allegory of good and evil, but a <strong>sacred tragedy</strong> that reveals the inevitability of human fall, and its power stems from the psychological truth and abstract speculation constructed by words.</li>
