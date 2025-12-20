@@ -372,8 +372,9 @@ const CardsView = React.memo(function CardsView({
                           <div className="analysis-section">
                             <h4>{i18n.language === "zh" ? "副文本与虚构作者" : "Paratext and Constructed Authorial Persona"}</h4>
                             <div className="ml-4">
-                              <li>The <strong>paratext</strong> is cleverly used (such as the statement "written by him himself" on the title page, the editor's note in the preface) to construct a <strong>documentary writing style</strong> that packages the fictional adventure as a real historical record.</li>
-                              <li>This shaping of <strong>"constructed authorial persona"</strong> not only blurs the boundaries between fiction and documentary, author and narrator, but also profoundly affects the reader's understanding of the story: it gives the miracle of survival on a desert island a convincing sense of reality, and quietly presents <strong>the ideology of personal struggle and colonial expansion</strong> as objective and natural "facts" in front of readers. Therefore, the construction of the medium itself has become an indispensable part of the meaning of the story.</li>
+                              <li>The <strong>paratexts</strong>, such as “written by himself” on the title page and editorial notes in the preface, presented fictional adventure as historical record.</li>
+                              <li>Publisher-designed media forms interacted with Defoe’s detailed narrative to create <strong>a realistic style</strong>, enhancing the credibility of the island survival story.</li>
+                              <li><strong>The constructed author persona</strong> blurred boundaries between novel and reality, author and narrator, naturalizing personal struggle and colonial ideology.</li>
                             </div>
                             <div className="mt-4 w-full">
                               <img
@@ -425,8 +426,9 @@ const CardsView = React.memo(function CardsView({
                           <div className="analysis-section">
                             <h4>{i18n.language === "zh" ? "作家与插画师合作" : "Collaboration of Writer and Illustrator"}</h4>
                             <div className="ml-4">
-                              <li>Charles Dickens closely stitches the fate of individuals with the entire <strong>social reality</strong> and <strong>historical background</strong> through a grand narrative from an <strong>omniscient perspective</strong>. This broad vision is obtained through the illustrations of painters such as George Cruikshank: the squalor of the slums and the coldness of the workhouse are intuitively presented, and <strong>typical characters</strong> such as the innocent Oliver and the cunning Fagin are also stereotyped and deeply rooted in the hearts of the readers.</li>
-                              <li>Writers and Painters are always good co-authors. Illustration in <em>Oliver Twist</em> is not a simple decoration, but serves as a visual medium that reinforces the social realism impact of the novel, transforming the class divisions and moral anxieties of Victorian London into images that can be directly "witnessed" and empathized with by the public, thus profoundly shaping the social critical interpretation of the story.</li>
+                              <li>In Oliver Twist, Dickens collaborated closely with illustrator Cruikshank, <strong>combining narrative and visual art as a whole</strong>.</li>
+                              <li>The novel employed an <strong>omniscient perspective</strong> to portray <strong>typical social characters</strong>, embedding Oliver’s fate within Victorian social reality and historical context.</li>
+                              <li>Illustrations could reinforce <strong>social realism</strong>, depicting London’s slums and workhouse conditions, allowing readers to viscerally perceive class divisions and moral tensions, deepening <strong>social critique</strong>.</li>
                             </div>
                             <div className="mt-4 w-full">
                               <img
@@ -532,9 +534,9 @@ const CardsView = React.memo(function CardsView({
                           <div className="analysis-section">
                             <h4>{i18n.language === "zh" ? "多媒体的冲突张力" : "The Multimedia Tension"}</h4>
                             <ul>
-                              <li>William Golding's interaction with the film medium is presented as a tense antagonistic relationship. Golding preferred his own simplified treatment of the <strong>allegorical structure</strong>, and as a result, he felt that the film overemphasized the fable itself, reducing <strong>a profound thought experiment</strong> to an overly straightforward moral story.</li>
-                              <li>This disapproval highlights Golding's core intention: his desert island is not a mere allegory of good and evil, but a <strong>sacred tragedy</strong> that reveals the inevitability of human fall, and its power stems from the psychological truth and abstract speculation constructed by words.</li>
-                              <li>The author's struggle with the film adaptation of this <strong>"re-creation"</strong> instead defines and defends the unique medium of the original work: <strong>the power of the novel lies in its obscure and complex meaning that refuses to be completely tamed by the visuals.</strong></li>
+                              <li>Golding resisted film adaptations that emphasized overt and obvious moral allegory, arguing that they <strong>reduced the novel’s symbolic depth</strong>.</li>
+                              <li>He considered the island in Lord of the Flies a sacred tragedy, <strong>illustrating the inevitability of human fallibility through sophisticated language</strong>, rather than a straightforward good-versus-evil tale.</li>
+                              <li>The tension between the novel and multimedia adaptations highlighted the unique power of literature to convey <strong>abstract, multi-layered meanings</strong> that require active reader interpretation and cannot be fully captured visually. </li>
                             </ul>
                             <div className="mt-4 w-full">
                               {/* TODO：换成视频？ */}
@@ -584,11 +586,11 @@ const CardsView = React.memo(function CardsView({
                             </div>
                           </div>
                           <div className="analysis-section">
-                            <h4>{i18n.language === "zh" ? "数字阅读的媒体革命" : "Digital Reading for Revolutionary Change"}</h4>
+                            <h4>{i18n.language === "zh" ? "数字阅读的媒体革命" : "Dynamic meta-textual ecosystem of digital reading"}</h4>
                             <ul>
-                              <li>As a contemporary literature of the 21st century, "Clara and the Sun" cleverly uses the characteristics of digital media to build <strong>a dynamic metatext ecosystem</strong>.</li>
-                              <li><strong>The e-book replicates the logic of robot processing information through form.</strong> The frequent <strong>noun highlighting</strong> directly mimics Clara's visual perception pattern of labeling, classifying, and digitizing solid objects. In addition, the <strong>non-linear narrative jumps of e-book pages</strong> imitate flashbacks and juxtapositions of information fragments.</li>
-                              <li>Once published, the work was quickly integrated into the secondary interpretation layer composed of <strong>online public forum discussions</strong>, and <strong>readers deeply participated</strong> in the interpretation of the theme (such as gene editing, AI ethics, what is love), and jointly extended the core of the story: <strong>How does modern technology shape the definition of life and love?</strong> The novel is no longer a closed text, but a continuous dialogue about technology and human nature, designed by the author, participated by readers, and supported by media forms.</li>
+                              <li><strong>E-reading interfaces</strong> mirrored Klara’s cognitive pattern: <strong>digital highlights and notes</strong> coincidentally echoed the connection of visual and conceptual data; the <strong>non-linear hyperlinking</strong> resembled the juxtaposition of flashbacks and fragmented information.</li>
+                              <li><strong>Online reading communities</strong> allow active participation, discussion, and thematic extension, exploring topics such as AI ethics, genetic editing, and the nature of love.</li>
+                              <li>The novel becomes an <strong>open, interactive dialogue</strong> on technology and humanity, sketched by the author, mediated through digital platforms, and co-constructed with all readers.</li>
                             </ul>
                             <div className="mt-4 w-full">
                               <img
