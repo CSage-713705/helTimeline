@@ -474,14 +474,14 @@ const CardsView = React.memo(function CardsView({
                             <div className="text-left text-white/90 mb-4">
                               "These triumphs... had a hollowness; at arm’s length they were, not in the heart; and it might be that she was growing old, but they satisfied her no longer as they used. "
                             </div>
-                            {/* Mr Dalloway 没有分章节 */}
-                            {/* </div> */}
+                            {/* Mr Dalloway 没有分章节 */}                            
                           </div>
                           <div className="analysis-section">
                             <h4>{i18n.language === "zh" ? "作者参与出版" : "Author Participation in Publication"}</h4>
                             <ul>
-                              {/* TODO：换行处理 */}
-                              <li>In the creation and publication of Mrs. Dalloway, Virginia Woolf's <strong>deep involvement in the publishing process</strong> (from text arrangement to cover design) is an extension of authorship, ensuring that her <strong>experimental writing</strong> (e.g. stream-of-consciousness techniques, multi-focused perspective) reach the reader in the most precise form. The fragments of inner reality are a kaleidoscopic collage of a day in post-war London, focusing no longer on external events, but on the ripples of war trauma, the passage of time, and the meaning of existence in individual consciousness. The author's full control of the medium, thus became the essential condition for rendering the <strong>fragmented, psychological reality</strong> of the post-WWI world, where the true plot unfolds within the silent theater of the mind.</li>
+                              <li>Virginia Woolf was deeply involved in the publication of Mrs Dalloway, including <strong>text arrangement</strong> and <strong>typography design</strong>, which ensured her <strong>experimental elements</strong> were conveyed precisely to the readers as she intended. </li>
+                              <li>The sophisticated paragraph segmentation, stream-of-consciousness narration, and the multiple perspectives of narrative, together foregrounded characters’ <strong>psychology and subjective time experience</strong>. </li>
+                              <li><strong>Woolf’s direct control over the medium aligned the publication form with the novel’s theme</strong>, reflecting postwar London’s social anxiety and psychological crisis of the individual.</li>
                             </ul>
                             <div className="mt-4 w-full">
                               <img
