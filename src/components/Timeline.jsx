@@ -443,7 +443,7 @@ const CardsView = React.memo(function CardsView({
                                 {/* TODO：换行处理 */}
                                 {/* TODO：引用格式 */}
                                 <a href="https://www.britannica.com/topic/Oliver-Twist-novel-by-Dickens" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline">
-                                  The Artful Dodger picking a pocket to the amazement of Oliver Twist (far right); illustration by George Cruikshank for Charles Dickens's Oliver Twist (1837–39).
+                                  The Artful Dodger picking a pocket to the amazement of Oliver Twist (far right); illustration by George Cruikshank for Charles Dickens's <em>Oliver Twist</em> (1837–39).
                                 </a>
                               </div>
                             </div>
