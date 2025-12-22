@@ -537,7 +537,7 @@ const CardsView = React.memo(function CardsView({
                           <div className="analysis-section">
                             <h4>{i18n.language === "zh" ? "多媒体的冲突张力" : "The Multimedia Tension"}</h4>
                             <ul>
-                              <li>Golding resisted film adaptations that emphasized overt and obvious moral allegory, arguing that they <strong>reduced the novel’s symbolic depth</strong>.</li>
+                              <li>Golding resisted film adaptations that emphasized overt and obvious moral allegory, arguing that they <strong>reduced the novel’s symbolic depth</strong> (Golding and Baker 162).</li>
                               <li>He considered the island in Lord of the Flies a sacred tragedy, <strong>illustrating the inevitability of human fallibility through sophisticated language</strong>, rather than a straightforward good-versus-evil tale.</li>
                               <li>The tension between the novel and multimedia adaptations highlighted the unique power of literature to convey <strong>abstract, multi-layered meanings</strong> that require active reader interpretation and cannot be fully captured visually. </li>
                             </ul>
