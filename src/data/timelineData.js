@@ -175,7 +175,7 @@ export const TIMELINE_DATA = {
               <h4>Author Participation in Publication</h4>
               <ul>
                 <li>Author’s direct control over the medium</li>
-                <li>Modernist experimental elements conveyed as author intended</li>
+                <li>Modernist experimental elements conveyed precisely by the material form</li>
               </ul>
             </div>
             <!-- 第三个子卡片已移除 -->
