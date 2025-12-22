@@ -542,14 +542,17 @@ const CardsView = React.memo(function CardsView({
                               <li>The tension between the novel and multimedia adaptations highlighted the unique power of literature to convey <strong>abstract, multi-layered meanings</strong> that require active reader interpretation and cannot be fully captured visually. </li>
                             </ul>
                             <div className="mt-4 w-full">
-                              {/* TODO：换成视频？ */}
+                              
                               <img
                                 src={LordOfTheFlies}
                                 alt="Lord of the Flies"
                                 className="w-full rounded-md shadow-lg mx-auto"
                               />
                               <div className="text-center mt-2 text-sm text-white/50">
-                                {/* TODO：citation */} here for citation
+                              <a href="https://movie.douban.com/subject/1421051/" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline">
+                                  <em>Lord of the Flies</em> (1963 film, by P.S.P.Brook)
+                                </a>
+                                
                               </div>
                             </div>
                           </div>
