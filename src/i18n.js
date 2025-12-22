@@ -5,7 +5,8 @@ const resources = {
   en: {
     translation: {
       switchToCards: "Switch to Cards",
-      switchToTimeline: "Switch to Timeline",
+        switchToTimeline: "Switch to Timeline",
+        reference: "Reference",
       zoomOut: "Zoom Out",
       zoomIn: "Zoom In",
       zoom: "Zoom: {{value}}px/decade",
@@ -115,6 +116,7 @@ const resources = {
     translation: {
       switchToCards: "切换到卡片视图",
       switchToTimeline: "切换到时间轴",
+      reference: "参考文献",
       zoomOut: "缩小",
       zoomIn: "放大",
       zoom: "缩放：{{value}}px/十年",

@@ -374,7 +374,7 @@ const CardsView = React.memo(function CardsView({
                             <div className="ml-4">
                               <li>The <strong>paratexts</strong>, such as “written by himself” on the title page and editorial notes in the preface, presented fictional adventure as historical record.</li>
                               <li>Publisher-designed media forms interacted with Defoe’s detailed narrative to create <strong>a realistic style</strong>, enhancing the credibility of the island survival story.</li>
-                              <li><strong>The constructed author persona</strong> blurred boundaries between novel and reality, author and narrator, naturalizing personal struggle and colonial ideology.</li>
+                              <li><strong>The constructed author persona</strong> blurred boundaries between novel and reality, author and narrator, naturalizing personal struggle and colonial ideology (Seidel 201).</li>
                             </div>
                             <div className="mt-4 w-full">
                               <img
@@ -384,7 +384,11 @@ const CardsView = React.memo(function CardsView({
                               />
                               <div className="text-center mt-2 text-sm text-white/50">
                                 {/* TODO: 检查cite */}
-                                {i18n.language === 'zh' ? '此处添加注释' : 'here for citation'}
+                                <a href="https://collections.library.yale.edu/catalog/10079784" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline">
+                                  The title page of <em>Robinson Crusoe</em>, declaring "written by himself"
+                                </a>
+                                {/* https://collections.library.yale.edu/catalog/10079784 */}
+                                {/* {i18n.language === 'zh' ? '此处添加注释' : 'here for citation'} */}
                               </div>
                             </div>
                           </div>
@@ -414,7 +418,7 @@ const CardsView = React.memo(function CardsView({
                       // 手动构建卡片视图的内容，包含两张图片
                       return (
                         <div className="literary-analysis">
-                          <div className="analysis-section">                            
+                          <div className="analysis-section">
                             <div className="text-left text-white/90 mb-4">
                               "Let the tears which fell, and the broken words which were exchanged in the long close embrace between the orphans, be sacred."
                             </div>
@@ -426,8 +430,8 @@ const CardsView = React.memo(function CardsView({
                             <h4>{i18n.language === "zh" ? "作家与插画师合作" : "Collaboration of Writer and Illustrator"}</h4>
                             <div className="ml-4">
                               <li>In Oliver Twist, Dickens collaborated closely with illustrator Cruikshank, <strong>combining narrative and visual art as a whole</strong>.</li>
-                              <li>The novel employed an <strong>omniscient perspective</strong> to portray <strong>typical social characters</strong>, embedding Oliver’s fate within Victorian social reality and historical context.</li>
-                              <li>Illustrations could reinforce <strong>social realism</strong>, depicting London’s slums and workhouse conditions, allowing readers to viscerally perceive class divisions and moral tensions, deepening <strong>social critique</strong>.</li>
+                              <li>The novel employed an <strong>omniscient perspective</strong> to portray <strong>typical social characters</strong>, embedding Oliver’s fate within Victorian social reality and historical context (Sutherland 115).</li>
+                              <li>Illustrations could reinforce <strong>social realism</strong>, depicting London’s slums and workhouse conditions, allowing readers to viscerally perceive class divisions and moral tensions, deepening <strong>social critique</strong> (Collins 82).</li>
                             </div>
                             <div className="mt-4 w-full">
                               <img
@@ -475,14 +479,14 @@ const CardsView = React.memo(function CardsView({
                             <div className="text-left text-white/90 mb-4">
                               "These triumphs... had a hollowness; at arm’s length they were, not in the heart; and it might be that she was growing old, but they satisfied her no longer as they used. "
                             </div>
-                            {/* Mr Dalloway 没有分章节 */}                            
+                            {/* Mr Dalloway 没有分章节 */}
                           </div>
                           <div className="analysis-section">
                             <h4>{i18n.language === "zh" ? "作者参与出版" : "Author Participation in Publication"}</h4>
                             <ul>
                               <li>Virginia Woolf was deeply involved in the publication of Mrs Dalloway, including <strong>text arrangement</strong> and <strong>typography design</strong>, which ensured her <strong>experimental elements</strong> were conveyed precisely to the readers as she intended. </li>
-                              <li>The sophisticated paragraph segmentation, stream-of-consciousness narration, and the multiple perspectives of narrative, together foregrounded characters’ <strong>psychology and subjective time experience</strong>. </li>
-                              <li><strong>Woolf’s direct control over the medium aligned the publication form with the novel’s theme</strong>, reflecting postwar London’s social anxiety and psychological crisis of the individual.</li>
+                              <li>The sophisticated paragraph segmentation, stream-of-consciousness narration, and the multiple perspectives of narrative, together foregrounded characters’ <strong>psychology and subjective time experience</strong> (Abu-Fares). </li>
+                              <li><strong>Woolf’s direct control over the medium aligned the publication form with the novel’s theme</strong>, reflecting postwar London’s social anxiety and psychological crisis of the individual (Larbi).</li>
                             </ul>
                             <div className="mt-4 w-full">
                               <img
@@ -1598,6 +1602,12 @@ export default function Timeline() {
                 {viewMode === "timeline"
                   ? t("switchToCards")
                   : t("switchToTimeline")}
+              </button>
+              <button
+                className="bg-white/10 text-white px-4 py-1 my-auto rounded hover:bg-white/20 transition whitespace-nowrap backdrop-blur-[1px]"
+                onClick={() => window.location.hash = '#reference'}
+              >
+                {t("reference")}
               </button>
               {viewMode === "timeline" && (
                 <>
