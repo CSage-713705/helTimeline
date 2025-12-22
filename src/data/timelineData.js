@@ -4,7 +4,7 @@
 export const CATEGORIES = {
   ENLIGHTENMENT: "Enlightenment",
   VICTORIAN: "Victorian",
-  POST_WWI: "Post-WWI",
+  POST_WWI: "Modernism",
   POST_WWII: "Post-WWII",
   CONTEMPORARY: "Contemporary",
 };
@@ -14,14 +14,14 @@ export const CATEGORY_NAMES = {
   English: {
     [CATEGORIES.ENLIGHTENMENT]: "Enlightenment",
     [CATEGORIES.VICTORIAN]: "Victorian",
-    [CATEGORIES.POST_WWI]: "Post-WWI",
+    [CATEGORIES.POST_WWI]: "Modernism",
     [CATEGORIES.POST_WWII]: "Post-WWII",
     [CATEGORIES.CONTEMPORARY]: "Contemporary",
   },
   Chinese: {
     [CATEGORIES.ENLIGHTENMENT]: "启蒙时代",
     [CATEGORIES.VICTORIAN]: "维多利亚时代",
-    [CATEGORIES.POST_WWI]: "一战后",
+    [CATEGORIES.POST_WWI]: "现代主义",
     [CATEGORIES.POST_WWII]: "二战后",
     [CATEGORIES.CONTEMPORARY]: "当代",
   }

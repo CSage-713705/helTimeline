@@ -19,7 +19,7 @@ const resources = {
       periods: {
         Enlightenment: "Enlightenment",
         Victorian: "Victorian",
-        "Post-WWI": "Post-WWI",
+        Modernism: "Modernism",
         "Post-WWII": "Post-WWII",
         Contemporary: "Contemporary"
       },
@@ -129,7 +129,7 @@ const resources = {
       periods: {
         Enlightenment: "启蒙时代",
         Victorian: "维多利亚时代",
-        "Post-WWI": "一战后",
+        Modernism: "现代主义",
         "Post-WWII": "二战后",
         Contemporary: "当代"
       },
