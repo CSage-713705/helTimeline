@@ -50,7 +50,10 @@ const Reference = () => {
 
           {/* PS Note */}
           <div className="bg-white/10 rounded-lg p-6 backdrop-blur-[2px] mt-8">
-            <p className="space-y-3">P.S. For pictures and websites mentioned, you can click on them to jump forward directly.</p>
+            <p className="space-y-3">For pictures and websites mentioned, you can click on them to jump forward directly.</p>
+            <div className="mt-6 pt-4 border-t border-white/20">
+              <p className="mb-2">Base code implementation and material references from the open-source GitHub community project <a href="https://github.com/jam3scampbell/ai-timeline" className="text-blue-300 hover:underline" target="_blank" rel="noopener noreferrer">https://github.com/jam3scampbell/ai-timeline</a>. Special thanks.</p>
+            </div>
           </div>
         </div>
 
