@@ -606,7 +606,7 @@ const CardsView = React.memo(function CardsView({
                               />
                               <div className="text-center mt-2 text-sm text-white/50">
                                 <a href="https://zh.zlib.li/book/11747982/d33271/klara-and-the-sun.html" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline">
-                                  Discussions and shared citations in an online community
+                                  Discussions and shared citations of <em>Klara and the Sun</em> in an online community
                                 </a>
                               </div>
                             </div>
