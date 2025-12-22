@@ -6,7 +6,7 @@ const resources = {
     translation: {
       switchToCards: "Switch to Cards",
         switchToTimeline: "Switch to Timeline",
-        reference: "Reference",
+        reference: "References",
       zoomOut: "Zoom Out",
       zoomIn: "Zoom In",
       zoom: "Zoom: {{value}}px/decade",
