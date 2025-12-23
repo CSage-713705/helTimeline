@@ -53,10 +53,10 @@ const Reference = () => {
           <div className="bg-white/10 rounded-lg p-6 backdrop-blur-[2px] mt-8">
             <h2 className="text-2xl font-bold mb-4 pl-2">Images and Illustrations</h2>
             <ul className="space-y-3">
-              <li className="pl-2 indent-[-2ch]">Cruikshank, George, illustrator. The Artful Dodger Picking a Pocket to the Amazement of Oliver Twist. Illustration for <em>Oliver Twist</em>, by Charles Dickens, 1837-1839.</li>
+              <li className="pl-2 indent-[-2ch]">Cruikshank, George, illustrator. The Artful Dodger Picking a Pocket to the Amazement of Oliver Twist. Illustration for <em>Oliver Twist</em>, by Charles Dickens, 1839. <em>Britannica</em></li>, www.britannica.com/topic/Oliver-Twist-novel-by-Dickens, Accessed 8 Dec. 2025.
               <li className="pl-2 indent-[-2ch]"><em>Lord of the Flies</em>. Directed by Peter Brook, performances by James Aubrey, Tom Chapin, and Hugh Edwards, Two Arts Ltd. / Allen-Hodgdon Productions, 1963.</li>
               <li className="pl-2 indent-[-2ch]">Pine, John, and Clark, John Clark. Frontispiece to <em>The Life and Strange Surprizing Adventures of Robinson Crusoe of York, Mariner</em>. 1719. Beinecke Rare Book & Manuscript Library, Yale University, digital image.</li>
-              <li className="pl-2 indent-[-2ch]">Screenshot of the App webpage for <em>Klara and the Sun</em>. <em>Weixin Reading</em>, https://weread.qq.com/web/reader/15c323f07235ad8e15ce531k19c3222022419ca14e7eef7, Accessed 5 Dec. 2025.</li>
+              <li className="pl-2 indent-[-2ch]">Screenshot of the App webpage for <em>Klara and the Sun</em>. <em>Weixin Reading</em>, weread.qq.com/web/reader/15c323f07235ad8e15ce531k19c3222022419ca14e7eef7, Accessed 5 Dec. 2025.</li>
             </ul>
           </div>
 
