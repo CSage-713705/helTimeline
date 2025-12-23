@@ -385,7 +385,7 @@ const CardsView = React.memo(function CardsView({
                               <div className="text-center mt-2 text-sm text-white/50">
                                 {/* TODO: 检查cite */}
                                 <a href="https://collections.library.yale.edu/catalog/10079784" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline">
-                                  The title page of <em>Robinson Crusoe</em>, declaring "written by himself"
+                                  The title page of <em>Robinson Crusoe</em>, declaring "written by himself" (Pine and Clark 1719)
                                 </a>
                                 {/* https://collections.library.yale.edu/catalog/10079784 */}
                                 {/* {i18n.language === 'zh' ? '此处添加注释' : 'here for citation'} */}
@@ -605,10 +605,21 @@ const CardsView = React.memo(function CardsView({
                                 className="w-full rounded-md shadow-lg mx-auto"
                               />
                               <div className="text-center mt-2 text-sm text-white/50">
-                                <a href="https://zh.zlib.li/book/11747982/d33271/klara-and-the-sun.html" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline">
-                                  Discussions and shared citations of <em>Klara and the Sun</em> in an online community
+                                <a href="https://weread.qq.com/web/reader/15c323f07235ad8e15ce531k19c3222022419ca14e7eef7" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline">
+                                  A screenshot of discussions and shared citations of <em>Klara and the Sun</em> in an online community (Weixin Reading 2021).
                                 </a>
                               </div>
+                            </div>
+                          </div>
+                          <div className="analysis-section">
+                            <div className="text-left text-white/90 mb-4">
+                              <p className="mb-2 text-right">(<em>Klara and the Sun</em>, Ch I)</p>
+                              <p className="font-semibold mb-1">P.S. Translation of the comments:</p>
+                              <ol className="list-decimal pl-5 space-y-1">
+                                <li>Similarity to humans;</li>
+                                <li>I see, is liking the sun instinctive? Solar charging;</li>
+                                <li>Thinking of discussing buying a house with my mother, I mentioned a very cheap house without lighting. I was very confused, "Can people really live without lighting?" Mom said that office workers may not have the ability to consider lighting and are not eligible to enjoy it.</li>
+                              </ol>
                             </div>
                           </div>
                           {/* <div className="analysis-section">
